@@ -24,17 +24,19 @@
 
 | 姓名 | 学号 | 负责内容 | 关联文件 | 提交 SHA |
 |---|---|---|---|---|
-|王祎 | 241250007 | DRAFT 请求与构建失败记录 | `draft.request.json`<br>`draft.accepted.json`<br>`draft.failed.json`<br>`failure.log` | `【待填写：完整 SHA】` |
-| 盛浩宇 | 241250008 | DRAFT 成功产物与迭代记录 | `draft.succeeded.json`<br>`draft-manifest.schema.json`<br>`Dockerfile`<br>`iterations.json` | `【待填写：完整 SHA】` |
-| 朱雨乐 | 241250011 | MDFixer 请求、成功修复与补丁产物 | `repair.request.json`<br>`repair.accepted.json`<br>`repair.succeeded.json`<br>`fix.patch`<br>`report.json` | `【待填写：完整 SHA】` |
-| 孙博一 | 241250078 | MDFixer 失败校验、接口文档与自动验收 | `repair.failed.json`<br>`repair-report.schema.json`<br>`openapi.yaml`<br>`validate.py`<br>`INTERFACE_CONTRACT.md` | `【待填写：完整 SHA】` |
+|王祎 | 241250007 | DRAFT 请求与构建失败记录 | `draft.request.json`<br>`draft.accepted.json`<br>`draft.failed.json`<br>`failure.log` | f0008a940ebf9de9d775e562518d756e44a46ea7 |
+| 盛浩宇 | 241250008 | DRAFT 成功产物与迭代记录 | `draft.succeeded.json`<br>`draft-manifest.schema.json`<br>`Dockerfile`<br>`iterations.json` | f0008a940ebf9de9d775e562518d756e44a46ea7 |
+| 朱雨乐 | 241250011 | MDFixer 请求、成功修复与补丁产物 | `repair.request.json`<br>`repair.accepted.json`<br>`repair.succeeded.json`<br>`fix.patch`<br>`report.json` | f0008a940ebf9de9d775e562518d756e44a46ea7 |
+| 孙博一 | 241250078 | MDFixer 失败校验、接口文档与自动验收 | `repair.failed.json`<br>`repair-report.schema.json`<br>`openapi.yaml`<br>`validate.py`<br>`INTERFACE_CONTRACT.md` | f0008a940ebf9de9d775e562518d756e44a46ea7 |
+
+`初次创建仓库时一次性上传了所有相关文档，后续会区分提交SHA`
 
 ## 已核实的提交
 
 | 日期 | Git 作者 | Commit | 工作内容 | 验证 |
 |---|---|---|---|---|
 | 2026-09-17 | `Delario17` | `309237a12aaeb0dba6f03228c0542e3f9385dd9e` | 建立 E2 契约初版 | `python3 E2/validate.py` |
-| 2026-09-17 | `【待填写：本轮提交作者】` | `【待提交后填写：完整 SHA】` | 正式提交前契约审查与完整化 | `python3 E2/validate.py` |
+| 2026-09-17 | `Delario17` | `f0008a940ebf9de9d775e562518d756e44a46ea7` | 正式提交前契约审查与完整化 | `python3 E2/validate.py` |
 
 本轮 SHA 采用两步留痕：先提交契约修订，取得完整 SHA 后回填本表，再创建一次仅更新贡献记录的提交。
 
