@@ -11,7 +11,18 @@
       "configuration_id": "ubuntu-22.04-gcc-11-release"
     },
     "environment": {
-      "image_ref": "docker://a08-b08/b08-demo:0123456",
+      "container_image": {
+        "artifact_id": "image-draft-001",
+        "type": "CONTAINER_IMAGE",
+        "uri": "docker://a08-b08/b08-demo:0123456",
+        "media_type": "application/vnd.oci.image.manifest.v1+json",
+        "producer_job_id": "job-draft-001",
+        "subject": {
+          "repository_url": "https://github.com/example/b08-demo.git",
+          "commit": "0123456789abcdef0123456789abcdef01234567",
+          "configuration_id": "ubuntu-22.04-gcc-11-release"
+        }
+      },
       "working_directory": "/workspace"
     },
     "md_report": {
@@ -24,7 +35,8 @@
         "repository_url": "https://github.com/example/b08-demo.git",
         "commit": "0123456789abcdef0123456789abcdef01234567",
         "configuration_id": "ubuntu-22.04-gcc-11-release"
-      }
+      },
+      "sha256": "9b0566536191136a3a76ae871a7142e5d917c3ab9db0895bbe67be443b92e1c4"
     },
     "makefile_path": "Makefile",
     "validation": {

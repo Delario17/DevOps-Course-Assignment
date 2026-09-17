@@ -30,7 +30,19 @@
     "retryable": true,
     "details": {
       "last_stage": "apt-get update",
-      "log_uri": "artifact://a08-b08/draft-002/failure.log"
+      "log": {
+        "artifact_id": "log-draft-002",
+        "type": "BUILD_LOG_BUNDLE",
+        "uri": "artifact://a08-b08/draft-002/failure.log",
+        "media_type": "text/plain",
+        "producer_job_id": "job-draft-002",
+        "subject": {
+          "repository_url": "https://github.com/example/b08-demo.git",
+          "commit": "0123456789abcdef0123456789abcdef01234567",
+          "configuration_id": "ubuntu-22.04-gcc-11-release"
+        },
+        "sha256": "1c393de74082b0169c85a2ae83f20fabb5c1a52328cba3e08916e57fe813c585"
+      }
     }
   }
 }

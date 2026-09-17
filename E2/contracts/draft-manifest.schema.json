@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://devops.nju.edu.cn/e2/a08-b08/draft-manifest.schema.json",
+  "title": "DRAFT Iteration Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "job_id",
+    "subject",
+    "iterations",
+    "final_verdict"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "job_id": {
+      "type": "string",
+      "pattern": "^job-[a-z0-9-]{3,64}$"
+    },
+    "subject": {
+      "$ref": "#/$defs/Subject"
+    },
+    "iterations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Iteration"
+      }
+    },
+    "final_verdict": {
+      "enum": ["PASSED", "FAILED"]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "final_verdict": {
+            "const": "PASSED"
+          }
+        },
+        "required": ["final_verdict"]
+      },
+      "then": {
+        "properties": {
+          "iterations": {
+            "contains": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "const": "PASSED"
+                }
+              },
+              "required": ["result"]
+            },
+            "minContains": 1
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "Subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository_url", "commit", "configuration_id"],
+      "properties": {
+        "repository_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "configuration_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"
+        }
+      }
+    },
+    "Iteration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["index", "result", "reason", "change"],
+      "properties": {
+        "index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "result": {
+          "enum": ["BUILD_FAILED", "VERIFY_FAILED", "TIMED_OUT", "PASSED"]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "change": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

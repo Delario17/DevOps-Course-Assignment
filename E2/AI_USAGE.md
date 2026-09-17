@@ -12,8 +12,21 @@
 | 人工修改 | 将状态名固定为课件中的 `QUEUED/RUNNING/SUCCEEDED` 等；将补丁接受条件收敛为 build、test、recheck 全部通过 |
 | 拒绝内容 | 未采用把完整构建日志内嵌到 Job 响应的方案；日志改为 `BUILD_LOG_BUNDLE` 引用 |
 | 关联文件 | `INTERFACE_CONTRACT.md`、`openapi.yaml`、`contracts/`、`examples/`、`adr/` |
-| 验证 | 运行 `python3 validate.py`；有效样例通过，无效 job_type、缺失 baseline 和 RD 修复请求被拒绝 |
+| 验证 | 运行 `python3 E2/validate.py`；6 份 Schema、4 类请求、8 份 Job 响应、3 份 HTTP 错误样例与 13 份可读取产物通过，8 种逻辑错误被拒绝 |
 
 ## 使用原则
 
 AI 参与需求提炼、Schema起草、样例生成和一致性检查。B08 成员负责确认配对接口、替换真实实验项目参数、执行 E3 构建与检测，并以 Git 提交记录个人贡献。
+
+## 2026-09-17：正式提交前审查
+
+| 项目 | 记录 |
+|---|---|
+| 工具/模型 | Codex，本次课程作业对话 |
+| 任务 | 根据 E2 课件重新检查仓库追溯、OpenAPI 端点、JSON Schema、失败响应、产物读取和配对评审状态 |
+| 提示摘要 | 在保留成员姓名和学号占位的前提下，直接修正正式提交前的阻塞项并完成验证 |
+| AI 建议 | 端点分别限定 `job_type`；空检测报告与 MDFixer 的 MD-only 输入分层约束；补齐 HTTP 错误响应、成功响应和失败候选样例；使用 JSON Schema 执行实际校验 |
+| 处理决定 | 采纳上述契约完整性修订；同时修正 `E2/` 路径、记录实际仓库与基准提交，并建立产物 URI 到本地样例的映射 |
+| 待人工完成 | 填写真实成员姓名、学号、分工和提交 SHA；邀请 A08 在 Issue/PR 中评审并回填链接 |
+| 版本状态 | 本轮修订仍属于正式发布前契约；A08 确认后再标记正式版本 |
+| 验证 | `python3 E2/validate.py`；同时核对 OpenAPI 外部引用、`artifact://` 本地映射与 SHA-256 |

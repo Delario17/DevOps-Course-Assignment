@@ -1,0 +1,3 @@
+2026-09-17T11:00:14+08:00 stage=apt-get-update status=failed
+Temporary failure resolving the configured package source.
+2026-09-17T11:02:10+08:00 job=job-draft-002 verdict=FAILED retryable=true

@@ -1,0 +1,11 @@
+diff --git a/Makefile b/Makefile
+index 42f4c11..ac25c8a 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,7 +2,7 @@ CC := gcc
+ CFLAGS := -Wall -Wextra -O2
+-HEADERS := include/common.h
++HEADERS := include/common.h include/config.h
+ 
+ build/main.o: src/main.c $(HEADERS)
+ 	$(CC) $(CFLAGS) -c src/main.c -o build/main.o

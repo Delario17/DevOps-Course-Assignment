@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "graph_id": "actual-full-c0",
+  "graph_type": "ACTUAL",
+  "producer_job_id": "job-full-c0",
+  "subject": {
+    "repository_url": "https://github.com/example/b08-demo.git",
+    "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "configuration_id": "ubuntu-22.04-gcc-11-release"
+  },
+  "nodes": [
+    {"id": "src/main.c", "kind": "SOURCE"},
+    {"id": "include/config.h", "kind": "HEADER"},
+    {"id": "build/main.o", "kind": "TARGET"}
+  ],
+  "edges": [
+    {"from": "build/main.o", "to": "src/main.c", "kind": "READ"},
+    {"from": "build/main.o", "to": "include/config.h", "kind": "READ"}
+  ]
+}

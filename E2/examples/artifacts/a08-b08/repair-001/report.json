@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "job_id": "job-repair-001",
+  "source_report_id": "report-full-001",
+  "subject": {
+    "repository_url": "https://github.com/example/b08-demo.git",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "configuration_id": "ubuntu-22.04-gcc-11-release"
+  },
+  "declaration_style": "MACRO",
+  "decision": "ACCEPTED",
+  "changes": [
+    {
+      "finding_id": "finding-main-config",
+      "build_file": "Makefile",
+      "summary": "Added include/config.h to the HEADERS macro used by build/main.o."
+    }
+  ],
+  "validation": {
+    "build": "PASSED",
+    "test": "PASSED",
+    "recheck": "PASSED"
+  }
+}

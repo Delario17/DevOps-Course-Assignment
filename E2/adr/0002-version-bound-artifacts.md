@@ -1,8 +1,8 @@
 # ADR-0002：任务与产物绑定源码版本和构建配置
 
-状态：Accepted  
-日期：2026-09-17  
-决策方：A08-B08 契约
+- 状态：Proposed（B08 已采纳，待 A08 配对评审确认）
+- 日期：2026-09-17
+- 提议方：B08；确认方：A08-B08 配对评审
 
 ## Context
 
@@ -14,8 +14,8 @@
 
 消费者执行前进行相等性检查：
 
-- FULL_CHECK 的镜像与检查请求 subject 一致；
-- INCREMENTAL_CHECK 的历史图 commit 等于 `base_commit`，配置等于当前配置；
+- FULL_CHECK、INCREMENTAL_CHECK 和 REPAIR 的 `environment.container_image` 携带 DRAFT 产出的完整 ArtifactRef，其 subject 等于当前请求 subject；
+- INCREMENTAL_CHECK 的历史图仓库等于当前仓库，commit 等于 `base_commit`，配置等于当前配置；
 - REPAIR 的 ERROR_REPORT subject 等于修复请求 subject；
 - Job 输出产物的 subject 等于 Job 输入 subject，`producer_job_id` 等于当前 `job_id`。
 

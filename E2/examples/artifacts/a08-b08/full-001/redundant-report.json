@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "report-full-rd-001",
+  "subject": {
+    "repository_url": "https://github.com/example/b08-demo.git",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "configuration_id": "ubuntu-22.04-gcc-11-release"
+  },
+  "detector": "INSTRUCTOR_ORACLE",
+  "findings": [
+    {
+      "finding_id": "finding-main-unused",
+      "type": "REDUNDANT",
+      "target": "build/main.o",
+      "dependency": "include/unused.h",
+      "build_file": "Makefile",
+      "line": 18,
+      "evidence": [
+        "The dependency is declared for build/main.o but is absent from the clean build trace."
+      ]
+    }
+  ]
+}

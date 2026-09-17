@@ -1,0 +1,6 @@
+{
+  "code": "CONTRACT_2001",
+  "message": "The idempotency key is already bound to a request with different content.",
+  "trace_id": "trace-a08-b08-conflict-001",
+  "field": "idempotency_key"
+}

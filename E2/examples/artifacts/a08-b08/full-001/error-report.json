@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "report-full-001",
+  "subject": {
+    "repository_url": "https://github.com/example/b08-demo.git",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "configuration_id": "ubuntu-22.04-gcc-11-release"
+  },
+  "detector": "INSTRUCTOR_ORACLE",
+  "findings": [
+    {
+      "finding_id": "finding-main-config",
+      "type": "MISSING",
+      "target": "build/main.o",
+      "dependency": "include/config.h",
+      "build_file": "Makefile",
+      "line": 18,
+      "evidence": [
+        "The clean build trace records build/main.o reading include/config.h.",
+        "The parsed Make declaration for build/main.o omits include/config.h."
+      ]
+    }
+  ]
+}

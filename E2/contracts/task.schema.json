@@ -310,11 +310,24 @@
     "Environment": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["image_ref", "working_directory"],
+      "required": ["container_image", "working_directory"],
       "properties": {
-        "image_ref": {
-          "type": "string",
-          "minLength": 3
+        "container_image": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "CONTAINER_IMAGE"
+                },
+                "uri": {
+                  "pattern": "^docker://"
+                }
+              }
+            }
+          ]
         },
         "working_directory": {
           "type": "string",
@@ -423,10 +436,21 @@
             },
             "configuration_id": {
               "type": "string",
-              "minLength": 3
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"
             },
             "actual_graph": {
-              "$ref": "#/$defs/ArtifactRef"
+              "allOf": [
+                {
+                  "$ref": "#/$defs/ArtifactRef"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "ACTUAL_GRAPH"
+                    }
+                  }
+                }
+              ]
             }
           }
         },
@@ -454,11 +478,23 @@
           "$ref": "#/$defs/Environment"
         },
         "md_report": {
-          "$ref": "#/$defs/ArtifactRef"
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "ERROR_REPORT"
+                }
+              }
+            }
+          ]
         },
         "makefile_path": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
         },
         "validation": {
           "type": "object",
@@ -492,13 +528,49 @@
       ],
       "properties": {
         "dockerfile": {
-          "$ref": "#/$defs/ArtifactRef"
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "DOCKERFILE"
+                }
+              }
+            }
+          ]
         },
         "container_image": {
-          "$ref": "#/$defs/ArtifactRef"
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "CONTAINER_IMAGE"
+                },
+                "uri": {
+                  "pattern": "^docker://"
+                }
+              }
+            }
+          ]
         },
         "iteration_log": {
-          "$ref": "#/$defs/ArtifactRef"
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "BUILD_LOG_BUNDLE"
+                }
+              }
+            }
+          ]
         },
         "build_verification": {
           "$ref": "#/$defs/Verification"
@@ -511,13 +583,46 @@
       "required": ["actual_graph", "declared_graph", "error_report", "summary"],
       "properties": {
         "actual_graph": {
-          "$ref": "#/$defs/ArtifactRef"
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "ACTUAL_GRAPH"
+                }
+              }
+            }
+          ]
         },
         "declared_graph": {
-          "$ref": "#/$defs/ArtifactRef"
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "DECLARED_GRAPH"
+                }
+              }
+            }
+          ]
         },
         "error_report": {
-          "$ref": "#/$defs/ArtifactRef"
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "ERROR_REPORT"
+                }
+              }
+            }
+          ]
         },
         "summary": {
           "type": "object",
@@ -542,10 +647,32 @@
       "required": ["updated_actual_graph", "error_report", "delta"],
       "properties": {
         "updated_actual_graph": {
-          "$ref": "#/$defs/ArtifactRef"
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "ACTUAL_GRAPH"
+                }
+              }
+            }
+          ]
         },
         "error_report": {
-          "$ref": "#/$defs/ArtifactRef"
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "ERROR_REPORT"
+                }
+              }
+            }
+          ]
         },
         "delta": {
           "type": "object",
@@ -579,10 +706,32 @@
       ],
       "properties": {
         "patch": {
-          "$ref": "#/$defs/ArtifactRef"
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "GIT_PATCH"
+                }
+              }
+            }
+          ]
         },
         "repair_report": {
-          "$ref": "#/$defs/ArtifactRef"
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "REPAIR_REPORT"
+                }
+              }
+            }
+          ]
         },
         "declaration_style": {
           "enum": ["DEPENDENCY_LIST", "MACRO", "HYBRID", "IMPLICIT"]
@@ -593,16 +742,16 @@
           "required": ["build", "test", "recheck", "accepted"],
           "properties": {
             "build": {
-              "enum": ["PASSED", "FAILED"]
+              "const": "PASSED"
             },
             "test": {
-              "enum": ["PASSED", "FAILED"]
+              "const": "PASSED"
             },
             "recheck": {
-              "enum": ["PASSED", "FAILED"]
+              "const": "PASSED"
             },
             "accepted": {
-              "type": "boolean"
+              "const": true
             }
           }
         }
@@ -614,13 +763,13 @@
       "required": ["build_exit_code", "verify_exit_code", "verdict"],
       "properties": {
         "build_exit_code": {
-          "type": "integer"
+          "const": 0
         },
         "verify_exit_code": {
-          "type": "integer"
+          "const": 0
         },
         "verdict": {
-          "enum": ["PASSED", "FAILED"]
+          "const": "PASSED"
         }
       }
     },
@@ -652,7 +801,43 @@
         "details": {
           "type": "object"
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "code": {
+                "enum": ["ENV_3001", "ENV_3002", "EXEC_4002", "ANALYSIS_5001"]
+              }
+            },
+            "required": ["code"]
+          },
+          "then": {
+            "properties": {
+              "retryable": {
+                "const": true
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "code": {
+                "enum": ["CONTRACT_2001", "BASELINE_2002", "EXEC_4001", "REPAIR_6001", "CANCELLED_7001"]
+              }
+            },
+            "required": ["code"]
+          },
+          "then": {
+            "properties": {
+              "retryable": {
+                "const": false
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }

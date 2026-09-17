@@ -27,7 +27,6 @@
     },
     "findings": {
       "type": "array",
-      "minItems": 1,
       "items": {
         "$ref": "#/$defs/Finding"
       }
@@ -49,7 +48,7 @@
         },
         "configuration_id": {
           "type": "string",
-          "minLength": 3
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"
         }
       }
     },

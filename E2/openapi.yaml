@@ -20,7 +20,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: './contracts/create-request.schema.json'
+              allOf:
+                - $ref: './contracts/create-request.schema.json'
+                - type: object
+                  required: [job_type]
+                  properties:
+                    job_type:
+                      const: DRAFT
             examples:
               draft:
                 externalValue: './examples/valid/draft.request.json'
@@ -28,9 +34,9 @@ paths:
         '202':
           $ref: '#/components/responses/AcceptedJob'
         '400':
-          $ref: '#/components/responses/ContractError'
+          $ref: '#/components/responses/BadRequest'
         '409':
-          $ref: '#/components/responses/ContractError'
+          $ref: '#/components/responses/Conflict'
   /v1/full-check-jobs:
     post:
       operationId: createFullCheckJob
@@ -42,7 +48,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: './contracts/create-request.schema.json'
+              allOf:
+                - $ref: './contracts/create-request.schema.json'
+                - type: object
+                  required: [job_type]
+                  properties:
+                    job_type:
+                      const: FULL_CHECK
             examples:
               fullCheck:
                 externalValue: './examples/valid/full-check.request.json'
@@ -50,9 +62,9 @@ paths:
         '202':
           $ref: '#/components/responses/AcceptedJob'
         '400':
-          $ref: '#/components/responses/ContractError'
+          $ref: '#/components/responses/BadRequest'
         '409':
-          $ref: '#/components/responses/ContractError'
+          $ref: '#/components/responses/Conflict'
   /v1/incremental-check-jobs:
     post:
       operationId: createIncrementalCheckJob
@@ -64,7 +76,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: './contracts/create-request.schema.json'
+              allOf:
+                - $ref: './contracts/create-request.schema.json'
+                - type: object
+                  required: [job_type]
+                  properties:
+                    job_type:
+                      const: INCREMENTAL_CHECK
             examples:
               incrementalCheck:
                 externalValue: './examples/valid/incremental-check.request.json'
@@ -72,9 +90,9 @@ paths:
         '202':
           $ref: '#/components/responses/AcceptedJob'
         '400':
-          $ref: '#/components/responses/ContractError'
+          $ref: '#/components/responses/BadRequest'
         '409':
-          $ref: '#/components/responses/ContractError'
+          $ref: '#/components/responses/Conflict'
   /v1/repair-jobs:
     post:
       operationId: createRepairJob
@@ -86,7 +104,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: './contracts/create-request.schema.json'
+              allOf:
+                - $ref: './contracts/create-request.schema.json'
+                - type: object
+                  required: [job_type]
+                  properties:
+                    job_type:
+                      const: REPAIR
             examples:
               repair:
                 externalValue: './examples/valid/repair.request.json'
@@ -94,15 +118,11 @@ paths:
         '202':
           $ref: '#/components/responses/AcceptedJob'
         '400':
-          $ref: '#/components/responses/ContractError'
+          $ref: '#/components/responses/BadRequest'
         '409':
-          $ref: '#/components/responses/ContractError'
+          $ref: '#/components/responses/Conflict'
         '422':
-          description: The report contains non-MISSING findings or mismatched provenance
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/UnprocessableProvenance'
   /v1/jobs/{job_id}:
     get:
       operationId: getJob
@@ -121,6 +141,19 @@ paths:
             application/json:
               schema:
                 $ref: './contracts/task.schema.json'
+              examples:
+                draftSucceeded:
+                  externalValue: './examples/valid/draft.succeeded.json'
+                draftFailed:
+                  externalValue: './examples/valid/draft.failed.json'
+                fullCheckSucceeded:
+                  externalValue: './examples/valid/full-check.succeeded.json'
+                incrementalCheckSucceeded:
+                  externalValue: './examples/valid/incremental-check.succeeded.json'
+                repairSucceeded:
+                  externalValue: './examples/valid/repair.succeeded.json'
+                repairFailed:
+                  externalValue: './examples/valid/repair.failed.json'
         '404':
           $ref: '#/components/responses/ContractError'
   /v1/artifacts/{artifact_id}/content:
@@ -171,13 +204,55 @@ components:
       content:
         application/json:
           schema:
-            $ref: './contracts/task.schema.json'
+            allOf:
+              - $ref: './contracts/task.schema.json'
+              - type: object
+                required: [status, output, error]
+                properties:
+                  status:
+                    enum: [QUEUED, RUNNING]
+                  output:
+                    type: 'null'
+                  error:
+                    type: 'null'
+          examples:
+            draftAccepted:
+              externalValue: './examples/valid/draft.accepted.json'
+            repairAccepted:
+              externalValue: './examples/valid/repair.accepted.json'
     ContractError:
       description: Contract or resource error
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Problem'
+    BadRequest:
+      description: The request does not satisfy the contract
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+          examples:
+            invalidContract:
+              externalValue: './examples/errors/400-invalid-contract.json'
+    Conflict:
+      description: The idempotency key is already bound to different request content
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+          examples:
+            idempotencyConflict:
+              externalValue: './examples/errors/409-idempotency-conflict.json'
+    UnprocessableProvenance:
+      description: The repair report contains non-MISSING findings or mismatched provenance
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+          examples:
+            provenanceMismatch:
+              externalValue: './examples/errors/422-provenance-mismatch.json'
   schemas:
     Problem:
       type: object
@@ -188,10 +263,22 @@ components:
         - trace_id
       properties:
         code:
-          type: string
+          enum:
+            - CONTRACT_2001
+            - BASELINE_2002
+            - ENV_3001
+            - ENV_3002
+            - EXEC_4001
+            - EXEC_4002
+            - ANALYSIS_5001
+            - REPAIR_6001
+            - CANCELLED_7001
         message:
           type: string
+          minLength: 1
         trace_id:
           type: string
+          pattern: '^trace-[a-z0-9-]{3,64}$'
         field:
           type: string
+          minLength: 1

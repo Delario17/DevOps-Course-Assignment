@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "report-incremental-001",
+  "subject": {
+    "repository_url": "https://github.com/example/b08-demo.git",
+    "commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "configuration_id": "ubuntu-22.04-gcc-11-release"
+  },
+  "detector": "ECHECKER",
+  "findings": [
+    {
+      "finding_id": "finding-main-feature",
+      "type": "MISSING",
+      "target": "build/main.o",
+      "dependency": "include/feature.h",
+      "build_file": "Makefile",
+      "line": 18,
+      "evidence": [
+        "The incremental trace adds a read edge from build/main.o to include/feature.h.",
+        "The current Make declaration does not contain include/feature.h."
+      ]
+    }
+  ]
+}

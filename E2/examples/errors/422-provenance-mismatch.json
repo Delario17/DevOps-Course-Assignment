@@ -1,0 +1,6 @@
+{
+  "code": "CONTRACT_2001",
+  "message": "The report subject does not match the repository, commit, and configuration of the repair request.",
+  "trace_id": "trace-a08-b08-invalid-006",
+  "field": "input.md_report.subject"
+}

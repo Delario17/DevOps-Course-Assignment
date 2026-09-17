@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "job_id": "job-repair-001",
+  "job_id": "job-full-001",
   "trace_id": "trace-a08-b08-demo-001",
   "pair_id": "A08-B08",
-  "idempotency_key": "b08-repair-001",
-  "job_type": "REPAIR",
+  "idempotency_key": "a08-full-check-001",
+  "job_type": "FULL_CHECK",
   "status": "SUCCEEDED",
-  "created_at": "2026-09-17T10:00:00+08:00",
-  "updated_at": "2026-09-17T10:01:31+08:00",
+  "created_at": "2026-09-17T09:10:00+08:00",
+  "updated_at": "2026-09-17T09:12:48+08:00",
   "input": {
     "subject": {
       "repository_url": "https://github.com/example/b08-demo.git",
@@ -29,7 +29,36 @@
       },
       "working_directory": "/workspace"
     },
-    "md_report": {
+    "clean_build_command": "make clean && make -j2"
+  },
+  "output": {
+    "actual_graph": {
+      "artifact_id": "actual-graph-full-001",
+      "type": "ACTUAL_GRAPH",
+      "uri": "artifact://a08-b08/full-001/actual.json",
+      "media_type": "application/json",
+      "producer_job_id": "job-full-001",
+      "subject": {
+        "repository_url": "https://github.com/example/b08-demo.git",
+        "commit": "0123456789abcdef0123456789abcdef01234567",
+        "configuration_id": "ubuntu-22.04-gcc-11-release"
+      },
+      "sha256": "c112b4c8f6ad3616093b3cbb4bc311f67955677de7c0373ebc1498f622deca19"
+    },
+    "declared_graph": {
+      "artifact_id": "declared-graph-full-001",
+      "type": "DECLARED_GRAPH",
+      "uri": "artifact://a08-b08/full-001/declared.json",
+      "media_type": "application/json",
+      "producer_job_id": "job-full-001",
+      "subject": {
+        "repository_url": "https://github.com/example/b08-demo.git",
+        "commit": "0123456789abcdef0123456789abcdef01234567",
+        "configuration_id": "ubuntu-22.04-gcc-11-release"
+      },
+      "sha256": "ded724f306d318388cca87e2f80ba22dc48d991db3813c04a090a4ab702d5fa1"
+    },
+    "error_report": {
       "artifact_id": "md-report-full-001",
       "type": "ERROR_REPORT",
       "uri": "artifact://a08-b08/full-001/error-report.json",
@@ -42,46 +71,9 @@
       },
       "sha256": "9b0566536191136a3a76ae871a7142e5d917c3ab9db0895bbe67be443b92e1c4"
     },
-    "makefile_path": "Makefile",
-    "validation": {
-      "build_command": "make clean && make -j2",
-      "test_command": "make test",
-      "recheck_endpoint": "/v1/full-check-jobs"
-    }
-  },
-  "output": {
-    "patch": {
-      "artifact_id": "patch-repair-001",
-      "type": "GIT_PATCH",
-      "uri": "artifact://a08-b08/repair-001/fix.patch",
-      "media_type": "text/x-diff",
-      "producer_job_id": "job-repair-001",
-      "subject": {
-        "repository_url": "https://github.com/example/b08-demo.git",
-        "commit": "0123456789abcdef0123456789abcdef01234567",
-        "configuration_id": "ubuntu-22.04-gcc-11-release"
-      },
-      "sha256": "456acd26f6f84977f9ef0674c7352b86cc1cf3ec0b383dea1626e0170bad4b03"
-    },
-    "repair_report": {
-      "artifact_id": "report-repair-001",
-      "type": "REPAIR_REPORT",
-      "uri": "artifact://a08-b08/repair-001/report.json",
-      "media_type": "application/json",
-      "producer_job_id": "job-repair-001",
-      "subject": {
-        "repository_url": "https://github.com/example/b08-demo.git",
-        "commit": "0123456789abcdef0123456789abcdef01234567",
-        "configuration_id": "ubuntu-22.04-gcc-11-release"
-      },
-      "sha256": "76af78880dea597ddf671e926ee6b18375dbf8fe513e4886ee8ed8318bfd9c04"
-    },
-    "declaration_style": "MACRO",
-    "validation_result": {
-      "build": "PASSED",
-      "test": "PASSED",
-      "recheck": "PASSED",
-      "accepted": true
+    "summary": {
+      "missing": 1,
+      "redundant": 0
     }
   },
   "error": null

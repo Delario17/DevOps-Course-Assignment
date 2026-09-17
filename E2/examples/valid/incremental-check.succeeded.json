@@ -1,9 +1,13 @@
 {
   "schema_version": "1.0.0",
+  "job_id": "job-incremental-001",
   "trace_id": "trace-a08-b08-incremental-001",
   "pair_id": "A08-B08",
   "idempotency_key": "a08-incremental-001",
   "job_type": "INCREMENTAL_CHECK",
+  "status": "SUCCEEDED",
+  "created_at": "2026-09-17T09:30:00+08:00",
+  "updated_at": "2026-09-17T09:31:36+08:00",
   "input": {
     "subject": {
       "repository_url": "https://github.com/example/b08-demo.git",
@@ -43,5 +47,39 @@
       }
     },
     "incremental_build_command": "make -j2"
-  }
+  },
+  "output": {
+    "updated_actual_graph": {
+      "artifact_id": "actual-graph-incremental-001",
+      "type": "ACTUAL_GRAPH",
+      "uri": "artifact://a08-b08/incremental-001/updated-actual.json",
+      "media_type": "application/json",
+      "producer_job_id": "job-incremental-001",
+      "subject": {
+        "repository_url": "https://github.com/example/b08-demo.git",
+        "commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "configuration_id": "ubuntu-22.04-gcc-11-release"
+      },
+      "sha256": "b4f7bfb0613de5ce5dcdebe7622170dd7d1e92f8e6ee2b1e32c0ca80e45b7c8d"
+    },
+    "error_report": {
+      "artifact_id": "md-report-incremental-001",
+      "type": "ERROR_REPORT",
+      "uri": "artifact://a08-b08/incremental-001/error-report.json",
+      "media_type": "application/json",
+      "producer_job_id": "job-incremental-001",
+      "subject": {
+        "repository_url": "https://github.com/example/b08-demo.git",
+        "commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "configuration_id": "ubuntu-22.04-gcc-11-release"
+      },
+      "sha256": "b32dfd445d6acb7e6ee8b73e1edf245cc4d9853b60b25f66f2f355a817dd991a"
+    },
+    "delta": {
+      "added": 1,
+      "resolved": 0,
+      "unchanged": 0
+    }
+  },
+  "error": null
 }

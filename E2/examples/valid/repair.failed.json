@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "job_id": "job-repair-001",
-  "trace_id": "trace-a08-b08-demo-001",
+  "job_id": "job-repair-002",
+  "trace_id": "trace-a08-b08-repair-002",
   "pair_id": "A08-B08",
-  "idempotency_key": "b08-repair-001",
+  "idempotency_key": "b08-repair-002",
   "job_type": "REPAIR",
-  "status": "SUCCEEDED",
-  "created_at": "2026-09-17T10:00:00+08:00",
-  "updated_at": "2026-09-17T10:01:31+08:00",
+  "status": "FAILED",
+  "created_at": "2026-09-17T10:10:00+08:00",
+  "updated_at": "2026-09-17T10:11:44+08:00",
   "input": {
     "subject": {
       "repository_url": "https://github.com/example/b08-demo.git",
@@ -49,40 +49,31 @@
       "recheck_endpoint": "/v1/full-check-jobs"
     }
   },
-  "output": {
-    "patch": {
-      "artifact_id": "patch-repair-001",
-      "type": "GIT_PATCH",
-      "uri": "artifact://a08-b08/repair-001/fix.patch",
-      "media_type": "text/x-diff",
-      "producer_job_id": "job-repair-001",
-      "subject": {
-        "repository_url": "https://github.com/example/b08-demo.git",
-        "commit": "0123456789abcdef0123456789abcdef01234567",
-        "configuration_id": "ubuntu-22.04-gcc-11-release"
+  "output": null,
+  "error": {
+    "code": "REPAIR_6001",
+    "message": "The candidate repair was rejected after validation.",
+    "retryable": false,
+    "details": {
+      "rejection_reason": "The candidate Makefile passes the clean build but fails the project test suite.",
+      "candidate_validation": {
+        "build": "PASSED",
+        "test": "FAILED",
+        "recheck": "FAILED"
       },
-      "sha256": "456acd26f6f84977f9ef0674c7352b86cc1cf3ec0b383dea1626e0170bad4b03"
-    },
-    "repair_report": {
-      "artifact_id": "report-repair-001",
-      "type": "REPAIR_REPORT",
-      "uri": "artifact://a08-b08/repair-001/report.json",
-      "media_type": "application/json",
-      "producer_job_id": "job-repair-001",
-      "subject": {
-        "repository_url": "https://github.com/example/b08-demo.git",
-        "commit": "0123456789abcdef0123456789abcdef01234567",
-        "configuration_id": "ubuntu-22.04-gcc-11-release"
-      },
-      "sha256": "76af78880dea597ddf671e926ee6b18375dbf8fe513e4886ee8ed8318bfd9c04"
-    },
-    "declaration_style": "MACRO",
-    "validation_result": {
-      "build": "PASSED",
-      "test": "PASSED",
-      "recheck": "PASSED",
-      "accepted": true
+      "repair_report": {
+        "artifact_id": "report-repair-002",
+        "type": "REPAIR_REPORT",
+        "uri": "artifact://a08-b08/repair-002/report.json",
+        "media_type": "application/json",
+        "producer_job_id": "job-repair-002",
+        "subject": {
+          "repository_url": "https://github.com/example/b08-demo.git",
+          "commit": "0123456789abcdef0123456789abcdef01234567",
+          "configuration_id": "ubuntu-22.04-gcc-11-release"
+        },
+        "sha256": "ae4d4b3d01a3c7234d8a66252bc717e218f4f5aac0f020c526f3a8574b68982f"
+      }
     }
-  },
-  "error": null
+  }
 }

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "job_id": "job-draft-001",
+  "subject": {
+    "repository_url": "https://github.com/example/b08-demo.git",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "configuration_id": "ubuntu-22.04-gcc-11-release"
+  },
+  "iterations": [
+    {
+      "index": 0,
+      "result": "BUILD_FAILED",
+      "reason": "The compiler package was missing from the base image.",
+      "change": "Added build-essential to the package installation step."
+    },
+    {
+      "index": 1,
+      "result": "PASSED",
+      "reason": "The build and version command both returned exit code 0.",
+      "change": "Selected the verified Dockerfile."
+    }
+  ],
+  "final_verdict": "PASSED"
+}

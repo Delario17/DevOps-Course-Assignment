@@ -25,7 +25,7 @@ QUEUED -> RUNNING -> SUCCEEDED
                   -> CANCELLED
 ```
 
-`SUCCEEDED` 表示分析或修复流程按契约完成。检测出的 `MISSING` 和 `REDUNDANT` 写入 ERROR_REPORT。环境创建失败、任务超时、分析器崩溃和修复候选验证失败写入 `job.error`。
+`SUCCEEDED` 表示分析或修复流程按契约完成。检测出的 `MISSING` 和 `REDUNDANT` 写入 ERROR_REPORT。环境创建失败、任务超时、分析器崩溃和修复候选验证失败写入 `job.error`；失败日志和拒绝报告仍使用完整 ArtifactRef 传递。
 
 创建端点使用 `Idempotency-Key` 请求头，值与请求体中的 `idempotency_key` 相同。同一个键和同一个请求返回同一个 Job；同一个键对应不同请求时返回 HTTP 409 与 `CONTRACT_2001`。
 
@@ -58,11 +58,11 @@ DRAFT 输入仓库版本、最多两份构建说明和明确的成功判据：
 - `BUILD_LOG_BUNDLE`，记录每轮错误、修改和选择理由；
 - `build_verification`，保存构建与验证退出码。
 
-下游 A08 使用 DRAFT 输出的镜像引用、工作目录和同一个 `subject` 运行 BuildChecker/EChecker。
+下游 A08 在 `environment.container_image` 中传递 DRAFT 生成的完整 `CONTAINER_IMAGE` ArtifactRef，并附带工作目录。服务在执行前比较该 ArtifactRef 与当前请求的 `subject`，从而验证镜像属于同一仓库、commit 和构建配置。
 
 ## 5. BuildChecker 与 EChecker 交接
 
-FULL_CHECK 使用 clean build，输出实际依赖图、声明依赖图和 ERROR_REPORT。报告中的每条 finding 含目标、依赖、Makefile位置和执行证据。
+FULL_CHECK 使用 clean build，输出实际依赖图、声明依赖图和 ERROR_REPORT。报告中的每条 finding 含目标、依赖、Makefile位置和执行证据；没有发现 MD/RD 时，ERROR_REPORT 的 `findings` 为空数组，任务仍然成功。
 
 INCREMENTAL_CHECK 额外要求：
 
@@ -71,7 +71,7 @@ INCREMENTAL_CHECK 额外要求：
 - `ACTUAL_GRAPH` 产物引用；
 - 当前提交和增量构建命令。
 
-当前任务的 `configuration_id` 必须等于基线配置。基线图绑定的 commit 必须等于 `base_commit`。输出报告区分新增、消除和保持的发现，并返回可供下一提交使用的更新图。
+当前任务的 `configuration_id` 必须等于基线配置。基线图的仓库必须等于当前仓库，图绑定的 commit 必须等于 `base_commit`。输出报告区分新增、消除和保持的发现，并返回可供下一提交使用的更新图。
 
 ## 6. MDFixer 契约
 
@@ -79,10 +79,10 @@ REPAIR 入口接受 `ERROR_REPORT` 引用。接收阶段执行以下判定：
 
 1. 报告与请求的仓库地址、commit 和 `configuration_id` 全部一致；
 2. findings 非空且每条类型均为 `MISSING`；
-3. `makefile_path` 位于当前源码树；
+3. `makefile_path` 使用相对路径，且不得包含 `..` 或越出当前源码树；
 4. 构建、测试和重检命令完整。
 
-修复结果包含 Git Patch、声明风格、修复报告和三项验证结果。候选补丁只有在 build、test、recheck 均为 `PASSED` 时设置 `accepted=true`。MDFixer 保持原 Makefile 的依赖列表、宏、混合或隐式声明风格。
+修复结果包含 Git Patch、声明风格、修复报告和三项验证结果。候选补丁只有在 build、test、recheck 均为 `PASSED` 时，任务才以 `SUCCEEDED` 结束并设置 `accepted=true`。任一验证失败时，任务以 `FAILED` 结束，错误码为 `REPAIR_6001`，`error.details` 记录拒绝原因及三项候选验证结果。MDFixer 保持原 Makefile 的依赖列表、宏、混合或隐式声明风格。
 
 ## 7. 产物协议
 
@@ -103,7 +103,7 @@ Job 响应保存产物元数据，产物正文通过 URI 获取：
 }
 ```
 
-`artifact://a08-b08/{job}/{path}` 由配对组产物服务解析为 `/v1/artifacts/{artifact_id}/content`。内容响应以 SHA-256 作为 ETag；同一 `artifact_id` 的内容保持不变。
+`artifact://a08-b08/{job}/{path}` 作为不可变逻辑标识，同一 ArtifactRef 中的 `artifact_id` 用于构造 `/v1/artifacts/{artifact_id}/content`。内容响应以 SHA-256 作为 ETag；同一 `artifact_id` 的内容保持不变。
 
 ## 8. 错误码
 

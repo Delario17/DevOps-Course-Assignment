@@ -1,0 +1,6 @@
+{
+  "code": "CONTRACT_2001",
+  "message": "max_iterations must be an integer between 1 and 50.",
+  "trace_id": "trace-a08-b08-invalid-004",
+  "field": "input.build.max_iterations"
+}

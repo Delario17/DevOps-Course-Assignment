@@ -172,11 +172,24 @@
     "Environment": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["image_ref", "working_directory"],
+      "required": ["container_image", "working_directory"],
       "properties": {
-        "image_ref": {
-          "type": "string",
-          "minLength": 3
+        "container_image": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "CONTAINER_IMAGE"
+                },
+                "uri": {
+                  "pattern": "^docker://"
+                }
+              }
+            }
+          ]
         },
         "working_directory": {
           "type": "string",
@@ -285,7 +298,7 @@
             },
             "configuration_id": {
               "type": "string",
-              "minLength": 3
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"
             },
             "actual_graph": {
               "allOf": [
@@ -342,7 +355,8 @@
         },
         "makefile_path": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
         },
         "validation": {
           "type": "object",

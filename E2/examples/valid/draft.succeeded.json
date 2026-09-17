@@ -35,7 +35,8 @@
         "repository_url": "https://github.com/example/b08-demo.git",
         "commit": "0123456789abcdef0123456789abcdef01234567",
         "configuration_id": "ubuntu-22.04-gcc-11-release"
-      }
+      },
+      "sha256": "725c606a821e9e20b51f6b51df337e068626977ab782922f89a51fca520d6af2"
     },
     "container_image": {
       "artifact_id": "image-draft-001",
@@ -59,7 +60,8 @@
         "repository_url": "https://github.com/example/b08-demo.git",
         "commit": "0123456789abcdef0123456789abcdef01234567",
         "configuration_id": "ubuntu-22.04-gcc-11-release"
-      }
+      },
+      "sha256": "f6517d6b85836b8b4d60f2d0b36bbb733973a35de24c0ff9dd7de9e7f449b735"
     },
     "build_verification": {
       "build_exit_code": 0,

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "job_id": "job-repair-002",
+  "source_report_id": "report-full-001",
+  "subject": {
+    "repository_url": "https://github.com/example/b08-demo.git",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "configuration_id": "ubuntu-22.04-gcc-11-release"
+  },
+  "declaration_style": "MACRO",
+  "decision": "REJECTED",
+  "rejection_reasons": [
+    "The candidate Makefile passes the clean build but fails the project test suite."
+  ],
+  "changes": [
+    {
+      "finding_id": "finding-main-config",
+      "build_file": "Makefile",
+      "summary": "Candidate added include/config.h to the HEADERS macro; the change was not accepted."
+    }
+  ],
+  "validation": {
+    "build": "PASSED",
+    "test": "FAILED",
+    "recheck": "FAILED"
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://devops.nju.edu.cn/e2/a08-b08/repair-report.schema.json",
+  "title": "MDFixer Repair Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "job_id",
+    "source_report_id",
+    "subject",
+    "declaration_style",
+    "decision",
+    "changes",
+    "validation"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "job_id": {
+      "type": "string",
+      "pattern": "^job-[a-z0-9-]{3,64}$"
+    },
+    "source_report_id": {
+      "type": "string",
+      "pattern": "^report-[a-z0-9-]{3,64}$"
+    },
+    "subject": {
+      "$ref": "#/$defs/Subject"
+    },
+    "declaration_style": {
+      "enum": ["DEPENDENCY_LIST", "MACRO", "HYBRID", "IMPLICIT"]
+    },
+    "decision": {
+      "enum": ["ACCEPTED", "REJECTED"]
+    },
+    "changes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/Change"
+      }
+    },
+    "validation": {
+      "$ref": "#/$defs/Validation"
+    },
+    "rejection_reasons": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "ACCEPTED"
+          }
+        },
+        "required": ["decision"]
+      },
+      "then": {
+        "properties": {
+          "validation": {
+            "$ref": "#/$defs/AcceptedValidation"
+          }
+        },
+        "not": {
+          "required": ["rejection_reasons"]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "decision": {
+            "const": "REJECTED"
+          }
+        },
+        "required": ["decision"]
+      },
+      "then": {
+        "required": ["rejection_reasons"],
+        "properties": {
+          "validation": {
+            "not": {
+              "$ref": "#/$defs/AcceptedValidation"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "Subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository_url", "commit", "configuration_id"],
+      "properties": {
+        "repository_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "configuration_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"
+        }
+      }
+    },
+    "Change": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["finding_id", "build_file", "summary"],
+      "properties": {
+        "finding_id": {
+          "type": "string",
+          "pattern": "^finding-[a-z0-9-]{3,64}$"
+        },
+        "build_file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "Validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["build", "test", "recheck"],
+      "properties": {
+        "build": {
+          "enum": ["PASSED", "FAILED"]
+        },
+        "test": {
+          "enum": ["PASSED", "FAILED"]
+        },
+        "recheck": {
+          "enum": ["PASSED", "FAILED"]
+        }
+      }
+    },
+    "AcceptedValidation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["build", "test", "recheck"],
+      "properties": {
+        "build": {
+          "const": "PASSED"
+        },
+        "test": {
+          "const": "PASSED"
+        },
+        "recheck": {
+          "const": "PASSED"
+        }
+      }
+    }
+  }
+}

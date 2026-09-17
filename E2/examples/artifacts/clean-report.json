@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "report_id": "report-full-clean-001",
+  "subject": {
+    "repository_url": "https://github.com/example/b08-demo.git",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "configuration_id": "ubuntu-22.04-gcc-11-release"
+  },
+  "detector": "BUILDCHECKER",
+  "findings": []
+}
