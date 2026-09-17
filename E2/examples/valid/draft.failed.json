@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "job_id": "job-draft-002",
+  "trace_id": "trace-a08-b08-demo-002",
+  "pair_id": "A08-B08",
+  "idempotency_key": "b08-draft-002",
+  "job_type": "DRAFT",
+  "status": "FAILED",
+  "created_at": "2026-09-17T11:00:00+08:00",
+  "updated_at": "2026-09-17T11:02:10+08:00",
+  "input": {
+    "subject": {
+      "repository_url": "https://github.com/example/b08-demo.git",
+      "commit": "0123456789abcdef0123456789abcdef01234567",
+      "configuration_id": "ubuntu-22.04-gcc-11-release"
+    },
+    "context_documents": ["README.md"],
+    "build": {
+      "working_directory": "/workspace",
+      "build_command": "make -j2",
+      "verify_command": "./bin/demo --version",
+      "max_iterations": 4,
+      "timeout_seconds": 300
+    }
+  },
+  "output": null,
+  "error": {
+    "code": "ENV_3002",
+    "message": "Container image build failed because the configured package source was unavailable.",
+    "retryable": true,
+    "details": {
+      "last_stage": "apt-get update",
+      "log_uri": "artifact://a08-b08/draft-002/failure.log"
+    }
+  }
+}

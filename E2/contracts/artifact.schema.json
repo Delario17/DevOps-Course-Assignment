@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://devops.nju.edu.cn/e2/a08-b08/artifact.schema.json",
+  "title": "A08-B08 Artifact Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "type",
+    "uri",
+    "media_type",
+    "producer_job_id",
+    "subject"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "artifact_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,63}$"
+    },
+    "type": {
+      "enum": [
+        "DOCKERFILE",
+        "CONTAINER_IMAGE",
+        "BUILD_LOG_BUNDLE",
+        "ACTUAL_GRAPH",
+        "DECLARED_GRAPH",
+        "ERROR_REPORT",
+        "GIT_PATCH",
+        "REPAIR_REPORT"
+      ]
+    },
+    "uri": {
+      "type": "string",
+      "pattern": "^(artifact|https?|docker)://"
+    },
+    "media_type": {
+      "type": "string",
+      "minLength": 3
+    },
+    "producer_job_id": {
+      "type": "string",
+      "pattern": "^job-[a-z0-9-]{3,64}$"
+    },
+    "subject": {
+      "$ref": "#/$defs/Subject"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "size_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "$defs": {
+    "Subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository_url", "commit", "configuration_id"],
+      "properties": {
+        "repository_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "configuration_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"
+        }
+      }
+    }
+  }
+}

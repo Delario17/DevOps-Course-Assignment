@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "artifact_id": "md-report-full-001",
+  "type": "ERROR_REPORT",
+  "uri": "artifact://a08-b08/full-001/error-report.json",
+  "media_type": "application/json",
+  "producer_job_id": "job-full-001",
+  "subject": {
+    "repository_url": "https://github.com/example/b08-demo.git",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "configuration_id": "ubuntu-22.04-gcc-11-release"
+  },
+  "sha256": "9b0566536191136a3a76ae871a7142e5d917c3ab9db0895bbe67be443b92e1c4",
+  "size_bytes": 708,
+  "created_at": "2026-09-17T09:45:00+08:00"
+}

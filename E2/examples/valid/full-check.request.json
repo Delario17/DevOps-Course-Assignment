@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "trace_id": "trace-a08-b08-demo-001",
+  "pair_id": "A08-B08",
+  "idempotency_key": "a08-full-check-001",
+  "job_type": "FULL_CHECK",
+  "input": {
+    "subject": {
+      "repository_url": "https://github.com/example/b08-demo.git",
+      "commit": "0123456789abcdef0123456789abcdef01234567",
+      "configuration_id": "ubuntu-22.04-gcc-11-release"
+    },
+    "environment": {
+      "image_ref": "docker://a08-b08/b08-demo:0123456",
+      "working_directory": "/workspace"
+    },
+    "clean_build_command": "make clean && make -j2"
+  }
+}

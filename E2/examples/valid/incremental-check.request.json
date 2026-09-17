@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "trace_id": "trace-a08-b08-incremental-001",
+  "pair_id": "A08-B08",
+  "idempotency_key": "a08-incremental-001",
+  "job_type": "INCREMENTAL_CHECK",
+  "input": {
+    "subject": {
+      "repository_url": "https://github.com/example/b08-demo.git",
+      "commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "configuration_id": "ubuntu-22.04-gcc-11-release"
+    },
+    "environment": {
+      "image_ref": "docker://a08-b08/b08-demo:bbbbbbb",
+      "working_directory": "/workspace"
+    },
+    "baseline": {
+      "base_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "configuration_id": "ubuntu-22.04-gcc-11-release",
+      "actual_graph": {
+        "artifact_id": "actual-graph-c0",
+        "type": "ACTUAL_GRAPH",
+        "uri": "artifact://a08-b08/full-c0/actual.json",
+        "media_type": "application/json",
+        "producer_job_id": "job-full-c0",
+        "subject": {
+          "repository_url": "https://github.com/example/b08-demo.git",
+          "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "configuration_id": "ubuntu-22.04-gcc-11-release"
+        }
+      }
+    },
+    "incremental_build_command": "make -j2"
+  }
+}

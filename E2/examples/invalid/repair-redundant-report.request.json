@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "trace_id": "trace-a08-b08-invalid-003",
+  "pair_id": "A08-B08",
+  "idempotency_key": "invalid-rd-repair-001",
+  "job_type": "REPAIR",
+  "input": {
+    "subject": {
+      "repository_url": "https://github.com/example/b08-demo.git",
+      "commit": "0123456789abcdef0123456789abcdef01234567",
+      "configuration_id": "ubuntu-22.04-gcc-11-release"
+    },
+    "environment": {
+      "image_ref": "docker://a08-b08/b08-demo:0123456",
+      "working_directory": "/workspace"
+    },
+    "md_report": {
+      "artifact_id": "rd-report-full-001",
+      "type": "ERROR_REPORT",
+      "uri": "artifact://a08-b08/full-001/redundant-report.json",
+      "media_type": "application/json",
+      "producer_job_id": "job-full-001",
+      "subject": {
+        "repository_url": "https://github.com/example/b08-demo.git",
+        "commit": "0123456789abcdef0123456789abcdef01234567",
+        "configuration_id": "ubuntu-22.04-gcc-11-release"
+      }
+    },
+    "makefile_path": "Makefile",
+    "validation": {
+      "build_command": "make clean && make -j2",
+      "test_command": "make test",
+      "recheck_endpoint": "/v1/full-check-jobs"
+    }
+  }
+}

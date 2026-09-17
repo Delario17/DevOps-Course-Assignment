@@ -1,0 +1,369 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://devops.nju.edu.cn/e2/a08-b08/create-request.schema.json",
+  "title": "Create Asynchronous Job Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "trace_id",
+    "pair_id",
+    "idempotency_key",
+    "job_type",
+    "input"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "trace_id": {
+      "type": "string",
+      "pattern": "^trace-[a-z0-9-]{3,64}$"
+    },
+    "pair_id": {
+      "const": "A08-B08"
+    },
+    "idempotency_key": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{7,127}$"
+    },
+    "job_type": {
+      "enum": ["DRAFT", "FULL_CHECK", "INCREMENTAL_CHECK", "REPAIR"]
+    },
+    "input": {
+      "type": "object"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "job_type": {
+            "const": "DRAFT"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "input": {
+            "$ref": "#/$defs/DraftInput"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "job_type": {
+            "const": "FULL_CHECK"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "input": {
+            "$ref": "#/$defs/FullCheckInput"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "job_type": {
+            "const": "INCREMENTAL_CHECK"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "input": {
+            "$ref": "#/$defs/IncrementalCheckInput"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "job_type": {
+            "const": "REPAIR"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "input": {
+            "$ref": "#/$defs/RepairInput"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "Subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository_url", "commit", "configuration_id"],
+      "properties": {
+        "repository_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "configuration_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"
+        }
+      }
+    },
+    "ArtifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "type",
+        "uri",
+        "media_type",
+        "producer_job_id",
+        "subject"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]{2,63}$"
+        },
+        "type": {
+          "enum": [
+            "DOCKERFILE",
+            "CONTAINER_IMAGE",
+            "BUILD_LOG_BUNDLE",
+            "ACTUAL_GRAPH",
+            "DECLARED_GRAPH",
+            "ERROR_REPORT",
+            "GIT_PATCH",
+            "REPAIR_REPORT"
+          ]
+        },
+        "uri": {
+          "type": "string",
+          "pattern": "^(artifact|https?|docker)://"
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 3
+        },
+        "producer_job_id": {
+          "type": "string",
+          "pattern": "^job-[a-z0-9-]{3,64}$"
+        },
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "Environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["image_ref", "working_directory"],
+      "properties": {
+        "image_ref": {
+          "type": "string",
+          "minLength": 3
+        },
+        "working_directory": {
+          "type": "string",
+          "pattern": "^/"
+        }
+      }
+    },
+    "DraftInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject", "context_documents", "build"],
+      "properties": {
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "context_documents": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "build": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "working_directory",
+            "build_command",
+            "verify_command",
+            "max_iterations",
+            "timeout_seconds"
+          ],
+          "properties": {
+            "working_directory": {
+              "type": "string",
+              "pattern": "^/"
+            },
+            "build_command": {
+              "type": "string",
+              "minLength": 1
+            },
+            "verify_command": {
+              "type": "string",
+              "minLength": 1
+            },
+            "max_iterations": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            },
+            "timeout_seconds": {
+              "type": "integer",
+              "minimum": 30,
+              "maximum": 1800
+            },
+            "base_image_hint": {
+              "type": "string",
+              "minLength": 3
+            }
+          }
+        }
+      }
+    },
+    "FullCheckInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject", "environment", "clean_build_command"],
+      "properties": {
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "environment": {
+          "$ref": "#/$defs/Environment"
+        },
+        "clean_build_command": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "IncrementalCheckInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject",
+        "environment",
+        "baseline",
+        "incremental_build_command"
+      ],
+      "properties": {
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "environment": {
+          "$ref": "#/$defs/Environment"
+        },
+        "baseline": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["base_commit", "configuration_id", "actual_graph"],
+          "properties": {
+            "base_commit": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{40}$"
+            },
+            "configuration_id": {
+              "type": "string",
+              "minLength": 3
+            },
+            "actual_graph": {
+              "allOf": [
+                {
+                  "$ref": "#/$defs/ArtifactRef"
+                },
+                {
+                  "properties": {
+                    "type": {
+                      "const": "ACTUAL_GRAPH"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "incremental_build_command": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "RepairInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject",
+        "environment",
+        "md_report",
+        "makefile_path",
+        "validation"
+      ],
+      "properties": {
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "environment": {
+          "$ref": "#/$defs/Environment"
+        },
+        "md_report": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/ArtifactRef"
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "ERROR_REPORT"
+                }
+              }
+            }
+          ]
+        },
+        "makefile_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["build_command", "test_command", "recheck_endpoint"],
+          "properties": {
+            "build_command": {
+              "type": "string",
+              "minLength": 1
+            },
+            "test_command": {
+              "type": "string",
+              "minLength": 1
+            },
+            "recheck_endpoint": {
+              "type": "string",
+              "pattern": "^/v1/"
+            }
+          }
+        }
+      }
+    }
+  }
+}

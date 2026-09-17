@@ -1,0 +1,197 @@
+openapi: 3.1.0
+info:
+  title: A08-B08 Build Dependency Pipeline Contract
+  version: 1.0.0
+  description: >-
+    Version-bound asynchronous contract for DRAFT, BuildChecker, EChecker,
+    and MDFixer jobs. Every input and artifact is bound to a complete commit
+    SHA and configuration_id.
+servers:
+  - url: http://localhost:8080
+paths:
+  /v1/dockerfile-jobs:
+    post:
+      operationId: createDraftJob
+      summary: Create a DRAFT job
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './contracts/create-request.schema.json'
+            examples:
+              draft:
+                externalValue: './examples/valid/draft.request.json'
+      responses:
+        '202':
+          $ref: '#/components/responses/AcceptedJob'
+        '400':
+          $ref: '#/components/responses/ContractError'
+        '409':
+          $ref: '#/components/responses/ContractError'
+  /v1/full-check-jobs:
+    post:
+      operationId: createFullCheckJob
+      summary: Create a BuildChecker full-check job
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './contracts/create-request.schema.json'
+            examples:
+              fullCheck:
+                externalValue: './examples/valid/full-check.request.json'
+      responses:
+        '202':
+          $ref: '#/components/responses/AcceptedJob'
+        '400':
+          $ref: '#/components/responses/ContractError'
+        '409':
+          $ref: '#/components/responses/ContractError'
+  /v1/incremental-check-jobs:
+    post:
+      operationId: createIncrementalCheckJob
+      summary: Create an EChecker incremental-check job
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './contracts/create-request.schema.json'
+            examples:
+              incrementalCheck:
+                externalValue: './examples/valid/incremental-check.request.json'
+      responses:
+        '202':
+          $ref: '#/components/responses/AcceptedJob'
+        '400':
+          $ref: '#/components/responses/ContractError'
+        '409':
+          $ref: '#/components/responses/ContractError'
+  /v1/repair-jobs:
+    post:
+      operationId: createRepairJob
+      summary: Create an MDFixer repair job
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './contracts/create-request.schema.json'
+            examples:
+              repair:
+                externalValue: './examples/valid/repair.request.json'
+      responses:
+        '202':
+          $ref: '#/components/responses/AcceptedJob'
+        '400':
+          $ref: '#/components/responses/ContractError'
+        '409':
+          $ref: '#/components/responses/ContractError'
+        '422':
+          description: The report contains non-MISSING findings or mismatched provenance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+  /v1/jobs/{job_id}:
+    get:
+      operationId: getJob
+      summary: Query job state and artifact references
+      parameters:
+        - name: job_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^job-[a-z0-9-]{3,64}$'
+      responses:
+        '200':
+          description: Current job representation
+          content:
+            application/json:
+              schema:
+                $ref: './contracts/task.schema.json'
+        '404':
+          $ref: '#/components/responses/ContractError'
+  /v1/artifacts/{artifact_id}/content:
+    get:
+      operationId: downloadArtifact
+      summary: Resolve an artifact URI to its immutable content
+      parameters:
+        - name: artifact_id
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: '^[a-z0-9][a-z0-9._-]{2,63}$'
+      responses:
+        '200':
+          description: Artifact bytes with the media type recorded in the artifact record
+          headers:
+            ETag:
+              schema:
+                type: string
+              description: SHA-256 digest of the returned bytes
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '404':
+          $ref: '#/components/responses/ContractError'
+components:
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema:
+        type: string
+        minLength: 8
+        maxLength: 128
+      description: Must equal the idempotency_key field in the request body
+  responses:
+    AcceptedJob:
+      description: The service accepted the job for asynchronous execution
+      headers:
+        Location:
+          schema:
+            type: string
+          description: Relative URL of the job resource
+      content:
+        application/json:
+          schema:
+            $ref: './contracts/task.schema.json'
+    ContractError:
+      description: Contract or resource error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+  schemas:
+    Problem:
+      type: object
+      additionalProperties: false
+      required:
+        - code
+        - message
+        - trace_id
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        trace_id:
+          type: string
+        field:
+          type: string

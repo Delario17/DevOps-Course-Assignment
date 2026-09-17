@@ -1,0 +1,658 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://devops.nju.edu.cn/e2/a08-b08/task.schema.json",
+  "title": "Version-bound Asynchronous Job",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "job_id",
+    "trace_id",
+    "pair_id",
+    "idempotency_key",
+    "job_type",
+    "status",
+    "created_at",
+    "updated_at",
+    "input",
+    "output",
+    "error"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "job_id": {
+      "type": "string",
+      "pattern": "^job-[a-z0-9-]{3,64}$"
+    },
+    "trace_id": {
+      "type": "string",
+      "pattern": "^trace-[a-z0-9-]{3,64}$"
+    },
+    "pair_id": {
+      "const": "A08-B08"
+    },
+    "idempotency_key": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{7,127}$"
+    },
+    "job_type": {
+      "enum": ["DRAFT", "FULL_CHECK", "INCREMENTAL_CHECK", "REPAIR"]
+    },
+    "status": {
+      "enum": [
+        "QUEUED",
+        "RUNNING",
+        "SUCCEEDED",
+        "FAILED",
+        "TIMED_OUT",
+        "CANCELLED"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "input": {
+      "type": "object"
+    },
+    "output": {
+      "type": ["object", "null"]
+    },
+    "error": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/JobError"
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "job_type": {
+            "const": "DRAFT"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "input": {
+            "$ref": "#/$defs/DraftInput"
+          },
+          "output": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/$defs/DraftOutput"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "job_type": {
+            "const": "FULL_CHECK"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "input": {
+            "$ref": "#/$defs/FullCheckInput"
+          },
+          "output": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/$defs/FullCheckOutput"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "job_type": {
+            "const": "INCREMENTAL_CHECK"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "input": {
+            "$ref": "#/$defs/IncrementalCheckInput"
+          },
+          "output": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/$defs/IncrementalCheckOutput"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "job_type": {
+            "const": "REPAIR"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "input": {
+            "$ref": "#/$defs/RepairInput"
+          },
+          "output": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/$defs/RepairOutput"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": ["QUEUED", "RUNNING"]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "output": {
+            "type": "null"
+          },
+          "error": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "SUCCEEDED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "output": {
+            "type": "object"
+          },
+          "error": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": ["FAILED", "TIMED_OUT", "CANCELLED"]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "output": {
+            "type": "null"
+          },
+          "error": {
+            "$ref": "#/$defs/JobError"
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "Subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository_url", "commit", "configuration_id"],
+      "properties": {
+        "repository_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "configuration_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,63}$"
+        }
+      }
+    },
+    "ArtifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "type",
+        "uri",
+        "media_type",
+        "producer_job_id",
+        "subject"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]{2,63}$"
+        },
+        "type": {
+          "enum": [
+            "DOCKERFILE",
+            "CONTAINER_IMAGE",
+            "BUILD_LOG_BUNDLE",
+            "ACTUAL_GRAPH",
+            "DECLARED_GRAPH",
+            "ERROR_REPORT",
+            "GIT_PATCH",
+            "REPAIR_REPORT"
+          ]
+        },
+        "uri": {
+          "type": "string",
+          "pattern": "^(artifact|https?|docker)://"
+        },
+        "media_type": {
+          "type": "string",
+          "minLength": 3
+        },
+        "producer_job_id": {
+          "type": "string",
+          "pattern": "^job-[a-z0-9-]{3,64}$"
+        },
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "Environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["image_ref", "working_directory"],
+      "properties": {
+        "image_ref": {
+          "type": "string",
+          "minLength": 3
+        },
+        "working_directory": {
+          "type": "string",
+          "pattern": "^/"
+        }
+      }
+    },
+    "DraftInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject", "context_documents", "build"],
+      "properties": {
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "context_documents": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "build": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "working_directory",
+            "build_command",
+            "verify_command",
+            "max_iterations",
+            "timeout_seconds"
+          ],
+          "properties": {
+            "working_directory": {
+              "type": "string",
+              "pattern": "^/"
+            },
+            "build_command": {
+              "type": "string",
+              "minLength": 1
+            },
+            "verify_command": {
+              "type": "string",
+              "minLength": 1
+            },
+            "max_iterations": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            },
+            "timeout_seconds": {
+              "type": "integer",
+              "minimum": 30,
+              "maximum": 1800
+            },
+            "base_image_hint": {
+              "type": "string",
+              "minLength": 3
+            }
+          }
+        }
+      }
+    },
+    "FullCheckInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subject", "environment", "clean_build_command"],
+      "properties": {
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "environment": {
+          "$ref": "#/$defs/Environment"
+        },
+        "clean_build_command": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "IncrementalCheckInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject",
+        "environment",
+        "baseline",
+        "incremental_build_command"
+      ],
+      "properties": {
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "environment": {
+          "$ref": "#/$defs/Environment"
+        },
+        "baseline": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["base_commit", "configuration_id", "actual_graph"],
+          "properties": {
+            "base_commit": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{40}$"
+            },
+            "configuration_id": {
+              "type": "string",
+              "minLength": 3
+            },
+            "actual_graph": {
+              "$ref": "#/$defs/ArtifactRef"
+            }
+          }
+        },
+        "incremental_build_command": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "RepairInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject",
+        "environment",
+        "md_report",
+        "makefile_path",
+        "validation"
+      ],
+      "properties": {
+        "subject": {
+          "$ref": "#/$defs/Subject"
+        },
+        "environment": {
+          "$ref": "#/$defs/Environment"
+        },
+        "md_report": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "makefile_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validation": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["build_command", "test_command", "recheck_endpoint"],
+          "properties": {
+            "build_command": {
+              "type": "string",
+              "minLength": 1
+            },
+            "test_command": {
+              "type": "string",
+              "minLength": 1
+            },
+            "recheck_endpoint": {
+              "type": "string",
+              "pattern": "^/v1/"
+            }
+          }
+        }
+      }
+    },
+    "DraftOutput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dockerfile",
+        "container_image",
+        "iteration_log",
+        "build_verification"
+      ],
+      "properties": {
+        "dockerfile": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "container_image": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "iteration_log": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "build_verification": {
+          "$ref": "#/$defs/Verification"
+        }
+      }
+    },
+    "FullCheckOutput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actual_graph", "declared_graph", "error_report", "summary"],
+      "properties": {
+        "actual_graph": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "declared_graph": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "error_report": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "summary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["missing", "redundant"],
+          "properties": {
+            "missing": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "redundant": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "IncrementalCheckOutput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["updated_actual_graph", "error_report", "delta"],
+      "properties": {
+        "updated_actual_graph": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "error_report": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "delta": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["added", "resolved", "unchanged"],
+          "properties": {
+            "added": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "resolved": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "unchanged": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "RepairOutput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "patch",
+        "repair_report",
+        "declaration_style",
+        "validation_result"
+      ],
+      "properties": {
+        "patch": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "repair_report": {
+          "$ref": "#/$defs/ArtifactRef"
+        },
+        "declaration_style": {
+          "enum": ["DEPENDENCY_LIST", "MACRO", "HYBRID", "IMPLICIT"]
+        },
+        "validation_result": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["build", "test", "recheck", "accepted"],
+          "properties": {
+            "build": {
+              "enum": ["PASSED", "FAILED"]
+            },
+            "test": {
+              "enum": ["PASSED", "FAILED"]
+            },
+            "recheck": {
+              "enum": ["PASSED", "FAILED"]
+            },
+            "accepted": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "Verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["build_exit_code", "verify_exit_code", "verdict"],
+      "properties": {
+        "build_exit_code": {
+          "type": "integer"
+        },
+        "verify_exit_code": {
+          "type": "integer"
+        },
+        "verdict": {
+          "enum": ["PASSED", "FAILED"]
+        }
+      }
+    },
+    "JobError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message", "retryable"],
+      "properties": {
+        "code": {
+          "enum": [
+            "CONTRACT_2001",
+            "BASELINE_2002",
+            "ENV_3001",
+            "ENV_3002",
+            "EXEC_4001",
+            "EXEC_4002",
+            "ANALYSIS_5001",
+            "REPAIR_6001",
+            "CANCELLED_7001"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "details": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}
