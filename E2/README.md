@@ -5,8 +5,10 @@
 | 配对编号 | `A08-B08` |
 | 作业仓库 | `https://github.com/Delario17/DevOps-Course-Assignment.git` |
 | E2 目录 | `E2/` |
-| 当前基准提交 | `309237a12aaeb0dba6f03228c0542e3f9385dd9e` |
-| 契约状态 | 正式发布前，待 A08 配对评审确认 |
+| E2 初始基准 | `309237a12aaeb0dba6f03228c0542e3f9385dd9e` |
+| B08 契约修订 | `f0008a940ebf9de9d775e562518d756e44a46ea7` |
+| A08 评审合并 | `5c86f3ff72e12e9dfef3917902836b497e71b671` |
+| 契约状态 | `1.0.0` 已接受（2026-09-20） |
 
 本设计围绕一个问题展开：构建依赖流水线中的每个结果只对特定源码版本和构建配置成立。DRAFT 生成的环境、BuildChecker/EChecker 输出的依赖报告、MDFixer 生成的补丁如果失去版本关系，接口格式即使正确，组合结果也可能无效。
 
@@ -25,6 +27,7 @@ E2/
 ├── AI_USAGE.md
 ├── CONTRIBUTIONS.md
 ├── CHANGELOG.md
+├── A08_REVIEW.md
 ├── contracts/
 │   ├── create-request.schema.json
 │   ├── task.schema.json
@@ -85,10 +88,10 @@ python3 E2/validate.py
 
 ## 完成情况
 
-已完成四类异步任务、共享 Job/Artifact/Error Report 模型、OpenAPI 端点、有效与无效样例、ADR 以及自动契约校验。本轮正式提交前修订以基准提交 `309237a` 为起点。
+已完成四类异步任务、共享 Job/Artifact/Error Report 模型、OpenAPI 端点、有效与无效样例、ADR 以及自动契约校验。A08 于 2026-09-20 完成 FULL_CHECK、INCREMENTAL_CHECK 及交接方式评审，结论为“通过，无必须修改项”。
 
-E2 正式提交前尚需 A08 配对评审，并补全成员姓名、学号、实际分工和提交 SHA。下一步是由 A08 在 GitHub Issue 或 PR 中确认端点、字段、错误码和产物读取方式，然后填写 `CONTRIBUTIONS.md` 并将契约标记为正式版本。E2 验收范围是本轮契约交付；真实 DRAFT 项目、固定 commit 和运行报告列入 E3 计划项。
+评审证据保存在 A08 仓库合并 Commit `5c86f3ff72e12e9dfef3917902836b497e71b671`，B08 的本地索引见 `A08_REVIEW.md`。E2 验收已收口；真实 DRAFT 项目、固定 commit 和运行报告列入 E3 计划项。
 
-## 提交前填写
+## 评审与后续
 
-`CONTRIBUTIONS.md` 中的成员姓名、学号、实际分工及 A08 评审链接由 B08 成员填写。样例中的 `example/b08-demo` 用于接口验收，E3 选定实际项目后同步替换仓库、commit、镜像与校验命令。
+`CONTRIBUTIONS.md` 已回填 B08 成员分工和 A08 配对评审记录。样例中的 `example/b08-demo` 用于接口验收，E3 选定实际项目后同步替换仓库、commit、镜像与校验命令。

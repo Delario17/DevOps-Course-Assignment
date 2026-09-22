@@ -7,6 +7,7 @@
 - 作业说明：[`E2/README.md`](E2/README.md)
 - 接口契约：[`E2/INTERFACE_CONTRACT.md`](E2/INTERFACE_CONTRACT.md)
 - OpenAPI：[`E2/openapi.yaml`](E2/openapi.yaml)
+- A08 配对评审：[`E2/A08_REVIEW.md`](E2/A08_REVIEW.md)
 - 个人贡献：[`E2/CONTRIBUTIONS.md`](E2/CONTRIBUTIONS.md)
 
 从仓库根目录执行验收：
@@ -16,4 +17,4 @@ python3 -m pip install -r E2/requirements.txt
 python3 E2/validate.py
 ```
 
-当前契约处于正式发布前状态，待 A08 配对评审和 B08 成员贡献信息补齐后发布。
+契约版本 `1.0.0` 已于 2026-09-20 通过 A08 配对评审，评审结论为“通过，无必须修改项”。

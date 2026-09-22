@@ -10,7 +10,7 @@
 | Git 作者 | `Delario17` |
 | 提交日期 | `2026-09-17` |
 | 提交说明 | `submit E2` |
-| A08 评审记录 | `【待填写：GitHub Issue 或 PR 链接】` |
+| A08 评审记录 | `https://github.com/LoShell/DevOps-Course-Assignment-A08/blob/5c86f3ff72e12e9dfef3917902836b497e71b671/E2/A08_REVIEW.md` |
 
 ## 小组信息
 
@@ -46,9 +46,12 @@ Git 作者字段只记录可核对的仓库元数据。正式提交时，小组�
 
 ## A08 配对评审
 
-- 评审链接：`【待填写：GitHub Issue 或 PR URL】`
-- 评审人：`【待填写：A08 评审人】`
-- 评审日期：`【待填写：YYYY-MM-DD】`
-- 评审结论：`【待填写：端点、字段、错误码、产物读取与版本策略的确认结果】`
+- A08 仓库：`https://github.com/LoShell/DevOps-Course-Assignment-A08`
+- 评审链接：`https://github.com/LoShell/DevOps-Course-Assignment-A08/blob/5c86f3ff72e12e9dfef3917902836b497e71b671/E2/A08_REVIEW.md`
+- 评审分支最终 Commit：`d8d2d6c23e2fc0d425357722ea23f6c8756c4d87`
+- 评审合并 Commit：`5c86f3ff72e12e9dfef3917902836b497e71b671`
+- 评审人：刘馨雅、邱莉扉、范从钰、叶原原
+- 评审日期：`2026-09-20`
+- 评审结论：通过，无必须修改项。A08 接受异步 Job、版本绑定、FULL_CHECK/INCREMENTAL_CHECK 字段、状态与错误语义、ArtifactRef 产物读取方式及增量基线策略。
 
-评审完成后，将 `BACKLOG.md` 中 `E2-10` 的状态改为 `Done`，并在本节保留 Issue 或 PR 链接。
+评审证据索引见 `A08_REVIEW.md`；`BACKLOG.md` 中 `E2-10` 已关闭为 `Done`。
