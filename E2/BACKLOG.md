@@ -11,7 +11,7 @@
 | E2-07 | 自动契约检查 | B08 | `validate.py` | Schema、OpenAPI、有效样例和产物映射通过，8 种逻辑错误被拒绝 | Done |
 | E2-08 | 异步方案决策 | B08 | ADR-0001 | 记录背景、选择、替代方案和影响 | Done |
 | E2-09 | 版本绑定决策 | B08 | ADR-0002 | 明确 commit、配置和产物一致性规则 | Done |
-| E2-10 | 配对评审 | A08/B08 | GitHub Issue/PR 评审记录与契约版本 | A08 对端点、字段、错误码和读取方式确认；下一步：B08 发起 Issue/PR，A08 留下结论后回填 `CONTRIBUTIONS.md` | Review（待 A08 确认） |
+| E2-10 | 配对评审 | A08/B08 | A08 仓库 `E2/A08_REVIEW.md`、评审合并 Commit `5c86f3f` | A08 已确认端点、字段、状态/错误语义、产物读取和版本绑定；结论为通过且无必须修改项 | Done |
 | E3-01 | 选择 DRAFT 实验项目 | B08 | 真实仓库、完整 SHA、构建和验证命令 | 原始项目可在目标环境复现构建 | Planned |
 | E3-02 | 固定 MD 报告 | A08/B08 | 绑定真实提交的 ERROR_REPORT | 报告至少包含一个可复现 MD | Planned |
 | E3-03 | 运行端到端闭环 | A08/B08 | DRAFT→检测→修复→重检证据 | trace_id 串联全部 Job，补丁重检通过 | Planned |
