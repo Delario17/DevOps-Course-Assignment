@@ -13,6 +13,7 @@
 | 故意失败的候选 | `patches/mdfixer-hybrid.invalid.patch` |
 | 一键行为验证与恢复 | `scripts/run_mdfixer_hybrid.py` |
 | 最终脚本真实运行记录 | `evidence/mdfixer-hybrid/20261009T123645645063+0800/` |
+| 盛浩宇本人发起的复现记录 | [`个人复现 README`](evidence/mdfixer-hybrid/20261009T133714630641+0800/README.md)、[`完整 observations.json`](evidence/mdfixer-hybrid/20261009T133714630641+0800/observations.json) |
 | 个人操作与提交步骤 | `MANUAL_STEPS.md` |
 | 贡献、AI 使用、人工审阅 | `CONTRIBUTIONS.md`、`AI_USAGE.md`、`HUMAN_REVIEW.md` |
 
@@ -38,9 +39,10 @@ A08 源码归属与固定参考版本见 `fixtures/mdfixer-hybrid/SOURCE.md`。
 | 加入 false 失败候选 | 构建非零，拒绝候选 | 退出码 2，REJECTED |
 | 恢复候选应用前的有效 Makefile | 字节一致，构建及运行通过 | 输出 12，PASSED |
 
-本次由 Codex 在现有 Ubuntu 24.04 WSL 中执行，40/40 项断言通过、39 条命令已记录。GCC 13.3.0、GNU Make 4.3、Python 3.12.3、x86_64，实测配置为 `b08-hybrid-74f06528d5480265`。
+首轮与最终脚本验证由 Codex 在现有 Ubuntu 24.04 WSL 中执行，均为 40/40 项断言通过、39 条命令已记录。GCC 13.3.0、GNU Make 4.3、Python 3.12.3、x86_64，实测配置为 `b08-hybrid-74f06528d5480265`。
 首次运行目录 `20261009T123151981838+0800/` 保留为历史证据；最终脚本将子进程环境限定为 Linux 默认 PATH 和固定语言设置，并再次通过 40/40。
-人工审阅仍待本人确认。运行快照的 pending 标记保留执行时状态，后续人工确认另记 `HUMAN_REVIEW.md`。
+盛浩宇于 2026-10-09 13:37 本人发起同一脚本复现，结果为 40/40 PASS，39 条命令有完整日志；上述结果表与本次个人运行一致。Codex 应本人请求核对 README、JSON、命令日志、补丁快照和哈希，技术证据均通过。
+盛浩宇已阅读并明确确认辅助核查结论与本人运行结果一致，个人确认记录见 `HUMAN_REVIEW.md`。运行快照中的 pending 标记保留执行时状态，不回写历史日志。
 
 ## Linux 一键重跑
 
@@ -66,4 +68,4 @@ reference-validation.json 的 ACCEPTED 和 rejected-candidate.json 的 REJECTED 
 
 - DRAFT 的失败环境、参考成功环境和功能验证。
 - 其余直接声明、纯变量声明、隐式规则与 .d 文件案例。
-- 本案例的成员贡献认领、人工审阅，以及组长整合与提交。
+- 本案例的盛浩宇个人复现和确认已记录；组长负责整合与提交。

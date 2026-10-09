@@ -25,4 +25,4 @@ python3 E2/validate.py
 - 本人重跑、审阅和提交步骤：[`E3/MANUAL_STEPS.md`](E3/MANUAL_STEPS.md)。
 - 贡献认领：[`E3/CONTRIBUTIONS.md`](E3/CONTRIBUTIONS.md)。
 
-此交付为一个混合声明风格的参考修复案例。首轮 Linux 实验 40/40 通过；实际成员的人工审阅尚待确认。DRAFT 和其他声明风格由 B08 组内继续协调。
+此交付为一个混合声明风格的参考修复案例。Codex 验证与盛浩宇本人发起的 Linux 复现均为 40/40 通过；本人已阅读并确认辅助核查结论与运行结果一致，记录见 E3/HUMAN_REVIEW.md。DRAFT 和其他声明风格由 B08 组内继续协调。
