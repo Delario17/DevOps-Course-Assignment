@@ -18,3 +18,11 @@ python3 E2/validate.py
 ```
 
 契约版本 `1.0.0` 已于 2026-09-20 通过 A08 配对评审，评审结论为“通过，无必须修改项”。
+
+## E3：MDFixer HYBRID 修复基线
+
+- 案例与实际结果：[`E3/README.md`](E3/README.md)。
+- 本人重跑、审阅和提交步骤：[`E3/MANUAL_STEPS.md`](E3/MANUAL_STEPS.md)。
+- 贡献认领：[`E3/CONTRIBUTIONS.md`](E3/CONTRIBUTIONS.md)。
+
+此交付为一个混合声明风格的参考修复案例。首轮 Linux 实验 40/40 通过；实际成员的人工审阅尚待确认。DRAFT 和其他声明风格由 B08 组内继续协调。
