@@ -1,0 +1,19 @@
+CC := gcc
+CPPFLAGS := -Iinclude
+CFLAGS := -Wall -Wextra -O2
+
+.PHONY: all clean
+all: bin/demo
+
+bin/demo: build/main.o
+	@mkdir -p bin
+	$(CC) $(CFLAGS) $^ -o $@
+
+# Intentional MD: this implicit pattern rule omits the included project header.
+build/%.o: src/%.c include/config.h
+	@mkdir -p build
+	false
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -rf build bin

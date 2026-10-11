@@ -1,0 +1,4 @@
+#ifndef IMPLICIT_DEMO_COMMON_H
+#define IMPLICIT_DEMO_COMMON_H
+#define COMMON_VALUE 6
+#endif

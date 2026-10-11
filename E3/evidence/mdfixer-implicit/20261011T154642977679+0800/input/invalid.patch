@@ -1,0 +1,11 @@
+diff --git a/Makefile b/Makefile
+--- a/Makefile
++++ b/Makefile
+@@ -12,6 +12,7 @@ bin/demo: build/main.o
+ # Intentional MD: this implicit pattern rule omits the included project header.
+ build/%.o: src/%.c include/config.h
+ 	@mkdir -p build
++	false
+ 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+ 
+ clean:

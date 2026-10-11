@@ -1,7 +1,17 @@
 # B08 E3：MDFixer 混合声明修复基线
 
-本目录当前交付一个 HYBRID 声明风格的 MDFixer 参考案例：固定 MD 输入、原始项目、参考补丁、失败候选，以及实际 Linux 验证和恢复记录。
-它用于 E3 测试基线准备，不表示 MDFixer 自动修复服务已经实现，也不代表 B08 的 DRAFT 和其他声明风格已经完成。
+本目录交付 HYBRID 和 IMPLICIT 两种声明风格的 MDFixer 参考案例：固定 MD 输入、原始项目、参考补丁、失败候选，以及可重复的 Linux 验证和恢复流程。
+它们用于 E3 测试基线准备，不表示 MDFixer 自动修复服务已经实现，也不代表 B08 的 DRAFT 和其他声明风格已经完成。
+
+## IMPLICIT 隐式规则案例
+
+`fixtures/mdfixer-implicit/Makefile` 使用 `build/%.o: src/%.c` 模式规则，故意漏掉源码实际包含的 `include/config.h`。参考补丁把该头文件补到模式规则上；验证脚本检查修复前的陈旧构建、修复后的两次增量重编译、失败候选拒绝，以及回滚后的功能输出。
+
+```bash
+python3 E3/scripts/run_mdfixer_implicit.py --operator "姓名（本人发起脚本复现）"
+```
+
+固定输入由 `oracle/mdfixer-implicit.expected.json` 中的逐文件 SHA-256 清单绑定。脚本只在 Linux 临时目录内构建和打补丁，每次将证据写入新的 `evidence/mdfixer-implicit/时间目录`。
 
 ## 已完成的这一块
 
@@ -67,5 +77,5 @@ reference-validation.json 的 ACCEPTED 和 rejected-candidate.json 的 REJECTED 
 ## B08 组级任务仍需其他成员协调
 
 - DRAFT 的失败环境、参考成功环境和功能验证。
-- 其余直接声明、纯变量声明、隐式规则与 .d 文件案例。
+- 其余直接声明、纯变量声明与 .d 文件案例。
 - 本案例的盛浩宇个人复现和确认已记录；组长负责整合与提交。
