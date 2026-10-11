@@ -35,9 +35,10 @@
 | Hybrid 收尾 | 更新当前交付和操作说明；新增绑定原始输入哈希的 review.json；原 Fixture、Oracle 与三次证据保持不变 |
 | Target 新材料 | 直接声明 Fixture、MD-only Oracle、参考/无效 Patch、独立验证脚本、日志、案例说明 |
 | Target 固定提交 | `b2d5709275471d4264215f6d40bd4bdd3bbfdd8a`，包含 7 个版本固定的 Fixture 文件 |
+| Target 实现及证据提交 | `fe788d6d6137024388e495fddda93242301fbff2`，包含 Oracle、Patch、执行脚本、44/44 实际证据及 Hybrid 状态文档收尾 |
 | Target 实际执行者 | Codex；未记为盛浩宇本人发起复现 |
 | Target 实际证据 | `evidence/mdfixer-target/20261011T110959885929+0800/`，44/44 PASS，39 条命令，配置 `b08-target-74f06528d5480265` |
 | 新材料审阅状态 | Target 等待本人阅读辅助核查结论；见 HUMAN_REVIEW.md 与 Target review.json |
 | AI 使用 | 用户请求并指定分工，Codex 辅助编写、执行及核查；原 A08 归属沿用 SOURCE.md |
 
-本轮代码与材料的提交 SHA 将在提交后回填。此个人贡献说明不代填其他成员的交付完成情况。
+上述 SHA 为实际本地提交；此表随后单独提交回填，避免引用尚未生成的提交。此个人贡献说明不代填其他成员的交付完成情况。

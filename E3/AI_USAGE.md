@@ -45,3 +45,4 @@
 - 人工确认：新 Target 的状态独立记录，不继承 Hybrid 确认；当前见 HUMAN_REVIEW.md 和 oracle/mdfixer-target.review.json。
 - 代码边界：本次完成个人测试基线；没有实现真实 MDFixer 服务。统一运行入口由 Macro 负责人整合，DRAFT 和 Implicit 由相应成员负责。
 - 发布状态：本次保存本地提交，尚未替用户推送、创建或合并新 PR。
+- 实际提交：固定 Fixture 为 `b2d5709275471d4264215f6d40bd4bdd3bbfdd8a`；实现、证据及状态收尾为 `fe788d6d6137024388e495fddda93242301fbff2`，贡献表另行回填真实 SHA。
