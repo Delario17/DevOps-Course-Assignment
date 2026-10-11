@@ -1,0 +1,12 @@
+ARG BASE_IMAGE=debian:bookworm-slim
+FROM ${BASE_IMAGE}
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends gcc make libc6-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /work
+COPY main.c Makefile ./
+RUN make
+
+CMD ["./hello"]

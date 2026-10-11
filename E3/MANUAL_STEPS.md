@@ -17,7 +17,7 @@ C:\Users\26085\Desktop\devops实验课\实验论文\DevOps-Course-Assignment
 
 当前任务分支为 `b08/e3-mdfixer-hybrid`。A08 项目的参考文件及归属已经写入本案例，重跑不需要克隆 A08 仓库。
 本机已有 Ubuntu-24.04 WSL、GCC、GNU Make 和 Python；此项无需安装 Docker 或启动 Docker Desktop。
-当前分支仅保存在本地，GitHub 上还看不到这些新材料。
+MDFixer HYBRID 分支已经通过 PR #2 合入 `main`，以下命令保留为同类任务的操作参考。
 
 ## 1. 阅读与认领
 
