@@ -27,4 +27,4 @@ python3 E2/validate.py
 - 贡献认领：[`E3/CONTRIBUTIONS.md`](E3/CONTRIBUTIONS.md)。
 - 当前成员确认：[`E3/HUMAN_REVIEW.md`](E3/HUMAN_REVIEW.md)。
 
-原 Hybrid 已通过 PR #2 合并，个人复现和确认已记录，40/40 通过。本次盛浩宇的分工新增 Target 直接声明案例，Codex Linux 实际执行 44/44 通过；当前审阅状态以 E3/HUMAN_REVIEW.md 和各案例 review.json 为准。DRAFT、Macro、Implicit 及最终汇总按组内分工整合。
+原 Hybrid 已通过 PR #2 合并，个人复现和确认已记录，40/40 通过。本次盛浩宇的分工新增 Target 直接声明案例，Codex Linux 实际执行 44/44 通过，盛浩宇已阅读并单独确认辅助核查结论；当前审阅状态以 E3/HUMAN_REVIEW.md 和各案例 review.json 为准。DRAFT、Macro、Implicit 及最终汇总按组内分工整合。

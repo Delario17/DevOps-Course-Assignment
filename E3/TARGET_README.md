@@ -24,7 +24,7 @@
 - 技术结果：44/44 PASS，39 条原始命令；唯一非零退出为预期无效候选，退出码 2。
 - [运行 README](evidence/mdfixer-target/20261011T110959885929+0800/README.md)、[observations.json](evidence/mdfixer-target/20261011T110959885929+0800/observations.json)、[commands.txt](evidence/mdfixer-target/20261011T110959885929+0800/commands.txt)。
 - Codex 另行核对了所有输入/脚本哈希、固定提交文件、捕获补丁、命令与 JSON、实际输出、恢复字节以及两份决定 JSON，均相符。
-- 人工确认：见 [HUMAN_REVIEW.md](HUMAN_REVIEW.md) 和 [review.json](oracle/mdfixer-target.review.json)，当前待成员阅读确认；不沿用 Hybrid 确认。
+- 人工确认：盛浩宇于 2026-10-11 阅读并明确确认本次 Codex 辅助核查结论，当前为 APPROVED_WITH_AI_ASSISTED_REVIEW，见 [HUMAN_REVIEW.md](HUMAN_REVIEW.md) 和 [review.json](oracle/mdfixer-target.review.json)。本次运行及详细核查由 Codex 完成；原始运行快照中的 pending 保留原样。
 
 ## 本人负责项验收
 
@@ -38,6 +38,6 @@
 - [x] 无效候选拒绝、精确恢复、恢复后构建和功能成功。
 - [x] 原始命令、环境、哈希、JSON 和 README。
 - [x] Hybrid 当前状态整理，原证据保留。
-- [ ] Target 成员辅助审阅确认。
+- [x] Target 成员辅助审阅确认。
 
 执行方式见 [MANUAL_STEPS.md](MANUAL_STEPS.md)。本文件及 run_mdfixer_target.py 可供 Macro 负责人接入统一执行入口。

@@ -42,7 +42,8 @@
 - AI 实际执行：Ubuntu-24.04 WSL，GCC 13.3.0、GNU Make 4.3、Python 3.12.3；`evidence/mdfixer-target/20261011T110959885929+0800/`，44/44 PASS，39 条命令。
 - AI 辅助核查：固定提交与当前源码、输入/脚本哈希、命令输出与 JSON、Patch 快照、7 阶段行为、拒绝与恢复全部相符。
 - Target 判断：原规则与参考规则均为直接文件声明；参考声明与 GCC -MM 项目依赖完全相等。没有项目内 RD。
-- 人工确认：新 Target 的状态独立记录，不继承 Hybrid 确认；当前见 HUMAN_REVIEW.md 和 oracle/mdfixer-target.review.json。
+- 人工确认：盛浩宇于 2026-10-11 阅读 Target 辅助核查结论后，明确回复“已阅读并确认，请补齐记录”；本次单独记录为 APPROVED_WITH_AI_ASSISTED_REVIEW，见 HUMAN_REVIEW.md 和 oracle/mdfixer-target.review.json。实际执行及详细核查仍记为 Codex。
 - 代码边界：本次完成个人测试基线；没有实现真实 MDFixer 服务。统一运行入口由 Macro 负责人整合，DRAFT 和 Implicit 由相应成员负责。
 - 发布状态：本次保存本地提交，尚未替用户推送、创建或合并新 PR。
-- 实际提交：固定 Fixture 为 `b2d5709275471d4264215f6d40bd4bdd3bbfdd8a`；实现、证据及状态收尾为 `fe788d6d6137024388e495fddda93242301fbff2`，贡献表另行回填真实 SHA。
+- 实际提交：固定 Fixture 为 `b2d5709275471d4264215f6d40bd4bdd3bbfdd8a`；实现、证据及状态收尾为 `fe788d6d6137024388e495fddda93242301fbff2`；真实 SHA 回填已完成于 `3a0620477becc98abfe141805e05004a0e0ce491`。
+- 提交前补齐：依据本人本次明确确认同步更新 README、审阅记录、贡献、验收清单和 PR 描述；所有原始 Oracle、Fixture、Patch、执行脚本与实验文件保持不变。

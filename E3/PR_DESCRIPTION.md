@@ -8,6 +8,8 @@
 
 验证：Codex 在 Ubuntu 24.04 WSL / GCC 13.3.0 / GNU Make 4.3 / Python 3.12.3 环境实际运行 Target，44/44 项断言通过，39 条命令有 stdout/stderr/退出码；另外核对固定提交、哈希、日志、Patch 快照与 JSON 一致。证据：`E3/evidence/mdfixer-target/20261011T110959885929+0800/`。Target 的成员确认见 E3/HUMAN_REVIEW.md，不将 AI 执行写成本人执行。
 
+成员确认：盛浩宇（241250008，lejuwujiang258）于 2026-10-11 已阅读并明确确认本次 Target 的 Codex 辅助核查结论。当前两套案例均为 APPROVED_WITH_AI_ASSISTED_REVIEW，审阅记录与输入/证据哈希绑定。Target 实际执行及详细文件核查由 Codex 完成，原始运行快照不回写。
+
 固定版本：Target `b2d5709275471d4264215f6d40bd4bdd3bbfdd8a`；Hybrid `4f13da22499dbee5ad3b63360e5b8b0af1bfcf98`。请保留基线提交历史，确保脚本能够用 git show 校验固定源码。
 
 本 PR 对应“Hybrid 收尾与 Target 声明案例”。两份独立脚本供统一验证入口调用；DRAFT、Macro、Implicit 和最终组级汇总由其余成员按分工完成。本交付为 E3 参考修复实验，不表示真实 MDFixer 服务已实现。

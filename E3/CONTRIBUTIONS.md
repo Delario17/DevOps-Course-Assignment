@@ -19,7 +19,7 @@
 | 复现时仓库提交 | `d293999a0c7af3674768f311ad53fc171e01c0aa` |
 | 本次实际环境 | Ubuntu 24.04 WSL、x86_64、GCC 13.3.0、GNU Make 4.3、Python 3.12.3；`b08-hybrid-74f06528d5480265` |
 | 本人审阅 | 盛浩宇已阅读 Codex 辅助检查结论，并在对话中明确回复“已阅读并确认一致”；详情见 `HUMAN_REVIEW.md` |
-| 个人复现证据提交 SHA | `e9e59b6a017d179ba5e845203c1665ad8450cf37`，包含本人复现证据、身份记录和辅助审阅确认；随后单独提交本表 SHA 回填 |
+| 个人复现证据提交 SHA | `e9e59b6a017d179ba5e845203c1665ad8450cf37`，包含本人复现证据、身份记录和辅助审阅确认；SHA 回填已完成于 `f1fe71cbcc1826bf33e8f7545bd11de913f9cc0b` |
 
 本地 Git 使用已有配置的提交身份。Git 作者信息与实验实际执行者分别记录；本轮自动实验不能标为本人手工执行。
 
@@ -38,7 +38,7 @@
 | Target 实现及证据提交 | `fe788d6d6137024388e495fddda93242301fbff2`，包含 Oracle、Patch、执行脚本、44/44 实际证据及 Hybrid 状态文档收尾 |
 | Target 实际执行者 | Codex；未记为盛浩宇本人发起复现 |
 | Target 实际证据 | `evidence/mdfixer-target/20261011T110959885929+0800/`，44/44 PASS，39 条命令，配置 `b08-target-74f06528d5480265` |
-| 新材料审阅状态 | Target 等待本人阅读辅助核查结论；见 HUMAN_REVIEW.md 与 Target review.json |
+| 新材料审阅状态 | 盛浩宇于 2026-10-11 阅读并明确确认 Target 的 Codex 辅助核查结论；APPROVED_WITH_AI_ASSISTED_REVIEW，见 HUMAN_REVIEW.md 与 Target review.json |
 | AI 使用 | 用户请求并指定分工，Codex 辅助编写、执行及核查；原 A08 归属沿用 SOURCE.md |
 
-上述 SHA 为实际本地提交；此表随后单独提交回填，避免引用尚未生成的提交。此个人贡献说明不代填其他成员的交付完成情况。
+上述 SHA 为实际本地提交；Target 实现提交的 SHA 回填已完成于 `3a0620477becc98abfe141805e05004a0e0ce491`。本次个人确认原文为“已阅读并确认，请补齐记录”，不作为本人发起 Target 实验的证明。此个人贡献说明不代填其他成员的交付完成情况。

@@ -16,9 +16,11 @@
 | 独立执行脚本 | [run_mdfixer_hybrid.py](scripts/run_mdfixer_hybrid.py) | [run_mdfixer_target.py](scripts/run_mdfixer_target.py) |
 | 主要实际证据 | [本人复现记录](evidence/mdfixer-hybrid/20261009T133714630641+0800/README.md) | [Codex 执行记录](evidence/mdfixer-target/20261011T110959885929+0800/README.md) |
 | 当前技术验收 | 40/40 PASS，39 条命令 | 44/44 PASS，39 条命令 |
-| 当前成员确认 | 已确认，2026-10-09 | 待成员阅读确认 |
+| 当前成员确认 | 已确认，2026-10-09 | 已确认，2026-10-11 |
 
 Target 的说明及验收清单见 [TARGET_README.md](TARGET_README.md)。本人操作见 [MANUAL_STEPS.md](MANUAL_STEPS.md)；贡献、AI 使用和人工确认分别见 [CONTRIBUTIONS.md](CONTRIBUTIONS.md)、[AI_USAGE.md](AI_USAGE.md)、[HUMAN_REVIEW.md](HUMAN_REVIEW.md)。
+
+两套案例的个人辅助审阅确认均已记录。Target 本次运行及详细核查由 Codex 完成，盛浩宇已阅读并单独确认结论；原始快照中的 pending 保留运行时状态，当前状态见对应 review.json。
 
 ## 两种声明的区别
 
