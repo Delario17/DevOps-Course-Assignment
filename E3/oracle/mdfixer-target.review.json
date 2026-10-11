@@ -1,0 +1,22 @@
+{
+  "schema_version": "e3-mdfixer-review-v1",
+  "case": "TARGET",
+  "subject_commit": "b2d5709275471d4264215f6d40bd4bdd3bbfdd8a",
+  "oracle_path": "oracle/mdfixer-target.expected.json",
+  "oracle_sha256": "bb9586ede1341485500f084232b91a410ff2b3fca7d5ca689af607409c681510",
+  "evidence_directory": "evidence/mdfixer-target/20261011T110959885929+0800",
+  "observations_sha256": "6170dc33ddc9d96d80ec035db6acb49865839dbf0bef6afa6c43f720a4055afd",
+  "technical_validation": {
+    "status": "PASS",
+    "assertions_passed": 44,
+    "assertions_total": 44,
+    "commands": 39
+  },
+  "review_status": "PENDING_HUMAN_REVIEW",
+  "reviewer": null,
+  "confirmation_date": null,
+  "confirmation_basis": "本次由 Codex 实际执行并辅助核查；等待成员阅读结论后确认。",
+  "execution_provenance": "Codex automated Linux execution for Sheng Haoyu; Target human review pending",
+  "review_record": "HUMAN_REVIEW.md",
+  "status_note": "This sidecar records the current review state of the exact hashed input and evidence. PENDING_HUMAN_REVIEW in immutable preparation/run snapshots is historical and is not rewritten."
+}

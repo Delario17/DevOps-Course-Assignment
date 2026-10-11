@@ -1,103 +1,51 @@
-# 本人操作与提交步骤
+# 盛浩宇本人操作与提交
 
-## 当前完成状态（2026-10-09）
+## 当前状态（2026-10-11）
 
-盛浩宇（241250008，lejuwujiang258）已发起个人复现，证据目录为 `evidence/mdfixer-hybrid/20261009T133714630641+0800/`，40/40 PASS。
-本人已阅读并明确确认 Codex 辅助核查结论与运行结果一致；贡献、个人确认、README 和 PR 说明已补齐。
-个人复现证据提交为 `e9e59b6a017d179ba5e845203c1665ad8450cf37`。源码与证据均已保存为本地提交。
-现在可以直接按第 5 步推送分支并创建 PR；第 1 至 4 步保留作通用操作参考，无需重复执行。
+原 Hybrid 已通过 PR #2 合并 main，个人复现与确认仍有效。本次已在最新 main 的基础上建立 `b08/e3-mdfixer-target`，完成 Hybrid 状态文档收尾和 Target 新案例，Linux 结果 44/44 PASS。
+Target 本次由 Codex 执行；个人阅读确认与实际执行分别记录于 HUMAN_REVIEW.md。新分支目前保存在本地，尚未推送或创建本次 PR。
 
-## 当前电脑无需重新克隆
+## 无需再克隆或安装
 
-B08 仓库已经在：
+本机已有 B08 仓库：
 
 ```text
 C:\Users\26085\Desktop\devops实验课\实验论文\DevOps-Course-Assignment
 ```
 
-当前任务分支为 `b08/e3-mdfixer-hybrid`。A08 项目的参考文件及归属已经写入本案例，重跑不需要克隆 A08 仓库。
-本机已有 Ubuntu-24.04 WSL、GCC、GNU Make 和 Python；此项无需安装 Docker 或启动 Docker Desktop。
-当前分支仅保存在本地，GitHub 上还看不到这些新材料。
+Ubuntu-24.04 WSL、GCC、GNU Make、Python 已可用；此案例无需 Docker。重跑不需要再克隆 A08，源码归属已记录。
 
-## 1. 阅读与认领
+## 可选：本人发起 Target 复现
 
-先阅读 E3/README.md、SOURCE.md、参考补丁和本次运行 README。
-与 B08 组长确认你负责“HYBRID 混合声明的一套 MDFixer 参考案例”。
-在 CONTRIBUTIONS.md 填写实际姓名、学号、GitHub 账号及实际承担内容，注明 AI 辅助。
-
-## 2. 推荐亲自发起一次重跑
-
-打开 PowerShell，执行下面这条命令，把 --operator 的文字换成真实姓名。它会自动启动已有 WSL。
+如果需要增加本人执行证据，在 PowerShell 执行：
 
 ```powershell
-wsl -d Ubuntu-24.04 --exec python3 '/mnt/c/Users/26085/Desktop/devops实验课/实验论文/DevOps-Course-Assignment/E3/scripts/run_mdfixer_hybrid.py' --operator '填写姓名（本人发起脚本复现）'
+wsl -d Ubuntu-24.04 --exec python3 '/mnt/c/Users/26085/Desktop/devops实验课/实验论文/DevOps-Course-Assignment/E3/scripts/run_mdfixer_target.py' --operator '盛浩宇（本人发起 Target 脚本复现）'
 ```
 
-末尾应出现：
+预期末尾为 PASS、ASSERTIONS=44/44、EVIDENCE_DIR=新目录。每次创建新证据，不影响旧目录。
+可把新目录告诉 Codex 协助核查，再将实际复现事实补到 CONTRIBUTIONS.md 与 HUMAN_REVIEW.md；未执行时保留 Codex 为本次执行者。
 
-```text
-PASS
-ASSERTIONS=40/40
-EVIDENCE_DIR=.../E3/evidence/mdfixer-hybrid/新时间目录
-```
+## 阅读与确认
 
-若实际结果与这里不同，保留新目录的 observations.json 与 commands.txt，记录问题；不要将 FAIL 写成 PASS。
-新证据目录中的 operator 来自本次输入；旧 Codex 运行的执行者和 pending 状态保留原样。
+阅读 TARGET_README.md、此次运行 README、observations.json 和两个 Patch。核对修复前增量 10/完整重建 11、修复后两次增量 11/12、失败退出码 2、拒绝及恢复成功。
+确认时在 HUMAN_REVIEW.md 和 oracle/mdfixer-target.review.json 记录真实确认日期、本人身份及证据目录。原始证据的 pending 是执行时状态，保留原样。
+单独阅读并确认结论可以记为辅助审阅，不等于本人执行脚本。
 
-## 3. 人工检查与填写审阅
+## 推送及创建 PR
 
-打开刚生成的 README.md 与 observations.json，至少检查：
-
-- 修复前改 4→5 后仍为 10，完整重建为 11。
-- 修复后两次仅改头文件分别得到 11、12，日志出现 gcc 重编译。
-- 无效候选构建退出码非零，decision 为 REJECTED。
-- Makefile 恢复检查通过，恢复后输出 12。
-- 源码副本与固定提交一致，仓库故障样例保持原样。
-
-在 HUMAN_REVIEW.md 填写真实审阅日期、姓名、证据目录及结论。
-人工审阅和本人发起复现是不同事实；实际做过什么就记录什么。
-
-## 4. 保存自己的确认提交
-
-打开 PowerShell：
+在 PowerShell 执行：
 
 ```powershell
 cd 'C:\Users\26085\Desktop\devops实验课\实验论文\DevOps-Course-Assignment'
 git status
-git add -- E3/CONTRIBUTIONS.md E3/HUMAN_REVIEW.md E3/evidence/mdfixer-hybrid
-git commit -m 'docs(e3): record personal review and MDFixer reproduction'
+git push -u origin b08/e3-mdfixer-target
 ```
 
-CONTRIBUTIONS.md 中的提交 SHA 应填实际值。如本次提交后才取得 SHA，可补入再提交一次。
-不要重写旧证据，也不要将编译产物 build/ 或 bin/ 加入 Git。
+在 GitHub 创建 PR，base 为 main，compare 为 b08/e3-mdfixer-target。标题和完整正文见 PR_DESCRIPTION.md，可直接复制；交给组长审阅。
+若另有本人新增证据或确认内容未提交，先只把相关新目录和修改文档 git add/commit，再推送。
+保留 Fixture 固定提交历史：Target 的 b2d5709275471d4264215f6d40bd4bdd3bbfdd8a 和 Hybrid 的 4f13da22499dbee5ad3b63360e5b8b0af1bfcf98 均需可达。使用 GitHub Create a merge commit 可保留；如改用压缩合并，应先保留基线标签或重新绑定并生成证据。
 
-## 5. 推送并交给组长审查
+## 给组长的简短说明
 
-在同一个目录执行：
-
-```powershell
-git push -u origin b08/e3-mdfixer-hybrid
-```
-
-然后打开 B08 GitHub 仓库，创建 Pull Request：
-
-- base：main。
-- compare：b08/e3-mdfixer-hybrid。
-- 建议标题：E3 MDFixer HYBRID 修复基线与真实验证证据。
-- 在说明中写明本次仅 HYBRID 案例，DRAFT 及其他声明风格由组里协调。
-- 保留 fixture 固定提交 `4f13da22499dbee5ad3b63360e5b8b0af1bfcf98`；与组长确认使用保留提交历史的合并方式。
-
-脚本的 oracle 绑定这个固定提交，因此不要 squash/rebase 后丢掉它。若团队必须压缩历史，需要保留可达的基线标签或重新固定输入版本并重新生成证据。
-本次没有替你推送、创建 PR 或合并 main。
-
-## 换电脑时
-
-先完成上述推送，再仅克隆 B08 任务分支即可：
-
-```bash
-git clone --branch b08/e3-mdfixer-hybrid https://github.com/Delario17/DevOps-Course-Assignment.git
-cd DevOps-Course-Assignment
-python3 E3/scripts/run_mdfixer_hybrid.py --operator "姓名（本人发起脚本复现）"
-```
-
-此处 Python 命令在已有 Linux 工具链的环境中执行。Windows 用户进入 WSL 后执行，不用 Windows 的 MinGW 结果代替 Linux 证据。
+我按新分工补完了 Hybrid 的状态文档，并新增 Target 直接声明案例，包含 Fixture、固定 Oracle、参考/无效 Patch 和 Linux 验证日志。Target 44/44 检查通过：修复前只改头文件不重建，补齐后连续两次自动重编译；失败候选能够拒绝并恢复。原 Hybrid 证据保留。分支是 b08/e3-mdfixer-target，材料入口在 E3/README.md，两个独立脚本可接入统一验证入口。代码和文档由 Codex 辅助准备，本次 Target 运行由 Codex 执行。

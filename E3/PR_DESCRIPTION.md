@@ -1,12 +1,13 @@
-# E3 MDFixer HYBRID 修复基线与真实验证证据
+# E3：Hybrid 状态收尾与 MDFixer Target 直接声明基线
 
-新增一套 B08 混合声明风格的 MDFixer 测试基线。项目实际读取 config.h，但 HEADERS 漏写该文件；修复前仅修改配置值，普通构建仍输出旧值 10，完整重建输出 11。参考补丁补上 config.h 后，两次只改头文件均自动重新编译，输出依次为 11、12。
+新增盛浩宇负责的 Target 直接声明案例。原规则 `build/main.o: src/main.c include/common.h` 漏掉实际读取的 config.h：只改配置值时普通构建仍输出 10，完整重建才输出 11。参考补丁在目标行直接补上 config.h 后，两次仅改头文件均自动重编译，输出 11、12；参考声明与 GCC -MM 项目依赖一致。
 
-材料包含注明 A08 归属的故障项目、固定 MD-only 参考输入、参考补丁、故意失败的候选、验证与恢复脚本、实际日志和个人操作说明。失败候选构建退出码为 2，被拒绝后恢复候选应用前的有效 Makefile，重新构建运行输出 12。
+交付包括版本固定的 Fixture、MD-only 参考 Oracle、参考与无效 Patch、独立执行脚本、完整 Linux 日志和来源/贡献文档。无效 Patch 在编译前插入 false，强制构建退出码 2，被拒绝后恢复上一份有效 Makefile；精确恢复、重新构建及功能检查通过，输出 12。
 
-验证：Codex 在 Ubuntu 24.04 WSL、GCC 13.3.0、GNU Make 4.3、Python 3.12.3 环境执行最终脚本，40/40 项断言通过。固定样例提交为 4f13da22499dbee5ad3b63360e5b8b0af1bfcf98，最终证据目录为 E3/evidence/mdfixer-hybrid/20261009T123645645063+0800/。请保留该基线提交历史。
+同时整理已通过 PR #2 合并的 Hybrid 文档状态：明确已合并和已个人确认，新增绑定原输入及证据哈希的 review.json。原 Hybrid Fixture、Oracle 和三次运行记录保留原字节，历史 pending 由后续审阅记录说明。
 
-个人复现：盛浩宇（241250008，lejuwujiang258）于 2026-10-09 本人发起脚本，40/40 PASS，39 条命令已记录。个人证据为 E3/evidence/mdfixer-hybrid/20261009T133714630641+0800/；详细文件核查由 Codex 辅助完成，README、命令、JSON、补丁和哈希一致，本人已阅读并确认结论与运行结果一致。
-个人复现证据及确认材料提交为 `e9e59b6a017d179ba5e845203c1665ad8450cf37`，贡献文档中的 SHA 随后单独回填。
+验证：Codex 在 Ubuntu 24.04 WSL / GCC 13.3.0 / GNU Make 4.3 / Python 3.12.3 环境实际运行 Target，44/44 项断言通过，39 条命令有 stdout/stderr/退出码；另外核对固定提交、哈希、日志、Patch 快照与 JSON 一致。证据：`E3/evidence/mdfixer-target/20261011T110959885929+0800/`。Target 的成员确认见 E3/HUMAN_REVIEW.md，不将 AI 执行写成本人执行。
 
-本次仅交付 HYBRID 案例，原有 unused.h RD 保留。DRAFT、其他声明风格和实际 MDFixer 服务由后续任务负责。成员身份、个人复现和本人确认已记录于 E3/CONTRIBUTIONS.md 与 E3/HUMAN_REVIEW.md；AI 执行与人工确认分别记录。
+固定版本：Target `b2d5709275471d4264215f6d40bd4bdd3bbfdd8a`；Hybrid `4f13da22499dbee5ad3b63360e5b8b0af1bfcf98`。请保留基线提交历史，确保脚本能够用 git show 校验固定源码。
+
+本 PR 对应“Hybrid 收尾与 Target 声明案例”。两份独立脚本供统一验证入口调用；DRAFT、Macro、Implicit 和最终组级汇总由其余成员按分工完成。本交付为 E3 参考修复实验，不表示真实 MDFixer 服务已实现。

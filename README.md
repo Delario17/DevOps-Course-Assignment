@@ -19,10 +19,12 @@ python3 E2/validate.py
 
 契约版本 `1.0.0` 已于 2026-09-20 通过 A08 配对评审，评审结论为“通过，无必须修改项”。
 
-## E3：MDFixer HYBRID 修复基线
+## E3：MDFixer Hybrid 与 Target 修复基线
 
 - 案例与实际结果：[`E3/README.md`](E3/README.md)。
+- Target 说明与验收：[`E3/TARGET_README.md`](E3/TARGET_README.md)。
 - 本人重跑、审阅和提交步骤：[`E3/MANUAL_STEPS.md`](E3/MANUAL_STEPS.md)。
 - 贡献认领：[`E3/CONTRIBUTIONS.md`](E3/CONTRIBUTIONS.md)。
+- 当前成员确认：[`E3/HUMAN_REVIEW.md`](E3/HUMAN_REVIEW.md)。
 
-此交付为一个混合声明风格的参考修复案例。Codex 验证与盛浩宇本人发起的 Linux 复现均为 40/40 通过；本人已阅读并确认辅助核查结论与运行结果一致，记录见 E3/HUMAN_REVIEW.md。DRAFT 和其他声明风格由 B08 组内继续协调。
+原 Hybrid 已通过 PR #2 合并，个人复现和确认已记录，40/40 通过。本次盛浩宇的分工新增 Target 直接声明案例，Codex Linux 实际执行 44/44 通过；当前审阅状态以 E3/HUMAN_REVIEW.md 和各案例 review.json 为准。DRAFT、Macro、Implicit 及最终汇总按组内分工整合。

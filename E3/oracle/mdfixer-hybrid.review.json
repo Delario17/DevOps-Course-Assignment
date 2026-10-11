@@ -1,0 +1,26 @@
+{
+  "schema_version": "e3-mdfixer-review-v1",
+  "case": "HYBRID",
+  "subject_commit": "4f13da22499dbee5ad3b63360e5b8b0af1bfcf98",
+  "oracle_path": "oracle/mdfixer-hybrid.expected.json",
+  "oracle_sha256": "ab227343843e0ccf6ad25f5a9b074a200cc750438b2890b2d68347bb6ef529cd",
+  "evidence_directory": "evidence/mdfixer-hybrid/20261009T133714630641+0800",
+  "observations_sha256": "8c2ca8a31259af8f9dc31eff4b140915ba7651a33cf2291d98e27228b3f137e4",
+  "technical_validation": {
+    "status": "PASS",
+    "assertions_passed": 40,
+    "assertions_total": 40,
+    "commands": 39
+  },
+  "review_status": "APPROVED_WITH_AI_ASSISTED_REVIEW",
+  "reviewer": {
+    "name": "盛浩宇",
+    "student_id": "241250008",
+    "github": "lejuwujiang258"
+  },
+  "confirmation_date": "2026-10-09",
+  "confirmation_basis": "本人发起 Hybrid 脚本复现并报告结果；阅读 Codex 辅助核查结论后明确回复：已阅读并确认一致。",
+  "execution_provenance": "盛浩宇",
+  "review_record": "HUMAN_REVIEW.md",
+  "status_note": "This sidecar records the current review state of the exact hashed input and evidence. PENDING_HUMAN_REVIEW in immutable preparation/run snapshots is historical and is not rewritten."
+}

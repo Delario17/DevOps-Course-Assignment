@@ -1,71 +1,64 @@
-# B08 E3：MDFixer 混合声明修复基线
+# B08 E3：MDFixer Hybrid 与 Target 修复基线
 
-本目录当前交付一个 HYBRID 声明风格的 MDFixer 参考案例：固定 MD 输入、原始项目、参考补丁、失败候选，以及实际 Linux 验证和恢复记录。
-它用于 E3 测试基线准备，不表示 MDFixer 自动修复服务已经实现，也不代表 B08 的 DRAFT 和其他声明风格已经完成。
+盛浩宇（241250008）本次负责 Hybrid 文档收尾与 Target 直接声明案例。本目录提供两套可复现的固定输入、参考修复、失败候选以及 Linux 验证证据。
+原 Hybrid 材料已通过 [PR #2](https://github.com/Delario17/DevOps-Course-Assignment/pull/2) 合并至 main；本次在其基础上增加 Target。
 
-## 已完成的这一块
+## 交付入口
 
-| 内容 | 文件或目录 |
-|---|---|
-| 版本固定的故障项目 | `fixtures/mdfixer-hybrid/` |
-| MD-only 人工参考输入及预期 | `oracle/mdfixer-hybrid.expected.json` |
-| 参考修复 | `patches/mdfixer-hybrid.reference.patch` |
-| 故意失败的候选 | `patches/mdfixer-hybrid.invalid.patch` |
-| 一键行为验证与恢复 | `scripts/run_mdfixer_hybrid.py` |
-| 最终脚本真实运行记录 | `evidence/mdfixer-hybrid/20261009T123645645063+0800/` |
-| 盛浩宇本人发起的复现记录 | [`个人复现 README`](evidence/mdfixer-hybrid/20261009T133714630641+0800/README.md)、[`完整 observations.json`](evidence/mdfixer-hybrid/20261009T133714630641+0800/observations.json) |
-| 个人操作与提交步骤 | `MANUAL_STEPS.md` |
-| 贡献、AI 使用、人工审阅 | `CONTRIBUTIONS.md`、`AI_USAGE.md`、`HUMAN_REVIEW.md` |
-
-固定样例在 B08 本地真实提交 `4f13da22499dbee5ad3b63360e5b8b0af1bfcf98` 中；此提交必须与后续验证材料一起保留，合并时保留原始提交历史。
-A08 源码归属与固定参考版本见 `fixtures/mdfixer-hybrid/SOURCE.md`。
-
-## 为什么是 HYBRID
-
-目标声明是 `build/main.o: src/main.c $(HEADERS)`，既有直接文件项，也有头文件变量项。
-原 Makefile 的 HEADERS 漏掉 include/config.h，又额外声明 include/unused.h。参考补丁只在 HEADERS 加入 config.h，保留已有 RD。
-本次不宣称所有 MD/RD 已消除。
-
-## 成功标准及已观察结果
-
-| 阶段 | 标准 | 2026-10-09 实际结果 |
+| 材料 | Hybrid 混合声明 | Target 直接声明 |
 |---|---|---|
-| 初始完整构建，CONFIG_VALUE=4 | 输出 10 | 10 |
-| 修复前改为 5，不 clean | 仍输出 10，产物未更新 | 10 |
-| 相同源码完整重建 | 输出 11 | 11 |
-| 参考修复后恢复 4，完整构建 | 输出 10 | 10 |
-| 修复后改为 5，不 clean | 重编译，输出 11 | 11 |
-| 修复后再改为 6，不 clean | 再次重编译，输出 12 | 12 |
-| 加入 false 失败候选 | 构建非零，拒绝候选 | 退出码 2，REJECTED |
-| 恢复候选应用前的有效 Makefile | 字节一致，构建及运行通过 | 输出 12，PASSED |
+| 故障项目及来源 | [fixtures/mdfixer-hybrid/](fixtures/mdfixer-hybrid/) | [fixtures/mdfixer-target/](fixtures/mdfixer-target/) |
+| 固定样例提交 | `4f13da22499dbee5ad3b63360e5b8b0af1bfcf98` | `b2d5709275471d4264215f6d40bd4bdd3bbfdd8a` |
+| MD-only 参考 Oracle | [expected.json](oracle/mdfixer-hybrid.expected.json) | [expected.json](oracle/mdfixer-target.expected.json) |
+| 当前审阅状态及输入哈希 | [review.json](oracle/mdfixer-hybrid.review.json) | [review.json](oracle/mdfixer-target.review.json) |
+| 参考补丁 | [reference.patch](patches/mdfixer-hybrid.reference.patch) | [reference.patch](patches/mdfixer-target.reference.patch) |
+| 无效补丁 | [invalid.patch](patches/mdfixer-hybrid.invalid.patch) | [invalid.patch](patches/mdfixer-target.invalid.patch) |
+| 独立执行脚本 | [run_mdfixer_hybrid.py](scripts/run_mdfixer_hybrid.py) | [run_mdfixer_target.py](scripts/run_mdfixer_target.py) |
+| 主要实际证据 | [本人复现记录](evidence/mdfixer-hybrid/20261009T133714630641+0800/README.md) | [Codex 执行记录](evidence/mdfixer-target/20261011T110959885929+0800/README.md) |
+| 当前技术验收 | 40/40 PASS，39 条命令 | 44/44 PASS，39 条命令 |
+| 当前成员确认 | 已确认，2026-10-09 | 待成员阅读确认 |
 
-首轮与最终脚本验证由 Codex 在现有 Ubuntu 24.04 WSL 中执行，均为 40/40 项断言通过、39 条命令已记录。GCC 13.3.0、GNU Make 4.3、Python 3.12.3、x86_64，实测配置为 `b08-hybrid-74f06528d5480265`。
-首次运行目录 `20261009T123151981838+0800/` 保留为历史证据；最终脚本将子进程环境限定为 Linux 默认 PATH 和固定语言设置，并再次通过 40/40。
-盛浩宇于 2026-10-09 13:37 本人发起同一脚本复现，结果为 40/40 PASS，39 条命令有完整日志；上述结果表与本次个人运行一致。Codex 应本人请求核对 README、JSON、命令日志、补丁快照和哈希，技术证据均通过。
-盛浩宇已阅读并明确确认辅助核查结论与本人运行结果一致，个人确认记录见 `HUMAN_REVIEW.md`。运行快照中的 pending 标记保留执行时状态，不回写历史日志。
+Target 的说明及验收清单见 [TARGET_README.md](TARGET_README.md)。本人操作见 [MANUAL_STEPS.md](MANUAL_STEPS.md)；贡献、AI 使用和人工确认分别见 [CONTRIBUTIONS.md](CONTRIBUTIONS.md)、[AI_USAGE.md](AI_USAGE.md)、[HUMAN_REVIEW.md](HUMAN_REVIEW.md)。
 
-## Linux 一键重跑
+## 两种声明的区别
 
-从本仓库根目录执行，工具需要 python3、gcc、make、git：
+Hybrid 原规则为 `build/main.o: src/main.c $(HEADERS)`，直接文件与依赖变量混合；HEADERS 漏掉 config.h，额外保留 unused.h。补丁只补 MD，既有 RD 保留。
+Target 原规则为 `build/main.o: src/main.c include/common.h`，依赖全部写成直接文件名；补丁直接在目标行补上 include/config.h，没有项目内 RD。CC/CFLAGS 等编译选项变量不影响依赖声明分类。Target 对应 E2 枚举 `DEPENDENCY_LIST`。
+
+## 已观察的行为
+
+| 阶段 | Hybrid | Target |
+|---|---|---|
+| 初始 CONFIG_VALUE=4，完整构建 | 10 | 10 |
+| 修复前只改 4→5，普通构建 | 仍为 10，产物未更新 | 仍为 10，产物未更新 |
+| 相同源码 clean 后重新构建 | 11 | 11 |
+| 修复后恢复 4，完整构建 | 10 | 10 |
+| 修复后只改 4→5，不 clean | 自动重编译，11 | 自动重编译，11 |
+| 修复后只改 5→6，不 clean | 自动重编译，12 | 自动重编译，12 |
+| 加入 false 的无效候选 | 退出码 2，REJECTED | 退出码 2，REJECTED |
+| 恢复上一份有效 Makefile | 字节一致，重建输出 12 | 字节一致，重建输出 12 |
+
+环境：Ubuntu 24.04 WSL、x86_64、GCC 13.3.0、GNU Make 4.3、Python 3.12.3。配置标识分别为 `b08-hybrid-74f06528d5480265` 和 `b08-target-74f06528d5480265`；源码版本独立记录。此执行未使用 Docker 镜像。
+
+## Linux 执行
+
+从仓库根目录运行，需要 python3、gcc、make、git，无需 pip 安装：
 
 ```bash
 python3 E3/scripts/run_mdfixer_hybrid.py --operator "姓名（本人发起脚本复现）"
+python3 E3/scripts/run_mdfixer_target.py --operator "姓名（本人发起脚本复现）"
 ```
 
-每次创建新的 evidence/mdfixer-hybrid/时间目录，不覆盖旧证据。
-脚本先核对源码与固定提交一致，再复制到 Linux 临时目录执行实验；不在仓库源码上运行 make clean，也不把参考补丁永久应用到故障样例。
-参考补丁和失败补丁的应用目录都是临时样例根目录，补丁路径中的 Makefile 指向该目录的 Makefile。
-当前脚本仅使用 Python 标准库，不需要 pip 安装；Docker 不是此案例的运行前提。
+脚本核对固定提交的源码后，在 Linux 临时目录构建、应用补丁及恢复；故障 Fixture 保持原样。每次生成独立时间目录，不覆盖旧证据。
+参考补丁从原始 Makefile 应用；无效补丁从已接受的参考 Makefile 应用；应用位置均为临时样例根目录。
 
-## 输入和证据边界
+## Hybrid 状态收尾
 
-oracle 文件是 E3 人工参考材料，包含来源、范围和待审阅状态；并未伪装为 BuildChecker 或 MDFixer 的真实服务输出。
-reference-validation.json 的 ACCEPTED 和 rejected-candidate.json 的 REJECTED 是本脚本的参考验证决定。
-本次证据不生成真实检测器报告或 API Job，也不修改已经通过评审的 E2 契约。
-配置标识依据实际系统、架构、工具链与关键选项生成；源码 SHA 独立记录。WSL 运行没有镜像 ID。
+旧 Oracle、SOURCE.md、运行 README 和 observations.json 的 pending 是准备或执行时的快照。随后完成的个人确认见 HUMAN_REVIEW.md。
+本次新增 review.json，绑定原 Oracle 和个人复现 observations.json 的 SHA-256，作为当前审阅状态入口；原始文件和 2026-10-09 三次运行证据均保持字节不变。
+因此“已确认”的当前状态与历史 pending 有明确时间顺序，旧输入哈希与实验溯源仍然成立。
 
-## B08 组级任务仍需其他成员协调
+## 组内衔接
 
-- DRAFT 的失败环境、参考成功环境和功能验证。
-- 其余直接声明、纯变量声明、隐式规则与 .d 文件案例。
-- 本案例的盛浩宇个人复现和确认已记录；组长负责整合与提交。
+本交付是 E3 测试基线：验证已知参考补丁，不代表 MDFixer 自动修复服务已实现。Oracle 是注明 AI 辅助来源的参考输入；ACCEPTED/REJECTED 为脚本实验决定，不作为真实检测服务/API Job 输出。
+DRAFT 由王祎负责，Macro 及统一验证入口由朱雨乐负责，Implicit 与最终组级材料由孙博一负责。本次提供两个独立脚本供统一入口调用，最终四人贡献表与总验收由组内汇总。

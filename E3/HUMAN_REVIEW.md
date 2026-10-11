@@ -1,4 +1,6 @@
-# MDFixer HYBRID 复现与人工确认记录
+# MDFixer Hybrid 与 Target 审阅记录
+
+## Hybrid：已确认
 
 - 状态：APPROVED_WITH_AI_ASSISTED_REVIEW。
 - 复现人及确认人：盛浩宇，241250008，GitHub：lejuwujiang258。
@@ -27,3 +29,22 @@
 本 HYBRID 参考案例已由本人发起脚本复现，经 Codex 辅助核查通过，本人已阅读并确认核查结论与运行结果一致。
 此记录不声称本人逐条手工执行了脚本内命令，也不声称本人独立实现了 MDFixer 服务。
 原始运行目录中的执行者、时间和 PENDING_HUMAN_REVIEW 保持执行时快照，不回写；本文件记录随后完成的个人确认。
+
+## 当前 Hybrid 审阅入口（2026-10-11 整理）
+
+当前状态仍为 APPROVED_WITH_AI_ASSISTED_REVIEW。本次新增 oracle/mdfixer-hybrid.review.json，绑定原始 Oracle 和已确认个人复现记录的 SHA-256；没有新增人工签名，也没有改写历史 pending 或执行记录。
+原 Hybrid 已由 PR #2 合并 main，原确认继续有效。
+
+## Target：待成员确认
+
+- 技术验收状态：PASS；44/44 项实验断言，39 条命令。
+- 实际执行者：Codex automated Linux execution for Sheng Haoyu; Target human review pending。
+- 运行时间：2026-10-11 11:09:59 至 11:10:07，北京时间。
+- 固定样例提交：`b2d5709275471d4264215f6d40bd4bdd3bbfdd8a`。
+- 证据目录：`evidence/mdfixer-target/20261011T110959885929+0800/`。
+- 辅助核查：Codex 对固定源码、脚本/Oracle/Patch 哈希、捕获补丁、命令与 JSON、阶段输出和精确恢复完成核对，均相符。
+- 技术事实：修复前头文件 4→5 增量仍输出 10，完整重建为 11；修复后两次增量为 11、12，均重编译；无效候选退出码 2，被拒绝后恢复有效 Makefile，重建输出 12。
+- 成员确认：待盛浩宇阅读辅助核查结论后明确确认；不沿用 2026-10-09 对 Hybrid 的确认。
+- 当前状态索引：`oracle/mdfixer-target.review.json`；原运行快照不回写。
+
+此处不声明盛浩宇本人执行了本次 Target 实验。后续本人若重跑，另记实际执行事实和新的证据目录。

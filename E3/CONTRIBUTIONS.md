@@ -1,6 +1,8 @@
-# MDFixer HYBRID 案例个人贡献
+# 盛浩宇：MDFixer Hybrid 与 Target 个人贡献
 
-本文件只记录这一块案例，不代表整个 B08 E3 分工。
+本文件记录盛浩宇负责的 Hybrid 收尾和 Target 案例；最终四人贡献表由汇总负责人整合。
+
+## Hybrid 历史贡献（2026-10-09）
 
 | 项目 | 填写或记录 |
 |---|---|
@@ -21,4 +23,21 @@
 
 本地 Git 使用已有配置的提交身份。Git 作者信息与实验实际执行者分别记录；本轮自动实验不能标为本人手工执行。
 
-姓名、学号和 GitHub 账号与既有 E2/CONTRIBUTIONS.md 一致。本人的 E3 实际贡献为发起并完成 Linux 脚本复现、提供实际结果并阅读确认辅助核查结论；参考补丁和验证脚本由 Codex 辅助编写，不将其描述为本人独立手写。
+姓名、学号和 GitHub 账号与既有 E2/CONTRIBUTIONS.md 一致。原 Hybrid 阶段本人的实际贡献为发起并完成 Linux 脚本复现、提供实际结果并阅读确认辅助核查结论；参考补丁和验证脚本由 Codex 辅助编写，不将其描述为本人独立手写。
+
+## 新分工补充（2026-10-11）
+
+| 项目 | 记录 |
+|---|---|
+| 本次负责人 | 盛浩宇，241250008，lejuwujiang258 |
+| 分工与分支 | Hybrid 收尾与 Target 声明案例；`b08/e3-mdfixer-target` |
+| 原 Hybrid 合并 | [PR #2](https://github.com/Delario17/DevOps-Course-Assignment/pull/2)，main 合并版本 `59f45051ca7904247198b3aba6800b6f194333eb` |
+| Hybrid 收尾 | 更新当前交付和操作说明；新增绑定原始输入哈希的 review.json；原 Fixture、Oracle 与三次证据保持不变 |
+| Target 新材料 | 直接声明 Fixture、MD-only Oracle、参考/无效 Patch、独立验证脚本、日志、案例说明 |
+| Target 固定提交 | `b2d5709275471d4264215f6d40bd4bdd3bbfdd8a`，包含 7 个版本固定的 Fixture 文件 |
+| Target 实际执行者 | Codex；未记为盛浩宇本人发起复现 |
+| Target 实际证据 | `evidence/mdfixer-target/20261011T110959885929+0800/`，44/44 PASS，39 条命令，配置 `b08-target-74f06528d5480265` |
+| 新材料审阅状态 | Target 等待本人阅读辅助核查结论；见 HUMAN_REVIEW.md 与 Target review.json |
+| AI 使用 | 用户请求并指定分工，Codex 辅助编写、执行及核查；原 A08 归属沿用 SOURCE.md |
+
+本轮代码与材料的提交 SHA 将在提交后回填。此个人贡献说明不代填其他成员的交付完成情况。
