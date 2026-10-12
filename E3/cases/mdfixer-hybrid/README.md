@@ -44,3 +44,38 @@ python3 E3/cases/mdfixer-hybrid/scripts/run.py --operator "姓名（本人发起
 ```
 
 脚本将 fixture 复制到 Linux 临时目录完成补丁实验，原始故障样例保持不变；新证据按时间写入 `evidence/`。
+
+## 盛浩宇负责的 Target 子案例（2026-10-12 迁入）
+
+按照本成员目录安排，Target 直接声明案例放在 [target/](target/README.md)，包含 fixture、oracle、patches、scripts 和 evidence；当前目录的主 fixture 和脚本仍为 Hybrid。
+Target 原始任务分支 `b08/e3-mdfixer-target` 已保留，本次新分支为 `b08/e3-mdfixer-hybrid-layout`，基于组长目录调整后的 main `d27dc4c`。
+
+| Target 交付 | 入口 |
+|---|---|
+| 直接声明故障项目 | [target/fixture/](target/fixture/) |
+| MD-only 固定输入 | [target/oracle/expected.json](target/oracle/expected.json) |
+| 参考/无效 Patch | [reference.patch](target/patches/reference.patch)、[invalid.patch](target/patches/invalid.patch) |
+| 执行脚本 | [target/scripts/run.py](target/scripts/run.py) |
+| 原 44/44 实际证据 | [2026-10-11 记录](target/evidence/20261011T110959885929+0800/README.md) |
+
+Target 规则直接声明 `src/main.c include/common.h`，参考补丁直接补入 config.h，不使用依赖变量，没有项目内 RD。原行为及 Patch 保持不变；迁移后固定 Fixture 提交为 `a03812e0ec7bd689762fdb18cdfc66a07ef7f954`，与旧版本的源码/Makefile 字节相同，仅来源和路径说明更新。
+
+```bash
+python3 E3/cases/mdfixer-hybrid/target/scripts/run.py --operator "姓名（本人发起复现）"
+```
+
+Hybrid 与 Target 的原成员确认分别保留 2026-10-09 和 2026-10-11 的真实日期，详情见 [REVIEW.md](REVIEW.md)。[Hybrid review.json](oracle/review.json) 与 [Target review.json](target/oracle/review.json) 绑定当时确认的原始 input/md-report.json 和 observations.json；当前 Oracle 单独记录哈希与迁移关系，不将新的 AI 运行写成人工执行。
+原日志只移动位置，原始时间、路径、执行者、pending 和哈希全部保留。迁移映射见 [MIGRATION.md](MIGRATION.md)，提交步骤见 [MANUAL_STEPS.md](MANUAL_STEPS.md)。
+
+## 迁移后的实际验收
+
+2026-10-12 在 Ubuntu 24.04 WSL、x86_64、GCC 13.3.0、GNU Make 4.3、Python 3.12.3 下，由 Codex 执行新入口：
+
+| 案例 | 检查结果 | 原始命令数 | 新证据 |
+|---|---|---|---|
+| Hybrid | 40/40 PASS | 39 | [运行 README](evidence/20261012T144643089037+0800/README.md)、[observations.json](evidence/20261012T144643089037+0800/observations.json) |
+| Target | 44/44 PASS | 39 | [运行 README](target/evidence/20261012T144600994684+0800/README.md)、[observations.json](target/evidence/20261012T144600994684+0800/observations.json) |
+
+两套案例均复现修复前增量旧值、修复后两次自动重编译、无效候选退出码 2、拒绝与精确恢复成功。新输入、脚本和源码哈希由新日志记录；原始故障源码保持不变。
+
+迁移完整性核查见 [MIGRATION_VALIDATION.json](MIGRATION_VALIDATION.json)：44 个历史证据文件逐字节一致，两套新日志与 JSON/哈希相符，固定提交可由新分支历史取得，当前链接有效，PR 变更仅涉及本成员目录。

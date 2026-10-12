@@ -1,0 +1,256 @@
+{
+  "schema_version": "e3-mdfixer-migration-integrity-v1",
+  "date": "2026-10-12",
+  "auditor": "Codex",
+  "status": "PASS",
+  "base_main_commit": "d27dc4c78609d6e196c93d10a36ef21e7c722034",
+  "historical_evidence_files_preserved": 44,
+  "original_evidence": [
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123151981838+0800/README.md",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123151981838+0800/README.md",
+      "sha256": "f7a0d1e60272ca6299bed65e051654d36e5842566f462f92b79910d696468986"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123151981838+0800/commands.txt",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123151981838+0800/commands.txt",
+      "sha256": "4a7d91778d6617ec12c276570fd66df133ddb6eab598c9d2e0d14102741bc1ff"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123151981838+0800/input/Makefile.before",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123151981838+0800/input/Makefile.before",
+      "sha256": "2792f60f8c09f0cbadbcbae146d21518584947590d2cb1aeef408f2fdf3a172d"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123151981838+0800/input/Makefile.invalid",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123151981838+0800/input/Makefile.invalid",
+      "sha256": "4c2b5bbfbc6774b3d34042af97034e3dc14c875928ccc36a066edd2002e13870"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123151981838+0800/input/Makefile.reference",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123151981838+0800/input/Makefile.reference",
+      "sha256": "d4b170d14482272ecafc3ec01c73e887e6e724640300adba49000285f715181a"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123151981838+0800/input/invalid.patch",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123151981838+0800/input/invalid.patch",
+      "sha256": "98d105b9c88fe3f7e21cfa1533a182a570d15698f377963d796f57a7fb9f25ee"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123151981838+0800/input/md-report.json",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123151981838+0800/input/md-report.json",
+      "sha256": "ab227343843e0ccf6ad25f5a9b074a200cc750438b2890b2d68347bb6ef529cd"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123151981838+0800/input/reference.patch",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123151981838+0800/input/reference.patch",
+      "sha256": "a7a1331216672846916d84131dfb6b3443c3d5d003d7c2a03eced3ae7027ebe2"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123151981838+0800/observations.json",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123151981838+0800/observations.json",
+      "sha256": "7edaee25cbbcf19741f3601bcc7d347fb82368d03203642436caba7ded11cc42"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123151981838+0800/reference-validation.json",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123151981838+0800/reference-validation.json",
+      "sha256": "0e3f8b64e3ef9fa6287f1322fdac52539a978bf77965fa99d59f958552dff9f4"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123151981838+0800/rejected-candidate.json",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123151981838+0800/rejected-candidate.json",
+      "sha256": "23e7d84789ea72cf657b913894cb0940fa9bfe08604c8150c945fdb5000263fc"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123645645063+0800/README.md",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123645645063+0800/README.md",
+      "sha256": "c6c9a8f0fd5ddb4927339ea161da702e227986f1f1e73211a151f291129fad77"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123645645063+0800/commands.txt",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123645645063+0800/commands.txt",
+      "sha256": "a10348e6e92d1ce0732f088d1c1d064412ec60c1b09e67f4cbe34dc35b689aa4"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123645645063+0800/input/Makefile.before",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123645645063+0800/input/Makefile.before",
+      "sha256": "2792f60f8c09f0cbadbcbae146d21518584947590d2cb1aeef408f2fdf3a172d"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123645645063+0800/input/Makefile.invalid",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123645645063+0800/input/Makefile.invalid",
+      "sha256": "4c2b5bbfbc6774b3d34042af97034e3dc14c875928ccc36a066edd2002e13870"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123645645063+0800/input/Makefile.reference",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123645645063+0800/input/Makefile.reference",
+      "sha256": "d4b170d14482272ecafc3ec01c73e887e6e724640300adba49000285f715181a"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123645645063+0800/input/invalid.patch",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123645645063+0800/input/invalid.patch",
+      "sha256": "98d105b9c88fe3f7e21cfa1533a182a570d15698f377963d796f57a7fb9f25ee"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123645645063+0800/input/md-report.json",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123645645063+0800/input/md-report.json",
+      "sha256": "ab227343843e0ccf6ad25f5a9b074a200cc750438b2890b2d68347bb6ef529cd"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123645645063+0800/input/reference.patch",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123645645063+0800/input/reference.patch",
+      "sha256": "a7a1331216672846916d84131dfb6b3443c3d5d003d7c2a03eced3ae7027ebe2"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123645645063+0800/observations.json",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123645645063+0800/observations.json",
+      "sha256": "f32d4859b28a4474e0ad90db71be3ddcca0c3885f06e2923fd473149d3c1d7a4"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123645645063+0800/reference-validation.json",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123645645063+0800/reference-validation.json",
+      "sha256": "0e3f8b64e3ef9fa6287f1322fdac52539a978bf77965fa99d59f958552dff9f4"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T123645645063+0800/rejected-candidate.json",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T123645645063+0800/rejected-candidate.json",
+      "sha256": "23e7d84789ea72cf657b913894cb0940fa9bfe08604c8150c945fdb5000263fc"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T133714630641+0800/README.md",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T133714630641+0800/README.md",
+      "sha256": "ae05ce6ff11808c25119b3b7ae88243e7877ca595004e001e2f30984e404d6df"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T133714630641+0800/commands.txt",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T133714630641+0800/commands.txt",
+      "sha256": "60f12b2a0ef2088fd65333e7dfa1f8a7d495e2d626f4c57a88ed107d4d56c771"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T133714630641+0800/input/Makefile.before",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T133714630641+0800/input/Makefile.before",
+      "sha256": "2792f60f8c09f0cbadbcbae146d21518584947590d2cb1aeef408f2fdf3a172d"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T133714630641+0800/input/Makefile.invalid",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T133714630641+0800/input/Makefile.invalid",
+      "sha256": "4c2b5bbfbc6774b3d34042af97034e3dc14c875928ccc36a066edd2002e13870"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T133714630641+0800/input/Makefile.reference",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T133714630641+0800/input/Makefile.reference",
+      "sha256": "d4b170d14482272ecafc3ec01c73e887e6e724640300adba49000285f715181a"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T133714630641+0800/input/invalid.patch",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T133714630641+0800/input/invalid.patch",
+      "sha256": "98d105b9c88fe3f7e21cfa1533a182a570d15698f377963d796f57a7fb9f25ee"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T133714630641+0800/input/md-report.json",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T133714630641+0800/input/md-report.json",
+      "sha256": "ab227343843e0ccf6ad25f5a9b074a200cc750438b2890b2d68347bb6ef529cd"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T133714630641+0800/input/reference.patch",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T133714630641+0800/input/reference.patch",
+      "sha256": "a7a1331216672846916d84131dfb6b3443c3d5d003d7c2a03eced3ae7027ebe2"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T133714630641+0800/observations.json",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T133714630641+0800/observations.json",
+      "sha256": "8c2ca8a31259af8f9dc31eff4b140915ba7651a33cf2291d98e27228b3f137e4"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T133714630641+0800/reference-validation.json",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T133714630641+0800/reference-validation.json",
+      "sha256": "0e3f8b64e3ef9fa6287f1322fdac52539a978bf77965fa99d59f958552dff9f4"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-hybrid/20261009T133714630641+0800/rejected-candidate.json",
+      "current_path": "E3/cases/mdfixer-hybrid/evidence/20261009T133714630641+0800/rejected-candidate.json",
+      "sha256": "23e7d84789ea72cf657b913894cb0940fa9bfe08604c8150c945fdb5000263fc"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/README.md",
+      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/README.md",
+      "sha256": "507218b34e4f4adf05d860ce2cca89eb62b6231747c75c27e2585c663be559a0"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/commands.txt",
+      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/commands.txt",
+      "sha256": "5c5386901a4e501104d35d23cebba9e4fae1177dad29eae6d984229a3a3d497b"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/input/Makefile.before",
+      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/input/Makefile.before",
+      "sha256": "28c9d64ac79dfc43895b3b2331851ef2ca013075cdde9b332fc7bf0a3e2a0ebb"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/input/Makefile.invalid",
+      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/input/Makefile.invalid",
+      "sha256": "e0a6f8c057dd36d5d3fdc23f366166e5cfb413cebd81a79ba06d862fd2d0438c"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/input/Makefile.reference",
+      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/input/Makefile.reference",
+      "sha256": "ad26f6918d12f4a51b97554b6eec4b41b4579f85c3fbc9072420a0b0144b8efa"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/input/invalid.patch",
+      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/input/invalid.patch",
+      "sha256": "59e832162f37ff3be4183ef0a1c9ba85f6c1234485dd4b3dfa875ba9d5cccf8d"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/input/md-report.json",
+      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/input/md-report.json",
+      "sha256": "bb9586ede1341485500f084232b91a410ff2b3fca7d5ca689af607409c681510"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/input/reference.patch",
+      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/input/reference.patch",
+      "sha256": "ed35042b86dd176ba4eecfe08418ae397e97a4612b7e1d2896db0403ae780741"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/observations.json",
+      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/observations.json",
+      "sha256": "6170dc33ddc9d96d80ec035db6acb49865839dbf0bef6afa6c43f720a4055afd"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/reference-validation.json",
+      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/reference-validation.json",
+      "sha256": "2e977382af021b485d1ff05469f4cb3155a11c414995709b58dee8da78ce43bb"
+    },
+    {
+      "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/rejected-candidate.json",
+      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/rejected-candidate.json",
+      "sha256": "23e7d84789ea72cf657b913894cb0940fa9bfe08604c8150c945fdb5000263fc"
+    }
+  ],
+  "new_linux_validations": [
+    {
+      "style": "HYBRID",
+      "status": "PASS",
+      "assertions": "40/40",
+      "commands": 39,
+      "evidence_directory": "E3/cases/mdfixer-hybrid/evidence/20261012T144643089037+0800",
+      "observations_sha256": "cfc3c499b742272cbda0c8470b138c07890ecbe835ebf8935d4a75925bae8e92"
+    },
+    {
+      "style": "TARGET",
+      "status": "PASS",
+      "assertions": "44/44",
+      "commands": 39,
+      "evidence_directory": "E3/cases/mdfixer-hybrid/target/evidence/20261012T144600994684+0800",
+      "observations_sha256": "c9a9fafb023b86e04d8aa280959bfdb62ff63185ace3970d1b3ef3d9e77c668b"
+    }
+  ],
+  "source_and_patch_content_unchanged": true,
+  "oracle_behavior_and_findings_unchanged": true,
+  "fixed_source_commits_are_ancestors_of_migration_branch": true,
+  "review_hash_bindings_valid": true,
+  "raw_command_logs_match_json": true,
+  "current_markdown_links_resolve": true,
+  "change_scope": "E3/cases/mdfixer-hybrid/",
+  "human_review_note": "Retains earlier exact-input member confirmations; this audit and the new runs are Codex execution."
+}
