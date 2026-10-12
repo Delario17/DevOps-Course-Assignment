@@ -44,7 +44,7 @@ python3 E3/scripts/run_draft_baseline.py \
 
 ## 最终验证结果
 
-王祎于 2026-10-12 在 macOS arm64 和 Docker Desktop 环境发起完整复现，证据位于 `evidence/draft-tiny-greeting/20261012T105358976530+0800/`：
+王祎于 2026-10-12 在 macOS arm64 和 Docker Desktop 环境发起完整复现，证据位于 `evidence/draft-tiny-greeting/20261012T105358976530+0800/`，对应提交为 `acdea5f45ed6ab73c600b8ffb438f8e9605c2847`：
 
 | 检查项 | 实际结果 |
 |---|---|

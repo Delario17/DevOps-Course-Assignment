@@ -5,6 +5,7 @@
 - 当前状态：`APPROVED_WITH_AI_ASSISTED_REVIEW`。
 - 本人复现：王祎于 2026-10-12 10:53:58 至 11:02:33 发起 Docker 验证。
 - 最终证据：`evidence/draft-tiny-greeting/20261012T105358976530+0800/`。
+- 最终证据提交：`acdea5f45ed6ab73c600b8ffb438f8e9605c2847`。
 - 运行时提交：`312fdd9b63a0711defb4531545cd4caf639673c0`。
 - 运行环境：macOS 26.6.2 arm64、Python 3.12.14、Docker Desktop 4.94.0、Docker Engine 29.8.2。
 - 技术核查：Codex 应王祎请求检查 JSON、命令日志、失败签名、镜像元数据和文件哈希。

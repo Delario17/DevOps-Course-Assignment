@@ -44,4 +44,5 @@
 - 本人复现：王祎于 2026-10-12 使用 Python 3.12.14 和 Docker Desktop 4.94.0 发起 `--docker required` 完整验证。
 - 最终结果：24/24 项断言通过，19 条命令完整记录；失败镜像退出码 1，参考容器输出 `hello E3`。
 - 最终证据：`evidence/draft-tiny-greeting/20261012T105358976530+0800/`。
+- 最终证据提交：`acdea5f45ed6ab73c600b8ffb438f8e9605c2847`。
 - 辅助审阅：Codex 核对 JSON、命令日志、镜像 digest、镜像 ID、失败签名和文件哈希，并更新 DRAFT 提交材料。

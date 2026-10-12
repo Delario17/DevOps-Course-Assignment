@@ -35,6 +35,7 @@
 | 准备阶段执行 | Codex 在 macOS 发起本机构建与功能验证，18/18 项断言通过 |
 | 本人完整复现 | 王祎于 2026-10-12 10:53:58 至 11:02:33 发起 Docker 验证，24/24 PASS，19 条命令 |
 | 最终证据 | `evidence/draft-tiny-greeting/20261012T105358976530+0800/` |
+| 最终证据提交 | `acdea5f45ed6ab73c600b8ffb438f8e9605c2847` |
 | 运行时仓库提交 | `312fdd9b63a0711defb4531545cd4caf639673c0` |
 | 实际环境 | macOS 26.6.2 arm64、Python 3.12.14、Docker Desktop 4.94.0、Docker Engine 29.8.2 |
 | 复现结果 | 失败镜像退出码 1；参考镜像成功；容器输出 `hello E3`，退出码 0 |
