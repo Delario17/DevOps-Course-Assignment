@@ -51,10 +51,11 @@
 | 本次提交范围 | `E3/cases/mdfixer-hybrid/`；Target 在该目录的 target/ 子案例 |
 | 旧材料备份 | 旧分支及 backup/e3-mdfixer-target-before-layout-20261012 保留；文件 ZIP 与完整 Git bundle 已另存并校验 |
 | 当前 Target 固定提交 | `a03812e0ec7bd689762fdb18cdfc66a07ef7f954`；新路径源码版本，Makefile/C/头文件与原 Target 字节一致 |
+| 迁移实现与证据提交 | `c192a41b9878106f47872239db2b7b55805ea97a`；仅涉及 E3/cases/mdfixer-hybrid/，包含路径适配、历史证据、两套新 Linux 记录和迁移完整性报告 |
 | 当前执行入口 | `E3/cases/mdfixer-hybrid/scripts/run.py`、`E3/cases/mdfixer-hybrid/target/scripts/run.py` |
 | Hybrid 新路径验证 | `evidence/20261012T144643089037+0800/`，40/40 PASS、39 条命令 |
 | Target 新路径验证 | `target/evidence/20261012T144600994684+0800/`，44/44 PASS、39 条命令 |
 | 本次实际执行及核查 | Codex；原成员确认继续指向 2026-10-09/11 的原始材料，不虚填新的本人执行 |
 | AI 辅助工作 | 备份、迁移、路径适配、现行输入版本绑定、Linux 验证、完整性及提交范围检查 |
 
-本次迁移实现与证据的实际提交 SHA 在提交后独立回填。
+本次固定 Fixture 和迁移实现的实际提交 SHA 已回填；本表随后单独提交记录真实 SHA。

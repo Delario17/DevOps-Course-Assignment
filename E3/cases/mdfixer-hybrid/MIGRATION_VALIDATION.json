@@ -245,7 +245,7 @@
       "observations_sha256": "c9a9fafb023b86e04d8aa280959bfdb62ff63185ace3970d1b3ef3d9e77c668b"
     }
   ],
-  "source_and_patch_content_unchanged": true,
+  "source_code_makefile_and_patch_content_unchanged": true,
   "oracle_behavior_and_findings_unchanged": true,
   "fixed_source_commits_are_ancestors_of_migration_branch": true,
   "review_hash_bindings_valid": true,
