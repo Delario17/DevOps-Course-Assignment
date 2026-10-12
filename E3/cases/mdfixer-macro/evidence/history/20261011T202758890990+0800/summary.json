@@ -1,0 +1,69 @@
+{
+  "schema_version": "e3-mdfixer-suite-v1",
+  "started_at": "2026-10-11T20:27:58.890990+08:00",
+  "operator": "朱雨乐（本人发起脚本复现）",
+  "requested": [
+    "available"
+  ],
+  "selected": [
+    "macro",
+    "hybrid"
+  ],
+  "not_an_mdfixer_output": true,
+  "review_status": "PENDING_HUMAN_REVIEW",
+  "runner_sha256": "2fb6752dd8ebfb6d972687121ea8c4e1fd08dbfe967966e72d1e3b8650db2f21",
+  "unavailable": {
+    "target": [
+      "scripts/run_mdfixer_target.py",
+      "fixtures/mdfixer-target/Makefile",
+      "oracle/mdfixer-target.expected.json",
+      "patches/mdfixer-target.reference.patch",
+      "patches/mdfixer-target.invalid.patch"
+    ],
+    "implicit": [
+      "scripts/run_mdfixer_implicit.py",
+      "fixtures/mdfixer-implicit/Makefile",
+      "oracle/mdfixer-implicit.expected.json",
+      "patches/mdfixer-implicit.reference.patch",
+      "patches/mdfixer-implicit.invalid.patch"
+    ]
+  },
+  "cases": [
+    {
+      "case": "macro",
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/scripts/run_mdfixer_macro.py",
+        "--operator",
+        "朱雨乐（本人发起脚本复现）",
+        "--output",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro"
+      ],
+      "exit_code": 0,
+      "assertions_passed": 46,
+      "assertions_total": 46,
+      "evidence": "macro",
+      "evidence_sha256": "4b4d8f588d2818a681ec45e7df4681a2b4919d07664cec682021fea6c2ad4dc6",
+      "status": "PASS"
+    },
+    {
+      "case": "hybrid",
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/scripts/run_mdfixer_hybrid.py",
+        "--operator",
+        "朱雨乐（本人发起脚本复现）",
+        "--output",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid"
+      ],
+      "exit_code": 0,
+      "assertions_passed": 40,
+      "assertions_total": 40,
+      "evidence": "hybrid",
+      "evidence_sha256": "52bf94cac4dd1b1441240a3280873fbb81f1c13d4e71c33a15171da5c5d53c34",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS_SELECTED",
+  "finished_at": "2026-10-11T20:28:12.153956+08:00"
+}

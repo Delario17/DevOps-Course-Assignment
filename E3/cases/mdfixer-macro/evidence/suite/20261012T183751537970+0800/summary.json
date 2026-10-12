@@ -1,0 +1,96 @@
+{
+  "schema_version": "e3-mdfixer-suite-v1",
+  "started_at": "2026-10-12T18:37:51.537970+08:00",
+  "operator": "Codex automated verification after owned-case migration; human reading confirmation not recorded",
+  "requested": [
+    "all"
+  ],
+  "selected": [
+    "target",
+    "macro",
+    "hybrid",
+    "implicit"
+  ],
+  "not_an_mdfixer_output": true,
+  "review_status": "PENDING_HUMAN_REVIEW",
+  "runner_sha256": "09caeec21f9eb23163ad7e55560fb0d236c66e3db367df24999b2e98252905af",
+  "case_directories": {
+    "target": "cases/mdfixer-hybrid/target",
+    "macro": "cases/mdfixer-macro",
+    "hybrid": "cases/mdfixer-hybrid",
+    "implicit": "cases/mdfixer-implicit"
+  },
+  "unavailable": {},
+  "cases": [
+    {
+      "case": "target",
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/cases/mdfixer-hybrid/target/scripts/run.py",
+        "--operator",
+        "Codex automated verification after owned-case migration; human reading confirmation not recorded",
+        "--output",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/cases/mdfixer-macro/evidence/suite/20261012T183751537970+0800/target"
+      ],
+      "exit_code": 0,
+      "assertions_passed": 44,
+      "assertions_total": 44,
+      "evidence": "target",
+      "evidence_sha256": "2716b7a846c6dc4f7e0a837b5d7562d7bbf58c17fe43b7a91e64716214e712a4",
+      "status": "PASS"
+    },
+    {
+      "case": "macro",
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/cases/mdfixer-macro/scripts/run.py",
+        "--operator",
+        "Codex automated verification after owned-case migration; human reading confirmation not recorded",
+        "--output",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/cases/mdfixer-macro/evidence/suite/20261012T183751537970+0800/macro"
+      ],
+      "exit_code": 0,
+      "assertions_passed": 46,
+      "assertions_total": 46,
+      "evidence": "macro",
+      "evidence_sha256": "9ea68e648f16fcab1e2110c4090f7c0507f9b75b09bdb8b2838be981a642fec4",
+      "status": "PASS"
+    },
+    {
+      "case": "hybrid",
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/cases/mdfixer-hybrid/scripts/run.py",
+        "--operator",
+        "Codex automated verification after owned-case migration; human reading confirmation not recorded",
+        "--output",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/cases/mdfixer-macro/evidence/suite/20261012T183751537970+0800/hybrid"
+      ],
+      "exit_code": 0,
+      "assertions_passed": 40,
+      "assertions_total": 40,
+      "evidence": "hybrid",
+      "evidence_sha256": "13fb846237e8e1c8e4a8494588a29dc3fe4e73a9963b3b665f5419a731f1db05",
+      "status": "PASS"
+    },
+    {
+      "case": "implicit",
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/cases/mdfixer-implicit/scripts/run.py",
+        "--operator",
+        "Codex automated verification after owned-case migration; human reading confirmation not recorded",
+        "--output",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/cases/mdfixer-macro/evidence/suite/20261012T183751537970+0800/implicit"
+      ],
+      "exit_code": 0,
+      "assertions_passed": 34,
+      "assertions_total": 34,
+      "evidence": "implicit",
+      "evidence_sha256": "7437a109ac0dcc51f6ac3bea017337f67b5ee03e7bafac6c0d42e3d6a088ca60",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "finished_at": "2026-10-12T18:38:17.351563+08:00"
+}

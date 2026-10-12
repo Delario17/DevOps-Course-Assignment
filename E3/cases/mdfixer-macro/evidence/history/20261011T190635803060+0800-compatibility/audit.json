@@ -1,0 +1,34 @@
+{
+  "method": "Codex local evidence consistency audit",
+  "status": "PASS",
+  "checks": [
+    {
+      "run": "20261011T190635803060+0800-compatibility",
+      "case": "target",
+      "assertions": 44,
+      "commands": 39,
+      "status": "VERIFIED"
+    },
+    {
+      "run": "20261011T190635803060+0800-compatibility",
+      "case": "macro",
+      "assertions": 46,
+      "commands": 42,
+      "status": "VERIFIED"
+    },
+    {
+      "run": "20261011T190635803060+0800-compatibility",
+      "case": "hybrid",
+      "assertions": 40,
+      "commands": 39,
+      "status": "VERIFIED"
+    },
+    {
+      "run": "20261011T190635803060+0800-compatibility",
+      "case": "implicit",
+      "assertions": 34,
+      "commands": 37,
+      "status": "VERIFIED"
+    }
+  ]
+}

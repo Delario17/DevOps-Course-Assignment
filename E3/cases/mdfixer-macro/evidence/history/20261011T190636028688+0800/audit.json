@@ -1,0 +1,20 @@
+{
+  "method": "Codex local evidence consistency audit",
+  "status": "PASS",
+  "checks": [
+    {
+      "run": "20261011T190636028688+0800",
+      "case": "macro",
+      "assertions": 46,
+      "commands": 42,
+      "status": "VERIFIED"
+    },
+    {
+      "run": "20261011T190636028688+0800",
+      "case": "hybrid",
+      "assertions": 40,
+      "commands": 39,
+      "status": "VERIFIED"
+    }
+  ]
+}

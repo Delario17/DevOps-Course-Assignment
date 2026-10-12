@@ -1,0 +1,19 @@
+{
+  "method": "Codex assisted evidence consistency audit after user-initiated reproduction",
+  "status": "PASS",
+  "human_review_confirmation": "NOT_RECORDED",
+  "checks": [
+    {
+      "case": "macro",
+      "assertions": 46,
+      "commands": 42,
+      "status": "VERIFIED"
+    },
+    {
+      "case": "hybrid",
+      "assertions": 40,
+      "commands": 39,
+      "status": "VERIFIED"
+    }
+  ]
+}

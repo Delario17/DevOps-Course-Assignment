@@ -1,0 +1,540 @@
+{
+  "source_commit": "54ee1af68a9801cf723315b0c1efe3cddd4772e1",
+  "files": [
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/PROVENANCE.md",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/PROVENANCE.md",
+      "sha256": "3137a12757128084affa243845c48925e4834498775465a3eeeb876c5b90ac03"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/README.md",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/README.md",
+      "sha256": "6c73129cff0303f6366e5f8dbc2fa0b43f3cfc640d06e57bbae5a6e15a36ddbd"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/audit.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/audit.json",
+      "sha256": "6880fd03f09f6278a95ed296e16886822150da5ae14155c1e101e518d6b7251b"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/hybrid.runner.txt",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/hybrid.runner.txt",
+      "sha256": "dcaa7b13516a82731ff806980429d8df240b3f2c51862f6edc9c78813d0db97e"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/hybrid/README.md",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/hybrid/README.md",
+      "sha256": "1f3a8280424185b32504b3d53e7d3aaf3e1c943f935620f24112a440fd49a601"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/hybrid/commands.txt",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/hybrid/commands.txt",
+      "sha256": "715dc3825d23baac8cb089f85bae9b763ac5e8b9d2eb99c56b7719c6ac0fd2cc"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/hybrid/input/Makefile.before",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/hybrid/input/Makefile.before",
+      "sha256": "2792f60f8c09f0cbadbcbae146d21518584947590d2cb1aeef408f2fdf3a172d"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/hybrid/input/Makefile.invalid",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/hybrid/input/Makefile.invalid",
+      "sha256": "4c2b5bbfbc6774b3d34042af97034e3dc14c875928ccc36a066edd2002e13870"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/hybrid/input/Makefile.reference",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/hybrid/input/Makefile.reference",
+      "sha256": "d4b170d14482272ecafc3ec01c73e887e6e724640300adba49000285f715181a"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/hybrid/input/invalid.patch",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/hybrid/input/invalid.patch",
+      "sha256": "98d105b9c88fe3f7e21cfa1533a182a570d15698f377963d796f57a7fb9f25ee"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/hybrid/input/md-report.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/hybrid/input/md-report.json",
+      "sha256": "ab227343843e0ccf6ad25f5a9b074a200cc750438b2890b2d68347bb6ef529cd"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/hybrid/input/reference.patch",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/hybrid/input/reference.patch",
+      "sha256": "a7a1331216672846916d84131dfb6b3443c3d5d003d7c2a03eced3ae7027ebe2"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/hybrid/observations.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/hybrid/observations.json",
+      "sha256": "0f83ca74b3d8a454ad2078d2c33f7f0b8ea52bfa3e56f412f6324f40ca7a1385"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/hybrid/reference-validation.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/hybrid/reference-validation.json",
+      "sha256": "0e3f8b64e3ef9fa6287f1322fdac52539a978bf77965fa99d59f958552dff9f4"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/hybrid/rejected-candidate.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/hybrid/rejected-candidate.json",
+      "sha256": "23e7d84789ea72cf657b913894cb0940fa9bfe08604c8150c945fdb5000263fc"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/implicit.runner.txt",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/implicit.runner.txt",
+      "sha256": "1812b5537cd1372240ae2667d686bccc75017e994ebceb2798058587157c0921"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/implicit/README.md",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/implicit/README.md",
+      "sha256": "d2c4f625d5e63c3a1b967f2be7910041f128ed93a42bce94bc7eaa0ca0e11922"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/implicit/commands.txt",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/implicit/commands.txt",
+      "sha256": "d0c9fe1c14778bc6901ffffd8fc0e37950faf289200d344c0d47e8c43b504640"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/implicit/input/Makefile.before",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/implicit/input/Makefile.before",
+      "sha256": "45ce2e3617e4682ea510f80de98d47ff8da806ccb891ccf017c4306f744cd5c0"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/implicit/input/Makefile.invalid",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/implicit/input/Makefile.invalid",
+      "sha256": "ce96f0de7229f4cf8b76b73a7e44335071f6bb49667c007cb9cfd965b6df12cd"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/implicit/input/Makefile.reference",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/implicit/input/Makefile.reference",
+      "sha256": "9a93da4cedc9cc5562a1cc6a5513e2aa697261fcb6a144a0f4a153ba3eeb091a"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/implicit/input/invalid.patch",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/implicit/input/invalid.patch",
+      "sha256": "a5b51c0b916bde5f4d2f960026dd5e8b665141f0416b359525f060eda565f22f"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/implicit/input/md-report.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/implicit/input/md-report.json",
+      "sha256": "72d6fa40b7ec8b4c333aece72df5eed3e956440a7c38ccf36650876543480244"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/implicit/input/reference.patch",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/implicit/input/reference.patch",
+      "sha256": "366c44a6cb66089faa183a4b678c7784fbe8dac9dcff0ddb627f281d045a0978"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/implicit/observations.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/implicit/observations.json",
+      "sha256": "e5f8281f910a4730b5ae241e4a687dab781e7cd83730ba7192de89ddbceae523"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/implicit/reference-validation.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/implicit/reference-validation.json",
+      "sha256": "ef41adcfc264e7ee45602d855f7b00c7b95e7307261ea89ec6b341248b47d6ff"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/implicit/rejected-candidate.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/implicit/rejected-candidate.json",
+      "sha256": "34a578a08c8cb362d7067a2a966d4c610ee4a5ab695184821de2a38594995530"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/macro.runner.txt",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/macro.runner.txt",
+      "sha256": "a9be3adce9094e2f55a95b73974493a4fe21bdec6dad0ac7f58c813ce29fec4c"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/macro/README.md",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/macro/README.md",
+      "sha256": "5018e5774718be8eda593f304f0754b3aaf8bfebf7d59e1f404836a89653edc8"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/macro/commands.txt",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/macro/commands.txt",
+      "sha256": "aef4bbd90da86a654e27c3c19e9b25508037ef4197c06d99c8964f187a771d7a"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/macro/input/Makefile.before",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/macro/input/Makefile.before",
+      "sha256": "35a7c4c357087a46f62cfd8d93bcaf469c9b466222bc25786f1e2a013e26fb9b"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/macro/input/Makefile.invalid",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/macro/input/Makefile.invalid",
+      "sha256": "0223645b3e88d423f6e2d456879852076d6ceeaa4f9cebbf3d933316d4068a7d"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/macro/input/Makefile.reference",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/macro/input/Makefile.reference",
+      "sha256": "7b24406e690bee0a67b9e786b70bc9cdc3ee3eda9ca521337f073ac1e06155b1"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/macro/input/invalid.patch",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/macro/input/invalid.patch",
+      "sha256": "c09bcd9f0c95ccb4b8ee8add2feb4004c26fe9363e656593e7c5346128eb929d"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/macro/input/md-report.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/macro/input/md-report.json",
+      "sha256": "72de5c61d2a4a3cda55c78320f2b34c552bfde2f98a19c60e5ad7d58c9d748a7"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/macro/input/reference.patch",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/macro/input/reference.patch",
+      "sha256": "147ba90cce99632d43bd32f768c6a182f9e64366b5939f7fde871d80383e28b2"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/macro/observations.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/macro/observations.json",
+      "sha256": "90632d710f0ce9026d83ffd15997b42ea75cb5fcbb548ac4d7a34d8bbd1c17ef"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/macro/reference-validation.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/macro/reference-validation.json",
+      "sha256": "2e977382af021b485d1ff05469f4cb3155a11c414995709b58dee8da78ce43bb"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/macro/rejected-candidate.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/macro/rejected-candidate.json",
+      "sha256": "23e7d84789ea72cf657b913894cb0940fa9bfe08604c8150c945fdb5000263fc"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/peer-refs.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/peer-refs.json",
+      "sha256": "dc938edbdfbc9699979d15fd3518eae05287d69b9fd1e341e33a3a72f1bac4d1"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/summary.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/summary.json",
+      "sha256": "e3fee35b5998a48bc36d3cdc8ca86d847b09f7c1875b138c351cc830268334c6"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/target.runner.txt",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/target.runner.txt",
+      "sha256": "5899cdfc380e0ae0d59e19a5ddbef4870d587bec1bc5dcc441f953181ab9e39a"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/target/README.md",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/target/README.md",
+      "sha256": "7732e00a6e5accff73dd126e4de3db7a9a13652bfe9990f4d38a9f5d936a62c6"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/target/commands.txt",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/target/commands.txt",
+      "sha256": "00349a808df3d49cf6a55a35dc9b6bb7cd0bc8b1e5b39d30abd713c009926e98"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/target/input/Makefile.before",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/target/input/Makefile.before",
+      "sha256": "28c9d64ac79dfc43895b3b2331851ef2ca013075cdde9b332fc7bf0a3e2a0ebb"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/target/input/Makefile.invalid",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/target/input/Makefile.invalid",
+      "sha256": "e0a6f8c057dd36d5d3fdc23f366166e5cfb413cebd81a79ba06d862fd2d0438c"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/target/input/Makefile.reference",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/target/input/Makefile.reference",
+      "sha256": "ad26f6918d12f4a51b97554b6eec4b41b4579f85c3fbc9072420a0b0144b8efa"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/target/input/invalid.patch",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/target/input/invalid.patch",
+      "sha256": "59e832162f37ff3be4183ef0a1c9ba85f6c1234485dd4b3dfa875ba9d5cccf8d"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/target/input/md-report.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/target/input/md-report.json",
+      "sha256": "bb9586ede1341485500f084232b91a410ff2b3fca7d5ca689af607409c681510"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/target/input/reference.patch",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/target/input/reference.patch",
+      "sha256": "ed35042b86dd176ba4eecfe08418ae397e97a4612b7e1d2896db0403ae780741"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/target/observations.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/target/observations.json",
+      "sha256": "b345b3b657a83ae95d63fba56f25ab0c42b77416ad38b184f195511027a751ed"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/target/reference-validation.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/target/reference-validation.json",
+      "sha256": "2e977382af021b485d1ff05469f4cb3155a11c414995709b58dee8da78ce43bb"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190635803060+0800-compatibility/target/rejected-candidate.json",
+      "migrated": "evidence/history/20261011T190635803060+0800-compatibility/target/rejected-candidate.json",
+      "sha256": "23e7d84789ea72cf657b913894cb0940fa9bfe08604c8150c945fdb5000263fc"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/README.md",
+      "migrated": "evidence/history/20261011T190636028688+0800/README.md",
+      "sha256": "697e1dc8d174f6d27b608bdfe256ee2a7765b5f94ea8a8cd9d544941f49aaec5"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/audit.json",
+      "migrated": "evidence/history/20261011T190636028688+0800/audit.json",
+      "sha256": "ae458f4a73c59d37af8868f8902c06346e79652059b4f90f7c292dc893d731e8"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid.runner.txt",
+      "migrated": "evidence/history/20261011T190636028688+0800/hybrid.runner.txt",
+      "sha256": "5957b1548d1786d9ce2893101d27057a1ee630490fadbbfd32c11a53a35cdc1e"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid/README.md",
+      "migrated": "evidence/history/20261011T190636028688+0800/hybrid/README.md",
+      "sha256": "29c152da99bc39bbe6cf28ea66b8a5f6d03bacc6cfaa71d0a312ca84fdf3f037"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid/commands.txt",
+      "migrated": "evidence/history/20261011T190636028688+0800/hybrid/commands.txt",
+      "sha256": "d5c0727cd68220b4bc70af73afec077f14725ae03d16caa3771e083fba4b5f31"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid/input/Makefile.before",
+      "migrated": "evidence/history/20261011T190636028688+0800/hybrid/input/Makefile.before",
+      "sha256": "2792f60f8c09f0cbadbcbae146d21518584947590d2cb1aeef408f2fdf3a172d"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid/input/Makefile.invalid",
+      "migrated": "evidence/history/20261011T190636028688+0800/hybrid/input/Makefile.invalid",
+      "sha256": "4c2b5bbfbc6774b3d34042af97034e3dc14c875928ccc36a066edd2002e13870"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid/input/Makefile.reference",
+      "migrated": "evidence/history/20261011T190636028688+0800/hybrid/input/Makefile.reference",
+      "sha256": "d4b170d14482272ecafc3ec01c73e887e6e724640300adba49000285f715181a"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid/input/invalid.patch",
+      "migrated": "evidence/history/20261011T190636028688+0800/hybrid/input/invalid.patch",
+      "sha256": "98d105b9c88fe3f7e21cfa1533a182a570d15698f377963d796f57a7fb9f25ee"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid/input/md-report.json",
+      "migrated": "evidence/history/20261011T190636028688+0800/hybrid/input/md-report.json",
+      "sha256": "ab227343843e0ccf6ad25f5a9b074a200cc750438b2890b2d68347bb6ef529cd"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid/input/reference.patch",
+      "migrated": "evidence/history/20261011T190636028688+0800/hybrid/input/reference.patch",
+      "sha256": "a7a1331216672846916d84131dfb6b3443c3d5d003d7c2a03eced3ae7027ebe2"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid/observations.json",
+      "migrated": "evidence/history/20261011T190636028688+0800/hybrid/observations.json",
+      "sha256": "3c177ff12357cb3385992fbe87c3f3c757805432f2ffa74da26f6960a05fb520"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid/reference-validation.json",
+      "migrated": "evidence/history/20261011T190636028688+0800/hybrid/reference-validation.json",
+      "sha256": "0e3f8b64e3ef9fa6287f1322fdac52539a978bf77965fa99d59f958552dff9f4"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid/rejected-candidate.json",
+      "migrated": "evidence/history/20261011T190636028688+0800/hybrid/rejected-candidate.json",
+      "sha256": "23e7d84789ea72cf657b913894cb0940fa9bfe08604c8150c945fdb5000263fc"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro.runner.txt",
+      "migrated": "evidence/history/20261011T190636028688+0800/macro.runner.txt",
+      "sha256": "14063af5dca0707e6282dfa484588b346ae44b950adab75c3aeae91e8b3a1621"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro/README.md",
+      "migrated": "evidence/history/20261011T190636028688+0800/macro/README.md",
+      "sha256": "3eea4a92f0913b6375899b24df096fd9685e0db3fb016fab2dca8b66f22f156a"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro/commands.txt",
+      "migrated": "evidence/history/20261011T190636028688+0800/macro/commands.txt",
+      "sha256": "8f020442a2fe3e0af1acdcbc0c82dbfe435a995f1eec229115d0b2525eb1ede3"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro/input/Makefile.before",
+      "migrated": "evidence/history/20261011T190636028688+0800/macro/input/Makefile.before",
+      "sha256": "35a7c4c357087a46f62cfd8d93bcaf469c9b466222bc25786f1e2a013e26fb9b"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro/input/Makefile.invalid",
+      "migrated": "evidence/history/20261011T190636028688+0800/macro/input/Makefile.invalid",
+      "sha256": "0223645b3e88d423f6e2d456879852076d6ceeaa4f9cebbf3d933316d4068a7d"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro/input/Makefile.reference",
+      "migrated": "evidence/history/20261011T190636028688+0800/macro/input/Makefile.reference",
+      "sha256": "7b24406e690bee0a67b9e786b70bc9cdc3ee3eda9ca521337f073ac1e06155b1"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro/input/invalid.patch",
+      "migrated": "evidence/history/20261011T190636028688+0800/macro/input/invalid.patch",
+      "sha256": "c09bcd9f0c95ccb4b8ee8add2feb4004c26fe9363e656593e7c5346128eb929d"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro/input/md-report.json",
+      "migrated": "evidence/history/20261011T190636028688+0800/macro/input/md-report.json",
+      "sha256": "72de5c61d2a4a3cda55c78320f2b34c552bfde2f98a19c60e5ad7d58c9d748a7"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro/input/reference.patch",
+      "migrated": "evidence/history/20261011T190636028688+0800/macro/input/reference.patch",
+      "sha256": "147ba90cce99632d43bd32f768c6a182f9e64366b5939f7fde871d80383e28b2"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro/observations.json",
+      "migrated": "evidence/history/20261011T190636028688+0800/macro/observations.json",
+      "sha256": "e9535f3bf22e43d920707ee64ce015791e51db527ec462a1f8d4a1c97d69dbfc"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro/reference-validation.json",
+      "migrated": "evidence/history/20261011T190636028688+0800/macro/reference-validation.json",
+      "sha256": "2e977382af021b485d1ff05469f4cb3155a11c414995709b58dee8da78ce43bb"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro/rejected-candidate.json",
+      "migrated": "evidence/history/20261011T190636028688+0800/macro/rejected-candidate.json",
+      "sha256": "23e7d84789ea72cf657b913894cb0940fa9bfe08604c8150c945fdb5000263fc"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T190636028688+0800/summary.json",
+      "migrated": "evidence/history/20261011T190636028688+0800/summary.json",
+      "sha256": "f711f4089607b0fd50e3d9fae29dd2feafefcf62d95b5c8c202039a02f12b788"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/README.md",
+      "migrated": "evidence/history/20261011T202758890990+0800/README.md",
+      "sha256": "9892fade0e3d40e278c5f19abfdce53adbe9274ee9b3988400d97d87abca2d8a"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/audit.json",
+      "migrated": "evidence/history/20261011T202758890990+0800/audit.json",
+      "sha256": "c2a6409dfc1e50d9b8de8c47adf18983dfc2d0d06e87f304f391adf8a1d83ace"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid.runner.txt",
+      "migrated": "evidence/history/20261011T202758890990+0800/hybrid.runner.txt",
+      "sha256": "3d8a9d50427bad4e84349e0436ef44d54ed0bd2f8ad59d5abd845192d0e17659"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid/README.md",
+      "migrated": "evidence/history/20261011T202758890990+0800/hybrid/README.md",
+      "sha256": "f62fb4705f7d6a18edb7fd93a31da09c47a6fb610157443dee75a46673d77690"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid/commands.txt",
+      "migrated": "evidence/history/20261011T202758890990+0800/hybrid/commands.txt",
+      "sha256": "0792b02ca811020813bf0167090fa62ca05748a790cb83f88cfb31d1e7c8a22b"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid/input/Makefile.before",
+      "migrated": "evidence/history/20261011T202758890990+0800/hybrid/input/Makefile.before",
+      "sha256": "2792f60f8c09f0cbadbcbae146d21518584947590d2cb1aeef408f2fdf3a172d"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid/input/Makefile.invalid",
+      "migrated": "evidence/history/20261011T202758890990+0800/hybrid/input/Makefile.invalid",
+      "sha256": "4c2b5bbfbc6774b3d34042af97034e3dc14c875928ccc36a066edd2002e13870"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid/input/Makefile.reference",
+      "migrated": "evidence/history/20261011T202758890990+0800/hybrid/input/Makefile.reference",
+      "sha256": "d4b170d14482272ecafc3ec01c73e887e6e724640300adba49000285f715181a"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid/input/invalid.patch",
+      "migrated": "evidence/history/20261011T202758890990+0800/hybrid/input/invalid.patch",
+      "sha256": "98d105b9c88fe3f7e21cfa1533a182a570d15698f377963d796f57a7fb9f25ee"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid/input/md-report.json",
+      "migrated": "evidence/history/20261011T202758890990+0800/hybrid/input/md-report.json",
+      "sha256": "ab227343843e0ccf6ad25f5a9b074a200cc750438b2890b2d68347bb6ef529cd"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid/input/reference.patch",
+      "migrated": "evidence/history/20261011T202758890990+0800/hybrid/input/reference.patch",
+      "sha256": "a7a1331216672846916d84131dfb6b3443c3d5d003d7c2a03eced3ae7027ebe2"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid/observations.json",
+      "migrated": "evidence/history/20261011T202758890990+0800/hybrid/observations.json",
+      "sha256": "52bf94cac4dd1b1441240a3280873fbb81f1c13d4e71c33a15171da5c5d53c34"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid/reference-validation.json",
+      "migrated": "evidence/history/20261011T202758890990+0800/hybrid/reference-validation.json",
+      "sha256": "0e3f8b64e3ef9fa6287f1322fdac52539a978bf77965fa99d59f958552dff9f4"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/hybrid/rejected-candidate.json",
+      "migrated": "evidence/history/20261011T202758890990+0800/hybrid/rejected-candidate.json",
+      "sha256": "23e7d84789ea72cf657b913894cb0940fa9bfe08604c8150c945fdb5000263fc"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro.runner.txt",
+      "migrated": "evidence/history/20261011T202758890990+0800/macro.runner.txt",
+      "sha256": "8f8923b502fe7b64cc3ea05477bebd9b823675244d4a44f488951307ab1e7f98"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro/README.md",
+      "migrated": "evidence/history/20261011T202758890990+0800/macro/README.md",
+      "sha256": "487cf0cfd1e1d70b4f911be75b715d37445095d9e48290f65c8c5a9eed5bd130"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro/commands.txt",
+      "migrated": "evidence/history/20261011T202758890990+0800/macro/commands.txt",
+      "sha256": "2f9932733d971a9b2afb7a76f0bdab9b5202ec2ea4bd075e20a6643ba9e406cf"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro/input/Makefile.before",
+      "migrated": "evidence/history/20261011T202758890990+0800/macro/input/Makefile.before",
+      "sha256": "35a7c4c357087a46f62cfd8d93bcaf469c9b466222bc25786f1e2a013e26fb9b"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro/input/Makefile.invalid",
+      "migrated": "evidence/history/20261011T202758890990+0800/macro/input/Makefile.invalid",
+      "sha256": "0223645b3e88d423f6e2d456879852076d6ceeaa4f9cebbf3d933316d4068a7d"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro/input/Makefile.reference",
+      "migrated": "evidence/history/20261011T202758890990+0800/macro/input/Makefile.reference",
+      "sha256": "7b24406e690bee0a67b9e786b70bc9cdc3ee3eda9ca521337f073ac1e06155b1"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro/input/invalid.patch",
+      "migrated": "evidence/history/20261011T202758890990+0800/macro/input/invalid.patch",
+      "sha256": "c09bcd9f0c95ccb4b8ee8add2feb4004c26fe9363e656593e7c5346128eb929d"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro/input/md-report.json",
+      "migrated": "evidence/history/20261011T202758890990+0800/macro/input/md-report.json",
+      "sha256": "72de5c61d2a4a3cda55c78320f2b34c552bfde2f98a19c60e5ad7d58c9d748a7"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro/input/reference.patch",
+      "migrated": "evidence/history/20261011T202758890990+0800/macro/input/reference.patch",
+      "sha256": "147ba90cce99632d43bd32f768c6a182f9e64366b5939f7fde871d80383e28b2"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro/observations.json",
+      "migrated": "evidence/history/20261011T202758890990+0800/macro/observations.json",
+      "sha256": "4b4d8f588d2818a681ec45e7df4681a2b4919d07664cec682021fea6c2ad4dc6"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro/reference-validation.json",
+      "migrated": "evidence/history/20261011T202758890990+0800/macro/reference-validation.json",
+      "sha256": "2e977382af021b485d1ff05469f4cb3155a11c414995709b58dee8da78ce43bb"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/macro/rejected-candidate.json",
+      "migrated": "evidence/history/20261011T202758890990+0800/macro/rejected-candidate.json",
+      "sha256": "23e7d84789ea72cf657b913894cb0940fa9bfe08604c8150c945fdb5000263fc"
+    },
+    {
+      "original": "E3/evidence/mdfixer-suite/20261011T202758890990+0800/summary.json",
+      "migrated": "evidence/history/20261011T202758890990+0800/summary.json",
+      "sha256": "b78e9bf6464f6a4271df1d3eff22efd46a833c9c104e8817656d3d39ba6ef5ae"
+    }
+  ]
+}

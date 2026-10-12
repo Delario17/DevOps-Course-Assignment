@@ -1,0 +1,39 @@
+{
+  "schema_version": "e3-mdfixer-baseline-v1",
+  "provenance": "AI_PREPARED_ORACLE_FROM_ATTRIBUTED_B08_MACRO_FIXTURE",
+  "review_status": "PENDING_HUMAN_REVIEW",
+  "not_a_detector_report": true,
+  "not_an_mdfixer_output": true,
+  "subject": {
+    "repository_url": "https://github.com/Delario17/DevOps-Course-Assignment.git",
+    "commit": "4d72b7833d0adc561751486a2b656c82766a9484",
+    "working_directory": "E3/fixtures/mdfixer-macro"
+  },
+  "declaration_style": "MACRO",
+  "scope": "Only project-file dependencies of build/main.o; all prerequisites use DEPS. System headers are excluded. No intentional RD in this case.",
+  "findings": [
+    {
+      "finding_id": "finding-main-config",
+      "type": "MISSING",
+      "target": "build/main.o",
+      "dependency": "include/config.h",
+      "build_file": "Makefile",
+      "reason": "src/main.c includes config.h and reads CONFIG_VALUE, but DEPS omits include/config.h. A header-only edit must rebuild build/main.o."
+    }
+  ],
+  "expected_behavior": {
+    "initial": 10,
+    "before_fix_config_4_to_5_incremental": 10,
+    "before_fix_config_4_to_5_clean": 11,
+    "after_fix_config_4_clean": 10,
+    "after_fix_config_4_to_5_incremental": 11,
+    "after_fix_config_5_to_6_incremental": 12,
+    "invalid_candidate_build_exit_nonzero": true,
+    "restored_output": 12,
+    "after_fix_noop": 12
+  },
+  "reference_patch": "E3/patches/mdfixer-macro.reference.patch",
+  "invalid_candidate_patch": "E3/patches/mdfixer-macro.invalid.patch",
+  "verification": "E3/scripts/run_mdfixer_macro.py",
+  "review_note": "Prepared and automatically executed with Codex for Zhu Yule (241250011). Personal human review has not been asserted. Source attribution is in SOURCE.md."
+}

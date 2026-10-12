@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "baseline_commit": "227f37934cb989c05c3d34d14f30289f46d9edcf",
+  "fixture_commit": "83354f218a03a2085b4e571582f8d333d3a4ddf3",
+  "historical_evidence_files_verified": 107,
+  "historical_evidence_bytes_unchanged": true,
+  "all_changes_under": "E3/cases/mdfixer-macro/",
+  "public_and_peer_files_unchanged": true,
+  "suite_evidence": "evidence/suite/20261012T183751537970+0800",
+  "suite_checks": [
+    {
+      "case": "target",
+      "assertions": 44,
+      "commands": 39,
+      "status": "PASS"
+    },
+    {
+      "case": "macro",
+      "assertions": 46,
+      "commands": 42,
+      "status": "PASS"
+    },
+    {
+      "case": "hybrid",
+      "assertions": 40,
+      "commands": 39,
+      "status": "PASS"
+    },
+    {
+      "case": "implicit",
+      "assertions": 34,
+      "commands": 37,
+      "status": "PASS"
+    }
+  ],
+  "entrypoint_tests": {
+    "passed": 12,
+    "total": 12,
+    "command": "python3 -m unittest discover -s E3/cases/mdfixer-macro/tests -v"
+  }
+}

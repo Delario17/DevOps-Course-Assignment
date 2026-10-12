@@ -1,0 +1,8 @@
+{
+  "decision": "ACCEPTED",
+  "method": "REFERENCE_PATCH_EXPERIMENT_NOT_MDFIXER_SERVICE",
+  "build": "PASSED",
+  "incremental_function": "PASSED",
+  "md_recheck": "PASSED",
+  "rd_remaining": true
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "e3-mdfixer-suite-v1",
+  "started_at": "2026-10-11T19:06:36.028688+08:00",
+  "operator": "Codex automated Linux execution for Zhu Yule (241250011); human review pending",
+  "requested": [
+    "available"
+  ],
+  "selected": [
+    "macro",
+    "hybrid"
+  ],
+  "not_an_mdfixer_output": true,
+  "review_status": "PENDING_HUMAN_REVIEW",
+  "runner_sha256": "2fb6752dd8ebfb6d972687121ea8c4e1fd08dbfe967966e72d1e3b8650db2f21",
+  "unavailable": {
+    "target": [
+      "scripts/run_mdfixer_target.py",
+      "fixtures/mdfixer-target/Makefile",
+      "oracle/mdfixer-target.expected.json",
+      "patches/mdfixer-target.reference.patch",
+      "patches/mdfixer-target.invalid.patch"
+    ],
+    "implicit": [
+      "scripts/run_mdfixer_implicit.py",
+      "fixtures/mdfixer-implicit/Makefile",
+      "oracle/mdfixer-implicit.expected.json",
+      "patches/mdfixer-implicit.reference.patch",
+      "patches/mdfixer-implicit.invalid.patch"
+    ]
+  },
+  "cases": [
+    {
+      "case": "macro",
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/scripts/run_mdfixer_macro.py",
+        "--operator",
+        "Codex automated Linux execution for Zhu Yule (241250011); human review pending",
+        "--output",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/evidence/mdfixer-suite/20261011T190636028688+0800/macro"
+      ],
+      "exit_code": 0,
+      "assertions_passed": 46,
+      "assertions_total": 46,
+      "evidence": "macro",
+      "evidence_sha256": "e9535f3bf22e43d920707ee64ce015791e51db527ec462a1f8d4a1c97d69dbfc",
+      "status": "PASS"
+    },
+    {
+      "case": "hybrid",
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/scripts/run_mdfixer_hybrid.py",
+        "--operator",
+        "Codex automated Linux execution for Zhu Yule (241250011); human review pending",
+        "--output",
+        "/mnt/d/Devops/DevOps-Course-Assignment/E3/evidence/mdfixer-suite/20261011T190636028688+0800/hybrid"
+      ],
+      "exit_code": 0,
+      "assertions_passed": 40,
+      "assertions_total": 40,
+      "evidence": "hybrid",
+      "evidence_sha256": "3c177ff12357cb3385992fbe87c3f3c757805432f2ffa74da26f6960a05fb520",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS_SELECTED",
+  "finished_at": "2026-10-11T19:06:51.802220+08:00"
+}

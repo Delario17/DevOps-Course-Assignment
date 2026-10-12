@@ -1,0 +1,90 @@
+{
+  "schema_version": "e3-mdfixer-suite-v1",
+  "started_at": "2026-10-11T19:06:35.803060+08:00",
+  "operator": "Codex automated unified-entrypoint compatibility check; human review pending",
+  "requested": [
+    "all"
+  ],
+  "selected": [
+    "target",
+    "macro",
+    "hybrid",
+    "implicit"
+  ],
+  "not_an_mdfixer_output": true,
+  "review_status": "PENDING_HUMAN_REVIEW",
+  "runner_sha256": "2fb6752dd8ebfb6d972687121ea8c4e1fd08dbfe967966e72d1e3b8650db2f21",
+  "unavailable": {},
+  "cases": [
+    {
+      "case": "target",
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/Devops/DevOps-Course-Assignment/work/integration/E3/scripts/run_mdfixer_target.py",
+        "--operator",
+        "Codex automated unified-entrypoint compatibility check; human review pending",
+        "--output",
+        "/mnt/d/Devops/DevOps-Course-Assignment/work/integration/E3/evidence/mdfixer-suite/20261011T190635803060+0800/target"
+      ],
+      "exit_code": 0,
+      "assertions_passed": 44,
+      "assertions_total": 44,
+      "evidence": "target",
+      "evidence_sha256": "b345b3b657a83ae95d63fba56f25ab0c42b77416ad38b184f195511027a751ed",
+      "status": "PASS"
+    },
+    {
+      "case": "macro",
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/Devops/DevOps-Course-Assignment/work/integration/E3/scripts/run_mdfixer_macro.py",
+        "--operator",
+        "Codex automated unified-entrypoint compatibility check; human review pending",
+        "--output",
+        "/mnt/d/Devops/DevOps-Course-Assignment/work/integration/E3/evidence/mdfixer-suite/20261011T190635803060+0800/macro"
+      ],
+      "exit_code": 0,
+      "assertions_passed": 46,
+      "assertions_total": 46,
+      "evidence": "macro",
+      "evidence_sha256": "90632d710f0ce9026d83ffd15997b42ea75cb5fcbb548ac4d7a34d8bbd1c17ef",
+      "status": "PASS"
+    },
+    {
+      "case": "hybrid",
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/Devops/DevOps-Course-Assignment/work/integration/E3/scripts/run_mdfixer_hybrid.py",
+        "--operator",
+        "Codex automated unified-entrypoint compatibility check; human review pending",
+        "--output",
+        "/mnt/d/Devops/DevOps-Course-Assignment/work/integration/E3/evidence/mdfixer-suite/20261011T190635803060+0800/hybrid"
+      ],
+      "exit_code": 0,
+      "assertions_passed": 40,
+      "assertions_total": 40,
+      "evidence": "hybrid",
+      "evidence_sha256": "0f83ca74b3d8a454ad2078d2c33f7f0b8ea52bfa3e56f412f6324f40ca7a1385",
+      "status": "PASS"
+    },
+    {
+      "case": "implicit",
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/d/Devops/DevOps-Course-Assignment/work/integration/E3/scripts/run_mdfixer_implicit.py",
+        "--operator",
+        "Codex automated unified-entrypoint compatibility check; human review pending",
+        "--output",
+        "/mnt/d/Devops/DevOps-Course-Assignment/work/integration/E3/evidence/mdfixer-suite/20261011T190635803060+0800/implicit"
+      ],
+      "exit_code": 0,
+      "assertions_passed": 34,
+      "assertions_total": 34,
+      "evidence": "implicit",
+      "evidence_sha256": "e5f8281f910a4730b5ae241e4a687dab781e7cd83730ba7192de89ddbceae523",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "finished_at": "2026-10-11T19:07:06.661652+08:00"
+}
