@@ -1,0 +1,16 @@
+# DRAFT Tiny Greeting 实际运行记录
+
+- 执行时间：2026-10-11T14:11:02.041611+08:00。
+- 实际执行者：Codex local macOS verification。
+- 固定样例提交：`5d7ad3e534a67ca24e0adbb7271cb8b4540aeb43`。
+- 运行时仓库提交：`5d7ad3e534a67ca24e0adbb7271cb8b4540aeb43`。
+- 配置标识：`b08-draft-6098c0015da1fca2`。
+- 总体状态：**PARTIAL**。
+- 本机构建与功能验证：`PASSED`。
+- Docker 验证：`UNAVAILABLE`。
+- 断言：18/18 通过；记录命令：10 条。
+- 人工审阅：待实际 B08 成员确认。
+
+完整元数据见 `observations.json`，原始命令、标准输出、错误输出和退出码见 `commands.txt`。
+
+在 Docker 可用的 Linux 或 Docker Desktop 环境运行：`python3 E3/scripts/run_draft_baseline.py --operator "姓名" --docker required`。

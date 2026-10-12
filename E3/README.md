@@ -1,9 +1,34 @@
-# B08 E3：MDFixer 混合声明修复基线
+# B08 E3：并行测试基线
 
-本目录当前交付一个 HYBRID 声明风格的 MDFixer 参考案例：固定 MD 输入、原始项目、参考补丁、失败候选，以及实际 Linux 验证和恢复记录。
-它用于 E3 测试基线准备，不表示 MDFixer 自动修复服务已经实现，也不代表 B08 的 DRAFT 和其他声明风格已经完成。
+本目录当前交付两条独立基线：DRAFT Tiny Greeting 环境生成案例，以及 HYBRID 声明风格的 MDFixer 参考修复案例。
 
-## 已完成的这一块
+| 基线 | 当前结果 | 入口 |
+|---|---|---|
+| DRAFT Tiny Greeting | 王祎本人发起完整复现，24/24 通过 | `DRAFT_BASELINE.md` |
+| MDFixer HYBRID | Linux 复现 40/40 通过，人工确认完成 | 本文后续章节 |
+
+## DRAFT Tiny Greeting
+
+DRAFT 基线包含固定项目、失败 Dockerfile、参考 Dockerfile、人工 Oracle、自动验证脚本和证据目录。失败环境与参考环境使用同一基础镜像 digest，核心判据是环境能否完成构建并让容器输出 `hello E3`。
+
+- 说明：`DRAFT_BASELINE.md`
+- 固定输入：`fixtures/draft-tiny-greeting/`
+- Oracle：`oracle/draft-tiny-greeting.expected.json`
+- 验证脚本：`scripts/run_draft_baseline.py`
+- 最终证据：`evidence/draft-tiny-greeting/20261012T105358976530+0800/`
+- 复现审阅：`DRAFT_REVIEW.md`
+
+最终证据包含失败镜像、参考镜像、基础镜像 RepoDigest、参考镜像 ID、容器输出和全部命令日志。复现命令：
+
+```bash
+python3 E3/scripts/run_draft_baseline.py --operator "姓名" --docker required
+```
+
+## MDFixer HYBRID
+
+该案例包含固定 MD 输入、原始项目、参考补丁、失败候选，以及实际 Linux 验证和恢复记录。验收范围是参考补丁行为，MDFixer 自动修复服务安排在后续实验。
+
+### 已完成内容
 
 | 内容 | 文件或目录 |
 |---|---|
@@ -20,13 +45,12 @@
 固定样例在 B08 本地真实提交 `4f13da22499dbee5ad3b63360e5b8b0af1bfcf98` 中；此提交必须与后续验证材料一起保留，合并时保留原始提交历史。
 A08 源码归属与固定参考版本见 `fixtures/mdfixer-hybrid/SOURCE.md`。
 
-## 为什么是 HYBRID
+### 为什么是 HYBRID
 
 目标声明是 `build/main.o: src/main.c $(HEADERS)`，既有直接文件项，也有头文件变量项。
-原 Makefile 的 HEADERS 漏掉 include/config.h，又额外声明 include/unused.h。参考补丁只在 HEADERS 加入 config.h，保留已有 RD。
-本次不宣称所有 MD/RD 已消除。
+原 Makefile 的 HEADERS 漏掉 include/config.h，又额外声明 include/unused.h。参考补丁只在 HEADERS 加入 config.h，保留已有 RD；本轮验收范围为 config.h 的 MD 修复。
 
-## 成功标准及已观察结果
+### 成功标准及已观察结果
 
 | 阶段 | 标准 | 2026-10-09 实际结果 |
 |---|---|---|
@@ -44,7 +68,7 @@ A08 源码归属与固定参考版本见 `fixtures/mdfixer-hybrid/SOURCE.md`。
 盛浩宇于 2026-10-09 13:37 本人发起同一脚本复现，结果为 40/40 PASS，39 条命令有完整日志；上述结果表与本次个人运行一致。Codex 应本人请求核对 README、JSON、命令日志、补丁快照和哈希，技术证据均通过。
 盛浩宇已阅读并明确确认辅助核查结论与本人运行结果一致，个人确认记录见 `HUMAN_REVIEW.md`。运行快照中的 pending 标记保留执行时状态，不回写历史日志。
 
-## Linux 一键重跑
+### Linux 一键重跑
 
 从本仓库根目录执行，工具需要 python3、gcc、make、git：
 
@@ -55,17 +79,16 @@ python3 E3/scripts/run_mdfixer_hybrid.py --operator "姓名（本人发起脚本
 每次创建新的 evidence/mdfixer-hybrid/时间目录，不覆盖旧证据。
 脚本先核对源码与固定提交一致，再复制到 Linux 临时目录执行实验；不在仓库源码上运行 make clean，也不把参考补丁永久应用到故障样例。
 参考补丁和失败补丁的应用目录都是临时样例根目录，补丁路径中的 Makefile 指向该目录的 Makefile。
-当前脚本仅使用 Python 标准库，不需要 pip 安装；Docker 不是此案例的运行前提。
+当前脚本使用 Python 标准库，无需安装 pip 依赖，并直接调用 Linux 工具链完成验证。
 
-## 输入和证据边界
+### 输入和证据边界
 
-oracle 文件是 E3 人工参考材料，包含来源、范围和待审阅状态；并未伪装为 BuildChecker 或 MDFixer 的真实服务输出。
+oracle 文件是 E3 人工参考材料，包含来源、范围和待审阅状态；真实服务输出将在对应服务实验中单独生成。
 reference-validation.json 的 ACCEPTED 和 rejected-candidate.json 的 REJECTED 是本脚本的参考验证决定。
-本次证据不生成真实检测器报告或 API Job，也不修改已经通过评审的 E2 契约。
+本次证据覆盖参考补丁实验和候选拒绝恢复，E2 契约保持已评审版本。
 配置标识依据实际系统、架构、工具链与关键选项生成；源码 SHA 独立记录。WSL 运行没有镜像 ID。
 
-## B08 组级任务仍需其他成员协调
+## B08 组级任务仍需完成
 
-- DRAFT 的失败环境、参考成功环境和功能验证。
 - 其余直接声明、纯变量声明、隐式规则与 .d 文件案例。
-- 本案例的盛浩宇个人复现和确认已记录；组长负责整合与提交。
+- MDFixer HYBRID 与 DRAFT Tiny Greeting 的个人复现和确认均已记录；组长负责整合其余案例。

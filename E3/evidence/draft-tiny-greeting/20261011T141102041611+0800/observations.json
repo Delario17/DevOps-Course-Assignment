@@ -1,0 +1,245 @@
+{
+  "schema_version": "e3-draft-evidence-v1",
+  "started_at": "2026-10-11T14:11:02.041611+08:00",
+  "operator": "Codex local macOS verification",
+  "provenance": "REAL_LOCAL_AND_OPTIONAL_DOCKER_BASELINE_EXPERIMENT",
+  "review_status": "PENDING_HUMAN_REVIEW",
+  "subject": {
+    "repository_url": "https://github.com/Delario17/DevOps-Course-Assignment.git",
+    "commit": "5d7ad3e534a67ca24e0adbb7271cb8b4540aeb43",
+    "working_directory": "E3/fixtures/draft-tiny-greeting"
+  },
+  "status": "PARTIAL",
+  "commands": [
+    {
+      "label": "workspace commit",
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "5d7ad3e534a67ca24e0adbb7271cb8b4540aeb43\n",
+      "stderr": ""
+    },
+    {
+      "label": "workspace status",
+      "argv": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": " M E3/AI_USAGE.md\n M E3/CONTRIBUTIONS.md\n M E3/MANUAL_STEPS.md\n M E3/README.md\n M README.md\n?? E3/DRAFT_BASELINE.md\n?? E3/DRAFT_PR_DESCRIPTION.md\n?? E3/DRAFT_REVIEW.md\n?? \"E3/E3_\\345\\271\\266\\350\\241\\214\\346\\265\\213\\350\\257\\225\\345\\237\\272\\347\\272\\277_20260930.pptx\"\n?? E3/evidence/draft-tiny-greeting/\n?? E3/oracle/draft-tiny-greeting.expected.json\n?? E3/scripts/run_draft_baseline.py\n?? \"E3/\\345\\215\\216\\344\\270\\272\\344\\272\\221\\350\\265\\204\\346\\272\\220\\347\\224\\263\\350\\257\\267.docx\"\n",
+      "stderr": ""
+    },
+    {
+      "label": "git version",
+      "argv": [
+        "git",
+        "--version"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "git version 2.54.0 (Apple Git-157)\n",
+      "stderr": ""
+    },
+    {
+      "label": "make version",
+      "argv": [
+        "make",
+        "--version"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "GNU Make 3.81\nCopyright (C) 2006  Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.\nThere is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A\nPARTICULAR PURPOSE.\n\nThis program built for i386-apple-darwin11.3.0\n",
+      "stderr": ""
+    },
+    {
+      "label": "cc version",
+      "argv": [
+        "cc",
+        "--version"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+      "stderr": ""
+    },
+    {
+      "label": "native:clean",
+      "argv": [
+        "make",
+        "clean"
+      ],
+      "cwd": "/var/folders/st/dk6q5c_51m762blvyr1kpkph0000gn/T/b08-e3-draft-wzg5wl_5/sample",
+      "exit_code": 0,
+      "stdout": "rm -f hello\n",
+      "stderr": ""
+    },
+    {
+      "label": "native:build",
+      "argv": [
+        "make"
+      ],
+      "cwd": "/var/folders/st/dk6q5c_51m762blvyr1kpkph0000gn/T/b08-e3-draft-wzg5wl_5/sample",
+      "exit_code": 0,
+      "stdout": "cc -Wall -Wextra -O2 main.c -o hello\n",
+      "stderr": ""
+    },
+    {
+      "label": "native:behavior",
+      "argv": [
+        "./hello"
+      ],
+      "cwd": "/var/folders/st/dk6q5c_51m762blvyr1kpkph0000gn/T/b08-e3-draft-wzg5wl_5/sample",
+      "exit_code": 0,
+      "stdout": "hello E3\n",
+      "stderr": ""
+    },
+    {
+      "label": "native:version",
+      "argv": [
+        "./hello",
+        "--version"
+      ],
+      "cwd": "/var/folders/st/dk6q5c_51m762blvyr1kpkph0000gn/T/b08-e3-draft-wzg5wl_5/sample",
+      "exit_code": 0,
+      "stdout": "tiny-greeting 1.0.0\n",
+      "stderr": ""
+    },
+    {
+      "label": "native:functional test",
+      "argv": [
+        "make",
+        "test"
+      ],
+      "cwd": "/var/folders/st/dk6q5c_51m762blvyr1kpkph0000gn/T/b08-e3-draft-wzg5wl_5/sample",
+      "exit_code": 0,
+      "stdout": "PASS: hello E3\n",
+      "stderr": ""
+    }
+  ],
+  "assertions": [
+    {
+      "name": "fixture matches fixed commit: .dockerignore",
+      "passed": true
+    },
+    {
+      "name": "fixture matches fixed commit: .gitignore",
+      "passed": true
+    },
+    {
+      "name": "fixture matches fixed commit: Dockerfile.broken",
+      "passed": true
+    },
+    {
+      "name": "fixture matches fixed commit: Dockerfile.reference",
+      "passed": true
+    },
+    {
+      "name": "fixture matches fixed commit: Makefile",
+      "passed": true
+    },
+    {
+      "name": "fixture matches fixed commit: README.md",
+      "passed": true
+    },
+    {
+      "name": "fixture matches fixed commit: main.c",
+      "passed": true
+    },
+    {
+      "name": "native build emits compiler command",
+      "passed": true
+    },
+    {
+      "name": "native executable exists",
+      "passed": true
+    },
+    {
+      "name": "native behavior output",
+      "passed": true
+    },
+    {
+      "name": "native version output",
+      "passed": true
+    },
+    {
+      "name": "native functional test",
+      "passed": true
+    },
+    {
+      "name": "both Dockerfiles share BASE_IMAGE argument",
+      "passed": true
+    },
+    {
+      "name": "broken Dockerfile invokes make",
+      "passed": true
+    },
+    {
+      "name": "broken Dockerfile omits package installation",
+      "passed": true
+    },
+    {
+      "name": "reference Dockerfile installs gcc make libc6-dev",
+      "passed": true
+    },
+    {
+      "name": "reference Dockerfile builds the project",
+      "passed": true
+    },
+    {
+      "name": "both images run hello",
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    ".dockerignore": "c1238bedf5f4f8cdd6be66f7388790e23478999a605630043270d598b9f8ece7",
+    ".gitignore": "5891b5b522d5df086d0ff0b110fbd9d21bb4fc7163af34d08286a2e846f6be03",
+    "Dockerfile.broken": "620de6b2470c780ef1f3385d1dd125c22e84a952cdc7aebc4f69a3d0bcf37d11",
+    "Dockerfile.reference": "159b7b1bbe8aec8508ef83bdbc1c9f157513bd51886849a22815493211f2c095",
+    "Makefile": "8a1f16e7b300c331b67b74e9f251b088fa3cde10d5aff1594973c54cfdfd25c6",
+    "README.md": "d282c0c3e3be033f6ff29fe3644249db5a4fed246dc124535e7e9a97e649cd74",
+    "main.c": "1ad319424d328694192e3df592a50aea4e09add8fdf26ed19e754d37aab7d766"
+  },
+  "runner_sha256": "7f71a00e3c8241d39042ac6768949f70d0c860dd199bdd6bcd50c39a888a6b54",
+  "oracle_sha256": "eb0f01c94d8740c32f158b8feb34c595ddc1af1a4855d8bdcfe7ccbe3eea9cfb",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "docker_mode": "auto",
+  "workspace_commit": "5d7ad3e534a67ca24e0adbb7271cb8b4540aeb43",
+  "workspace_status_before": " M E3/AI_USAGE.md\n M E3/CONTRIBUTIONS.md\n M E3/MANUAL_STEPS.md\n M E3/README.md\n M README.md\n?? E3/DRAFT_BASELINE.md\n?? E3/DRAFT_PR_DESCRIPTION.md\n?? E3/DRAFT_REVIEW.md\n?? \"E3/E3_\\345\\271\\266\\350\\241\\214\\346\\265\\213\\350\\257\\225\\345\\237\\272\\347\\272\\277_20260930.pptx\"\n?? E3/evidence/draft-tiny-greeting/\n?? E3/oracle/draft-tiny-greeting.expected.json\n?? E3/scripts/run_draft_baseline.py\n?? \"E3/\\345\\215\\216\\344\\270\\272\\344\\272\\221\\350\\265\\204\\346\\272\\220\\347\\224\\263\\350\\257\\267.docx\"\n",
+  "environment": {
+    "git": "git version 2.54.0 (Apple Git-157)",
+    "make": "GNU Make 3.81",
+    "cc": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "python": "3.9.6 (default, Aug 25 2026, 21:26:21) "
+  },
+  "configuration_basis": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "make": "GNU Make 3.81",
+    "cc": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "base_image": "debian:bookworm-slim"
+  },
+  "configuration_id": "b08-draft-6098c0015da1fca2",
+  "temporary_workdir": "/var/folders/st/dk6q5c_51m762blvyr1kpkph0000gn/T/b08-e3-draft-wzg5wl_5/sample",
+  "native_validation": {
+    "decision": "PASSED",
+    "build_exit_code": 0,
+    "program_exit_code": 0,
+    "program_stdout": "hello E3",
+    "version_stdout": "tiny-greeting 1.0.0",
+    "functional_test_exit_code": 0,
+    "executable_sha256": "7de7d46a3775bd7f1098dba25c98caac4760f3e401208e2b04cfd089d14e1712"
+  },
+  "docker_validation": {
+    "decision": "UNAVAILABLE",
+    "reason": "docker executable is not available on PATH",
+    "next_command": "python3 E3/scripts/run_draft_baseline.py --operator <name> --docker required"
+  },
+  "finished_at": "2026-10-11T14:11:03.008175+08:00"
+}

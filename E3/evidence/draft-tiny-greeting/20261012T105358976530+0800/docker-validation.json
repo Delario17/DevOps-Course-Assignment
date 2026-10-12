@@ -1,0 +1,14 @@
+{
+  "decision": "PASSED",
+  "base_image_tag": "debian:bookworm-slim",
+  "base_image_id": "sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587",
+  "base_image_repo_digest": "debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587",
+  "broken_image_tag": "b08-e3-draft-broken:20261012105358",
+  "broken_build_exit_code": 1,
+  "broken_failure_signature": "make: not found",
+  "reference_image_tag": "b08-e3-draft-reference:20261012105358",
+  "reference_image_id": "sha256:0fac7d5dce6a00962f67ef9bc2505a15ea785d54576e21fb09991aa46007a1d0",
+  "reference_container_exit_code": 0,
+  "reference_container_stdout": "hello E3",
+  "reference_container_version": "tiny-greeting 1.0.0"
+}
