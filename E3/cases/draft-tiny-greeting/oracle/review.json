@@ -9,7 +9,7 @@
   },
   "execution": {
     "operator": "王祎（本人发起复现）",
-    "evidence_directory": "E3/evidence/draft-tiny-greeting/20261012T105358976530+0800",
+    "evidence_directory": "E3/cases/draft-tiny-greeting/evidence/20261012T105358976530+0800",
     "workspace_commit": "312fdd9b63a0711defb4531545cd4caf639673c0",
     "started_at": "2026-10-12T10:53:58.976530+08:00",
     "finished_at": "2026-10-12T11:02:33.758637+08:00"

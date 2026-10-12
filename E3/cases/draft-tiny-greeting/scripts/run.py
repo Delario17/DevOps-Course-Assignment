@@ -16,10 +16,11 @@ import sys
 import tempfile
 
 
-E3 = Path(__file__).resolve().parents[1]
+CASE = Path(__file__).resolve().parents[1]
+E3 = CASE.parents[1]
 ROOT = E3.parent
-FIXTURE = E3 / "fixtures/draft-tiny-greeting"
-ORACLE = E3 / "oracle/draft-tiny-greeting.expected.json"
+FIXTURE = CASE / "fixture"
+ORACLE = CASE / "oracle/expected.json"
 TZ = dt.timezone(dt.timedelta(hours=8))
 
 
@@ -46,7 +47,7 @@ def main() -> int:
     started = dt.datetime.now(TZ)
     output = (
         args.output
-        or E3 / "evidence/draft-tiny-greeting" / started.strftime("%Y%m%dT%H%M%S%f+0800")
+        or CASE / "evidence" / started.strftime("%Y%m%dT%H%M%S%f+0800")
     ).resolve()
     if output == ROOT or output == E3 or output == FIXTURE or FIXTURE in output.parents:
         parser.error("Evidence must not be inside the source fixture.")
@@ -148,12 +149,13 @@ def main() -> int:
         ).stdout
 
         fixed_commit = oracle["subject"]["commit"]
+        fixed_commit_fixture = oracle["subject"]["fixed_commit_working_directory"]
         for relative, sha256 in source_hashes.items():
             committed = subprocess.run(
                 [
                     "git",
                     "show",
-                    f"{fixed_commit}:E3/fixtures/draft-tiny-greeting/{relative}",
+                    f"{fixed_commit}:{fixed_commit_fixture}/{relative}",
                 ],
                 cwd=ROOT,
                 capture_output=True,
@@ -251,7 +253,7 @@ def main() -> int:
             docker_result = {
                 "decision": "UNAVAILABLE",
                 "reason": "docker executable is not available on PATH",
-                "next_command": "python3 E3/scripts/run_draft_baseline.py --operator <name> --docker required",
+                "next_command": "python3 E3/cases/draft-tiny-greeting/scripts/run.py --operator <name> --docker required",
             }
             record["docker_validation"] = docker_result
             if args.docker == "required":
@@ -390,7 +392,7 @@ def main() -> int:
         next_step = (
             "容器验证已完成，失败环境与参考环境均符合 Oracle。"
             if status == "PASS"
-            else "在 Docker 可用的 Linux 或 Docker Desktop 环境运行：`python3 E3/scripts/run_draft_baseline.py --operator \"姓名\" --docker required`。"
+            else "在 Docker 可用的 Linux 或 Docker Desktop 环境运行：`python3 E3/cases/draft-tiny-greeting/scripts/run.py --operator \"姓名\" --docker required`。"
         )
         (output / "README.md").write_text(
             "# DRAFT Tiny Greeting 实际运行记录\n\n"

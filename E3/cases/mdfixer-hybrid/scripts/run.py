@@ -20,12 +20,13 @@ import sys
 import tempfile
 import time
 
-E3 = Path(__file__).resolve().parents[1]
+CASE = Path(__file__).resolve().parents[1]
+E3 = CASE.parents[1]
 ROOT = E3.parent
-FIXTURE = E3 / "fixtures/mdfixer-hybrid"
-ORACLE = E3 / "oracle/mdfixer-hybrid.expected.json"
-PATCH = E3 / "patches/mdfixer-hybrid.reference.patch"
-INVALID_PATCH = E3 / "patches/mdfixer-hybrid.invalid.patch"
+FIXTURE = CASE / "fixture"
+ORACLE = CASE / "oracle/expected.json"
+PATCH = CASE / "patches/reference.patch"
+INVALID_PATCH = CASE / "patches/invalid.patch"
 TZ = dt.timezone(dt.timedelta(hours=8))
 
 
@@ -45,7 +46,7 @@ def main() -> int:
     if sys.platform != "linux":
         parser.error("Run in Linux/Ubuntu WSL, not Windows Python or MinGW.")
     started = dt.datetime.now(TZ)
-    output = (args.output or E3 / "evidence/mdfixer-hybrid" / started.strftime("%Y%m%dT%H%M%S%f+0800")).resolve()
+    output = (args.output or CASE / "evidence" / started.strftime("%Y%m%dT%H%M%S%f+0800")).resolve()
     if output == ROOT or output == E3 or FIXTURE == output or FIXTURE in output.parents:
         parser.error("Evidence must not be inside the source fixture.")
     output.mkdir(parents=True, exist_ok=False)
@@ -121,8 +122,9 @@ def main() -> int:
                 raise RuntimeError(f"Required tool missing: {name}")
         record["workspace_commit"] = run(["git", "rev-parse", "HEAD"], ROOT, "workspace commit").stdout.strip()
         record["workspace_status_before"] = run(["git", "status", "--short"], ROOT, "workspace status").stdout
+        fixed_commit_fixture = oracle["subject"]["fixed_commit_working_directory"]
         for relative, sha in source_hashes.items():
-            committed = subprocess.run(["git", "show", oracle["subject"]["commit"] + ":E3/fixtures/mdfixer-hybrid/" + relative],
+            committed = subprocess.run(["git", "show", oracle["subject"]["commit"] + ":" + fixed_commit_fixture + "/" + relative],
                                        cwd=ROOT, capture_output=True, timeout=30)
             check("fixture matches fixed commit: " + relative,
                   committed.returncode == 0 and hashlib.sha256(committed.stdout).hexdigest() == sha)

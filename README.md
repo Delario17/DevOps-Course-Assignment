@@ -21,9 +21,9 @@ python3 E2/validate.py
 
 ## E3：并行测试基线
 
-- 总览与实际结果：[`E3/README.md`](E3/README.md)。
-- DRAFT Tiny Greeting：[`E3/DRAFT_BASELINE.md`](E3/DRAFT_BASELINE.md)。
-- 本人重跑、审阅和提交步骤：[`E3/MANUAL_STEPS.md`](E3/MANUAL_STEPS.md)。
-- 贡献认领：[`E3/CONTRIBUTIONS.md`](E3/CONTRIBUTIONS.md)。
+- 总览与案例目录契约：[`E3/README.md`](E3/README.md)。
+- DRAFT Tiny Greeting：[`E3/cases/draft-tiny-greeting/`](E3/cases/draft-tiny-greeting/README.md)。
+- MDFixer HYBRID：[`E3/cases/mdfixer-hybrid/`](E3/cases/mdfixer-hybrid/README.md)。
+- 组级贡献与 AI 使用索引：[`E3/CONTRIBUTIONS.md`](E3/CONTRIBUTIONS.md)、[`E3/AI_USAGE.md`](E3/AI_USAGE.md)。
 
-MDFixer HYBRID 案例已完成 40/40 Linux 复现与人工确认。DRAFT Tiny Greeting 由王祎本人发起完整 Docker 复现，24/24 项断言通过，失败环境、参考环境、镜像身份和容器输出均已留存。
+MDFixer HYBRID 案例已完成 40/40 Linux 复现与人工确认。DRAFT Tiny Greeting 由王祎本人发起完整 Docker 复现，24/24 项断言通过。两套基线的 fixture、Oracle、脚本、evidence 和个人文档均收拢到各自的案例目录。

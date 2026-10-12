@@ -7,7 +7,8 @@
   "subject": {
     "repository_url": "https://github.com/Delario17/DevOps-Course-Assignment.git",
     "commit": "4f13da22499dbee5ad3b63360e5b8b0af1bfcf98",
-    "working_directory": "E3/fixtures/mdfixer-hybrid"
+    "working_directory": "E3/cases/mdfixer-hybrid/fixture",
+    "fixed_commit_working_directory": "E3/fixtures/mdfixer-hybrid"
   },
   "declaration_style": "HYBRID",
   "scope": "Only the missing project-header dependency of build/main.o; the existing unused.h RD is intentionally retained.",
@@ -31,8 +32,8 @@
     "invalid_candidate_build_exit_nonzero": true,
     "restored_output": 12
   },
-  "reference_patch": "E3/patches/mdfixer-hybrid.reference.patch",
-  "invalid_candidate_patch": "E3/patches/mdfixer-hybrid.invalid.patch",
-  "verification": "E3/scripts/run_mdfixer_hybrid.py",
+  "reference_patch": "E3/cases/mdfixer-hybrid/patches/reference.patch",
+  "invalid_candidate_patch": "E3/cases/mdfixer-hybrid/patches/invalid.patch",
+  "verification": "E3/cases/mdfixer-hybrid/scripts/run.py",
   "review_note": "Reference expectations prepared with Codex. A08's original fixture provenance is recorded in SOURCE.md. The B08 member must review this case; no human signature is asserted."
 }
