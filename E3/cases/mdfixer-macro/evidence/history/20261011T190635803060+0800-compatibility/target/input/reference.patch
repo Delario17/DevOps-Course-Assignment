@@ -1,0 +1,12 @@
+diff --git a/Makefile b/Makefile
+--- a/Makefile
++++ b/Makefile
+@@ -10,7 +10,7 @@
+ 	mkdir -p bin
+ 	$(CC) $(CFLAGS) build/main.o -o bin/demo
+ 
+-build/main.o: src/main.c include/common.h
++build/main.o: src/main.c include/common.h include/config.h
+ 	mkdir -p build
+ 	$(CC) $(CPPFLAGS) $(CFLAGS) -c src/main.c -o build/main.o
+ 

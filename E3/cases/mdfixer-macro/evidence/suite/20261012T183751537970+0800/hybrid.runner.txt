@@ -1,0 +1,3 @@
+PASS
+ASSERTIONS=40/40
+EVIDENCE_DIR=/mnt/d/Devops/DevOps-Course-Assignment/E3/cases/mdfixer-macro/evidence/suite/20261012T183751537970+0800/hybrid

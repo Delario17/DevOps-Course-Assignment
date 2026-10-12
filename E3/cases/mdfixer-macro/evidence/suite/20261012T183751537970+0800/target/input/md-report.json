@@ -1,0 +1,40 @@
+{
+  "schema_version": "e3-mdfixer-baseline-v1",
+  "provenance": "AI_PREPARED_REFERENCE_FROM_ATTRIBUTED_B08_TARGET_FIXTURE",
+  "review_status": "PENDING_HUMAN_REVIEW",
+  "not_a_detector_report": true,
+  "not_an_mdfixer_output": true,
+  "subject": {
+    "repository_url": "https://github.com/Delario17/DevOps-Course-Assignment.git",
+    "commit": "a03812e0ec7bd689762fdb18cdfc66a07ef7f954",
+    "working_directory": "E3/cases/mdfixer-hybrid/target/fixture",
+    "fixed_commit_working_directory": "E3/cases/mdfixer-hybrid/target/fixture"
+  },
+  "declaration_style": "DEPENDENCY_LIST",
+  "scope": "Only the missing include/config.h prerequisite of build/main.o; all prerequisites use direct filenames; no project-header RD.",
+  "findings": [
+    {
+      "finding_id": "finding-main-config",
+      "type": "MISSING",
+      "target": "build/main.o",
+      "dependency": "include/config.h",
+      "build_file": "Makefile",
+      "reason": "src/main.c includes config.h and reads CONFIG_VALUE. The direct prerequisite list contains src/main.c and include/common.h but omits include/config.h. A header-only edit must rebuild the target."
+    }
+  ],
+  "expected_behavior": {
+    "initial": 10,
+    "before_fix_config_4_to_5_incremental": 10,
+    "before_fix_config_4_to_5_clean": 11,
+    "after_fix_config_4_clean": 10,
+    "after_fix_config_4_to_5_incremental": 11,
+    "after_fix_config_5_to_6_incremental": 12,
+    "invalid_candidate_build_exit_nonzero": true,
+    "restored_output": 12
+  },
+  "reference_patch": "E3/cases/mdfixer-hybrid/target/patches/reference.patch",
+  "invalid_candidate_patch": "E3/cases/mdfixer-hybrid/target/patches/invalid.patch",
+  "verification": "E3/cases/mdfixer-hybrid/target/scripts/run.py",
+  "review_note": "Behavioral expectations were confirmed by Sheng Haoyu on 2026-10-11 with Codex-assisted review. On 2026-10-12 only paths and source version metadata were migrated; original reviewed input is retained in the historical evidence. REVIEW.md and oracle/review.json distinguish the historical member confirmation from new AI regression execution.",
+  "course_style": "TARGET"
+}
