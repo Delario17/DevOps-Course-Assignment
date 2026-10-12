@@ -1,0 +1,11 @@
+diff --git a/Makefile b/Makefile
+--- a/Makefile
++++ b/Makefile
+@@ -12,6 +12,7 @@
+ 
+ build/main.o: src/main.c include/common.h include/config.h
+ 	mkdir -p build
++	false
+ 	$(CC) $(CPPFLAGS) $(CFLAGS) -c src/main.c -o build/main.o
+ 
+ clean:

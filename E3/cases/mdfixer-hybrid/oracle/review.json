@@ -1,0 +1,43 @@
+{
+  "schema_version": "e3-mdfixer-review-v1",
+  "case": "HYBRID",
+  "subject_commit": "4f13da22499dbee5ad3b63360e5b8b0af1bfcf98",
+  "oracle_path": "evidence/20261009T133714630641+0800/input/md-report.json",
+  "oracle_sha256": "ab227343843e0ccf6ad25f5a9b074a200cc750438b2890b2d68347bb6ef529cd",
+  "evidence_directory": "evidence/20261009T133714630641+0800",
+  "observations_sha256": "8c2ca8a31259af8f9dc31eff4b140915ba7651a33cf2291d98e27228b3f137e4",
+  "technical_validation": {
+    "status": "PASS",
+    "assertions_passed": 40,
+    "assertions_total": 40,
+    "commands": 39
+  },
+  "review_status": "APPROVED_WITH_AI_ASSISTED_REVIEW",
+  "reviewer": {
+    "name": "盛浩宇",
+    "student_id": "241250008",
+    "github": "lejuwujiang258"
+  },
+  "confirmation_date": "2026-10-09",
+  "confirmation_basis": "本人发起 Hybrid 脚本复现并报告结果；阅读 Codex 辅助核查结论后明确回复：已阅读并确认一致。",
+  "execution_provenance": "盛浩宇",
+  "review_record": "REVIEW.md",
+  "status_note": "This sidecar records the current review state of the exact hashed input and evidence. PENDING_HUMAN_REVIEW in immutable preparation/run snapshots is historical and is not rewritten.",
+  "path_base": "E3/cases/mdfixer-hybrid",
+  "current_oracle_path": "oracle/expected.json",
+  "current_oracle_sha256": "a63f588094f168bdb622dfa2bbb8f833abe5982fab6e79224514a582154a4d7f",
+  "current_fixture_commit": "4f13da22499dbee5ad3b63360e5b8b0af1bfcf98",
+  "migration_date": "2026-10-12",
+  "migration_relation": "Original member confirmation binds the exact historical captured input and observations hashes. Current Oracle has identical findings and expected behavior; only paths/version metadata and review explanation were adapted. No new human execution or approval of the 2026-10-12 run is asserted.",
+  "latest_migration_validation": {
+    "evidence_directory": "evidence/20261012T144643089037+0800",
+    "observations_sha256": "cfc3c499b742272cbda0c8470b138c07890ecbe835ebf8935d4a75925bae8e92",
+    "oracle_sha256": "a63f588094f168bdb622dfa2bbb8f833abe5982fab6e79224514a582154a4d7f",
+    "status": "PASS",
+    "assertions": "40/40",
+    "commands": 39,
+    "executor": "Codex automated Linux migration regression; original Hybrid member confirmation retained",
+    "review_status": "AI_VALIDATED_REGRESSION_ORIGINAL_MEMBER_CONFIRMATION_RETAINED",
+    "note": "This new migration run is Codex execution. The reviewer/date above refer to the earlier exact-input member confirmation, not a new manual reproduction."
+  }
+}

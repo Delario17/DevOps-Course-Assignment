@@ -1,20 +1,61 @@
-# MDFixer HYBRID 贡献记录
+# 盛浩宇：MDFixer Hybrid 与 Target 个人贡献
+
+本文件记录盛浩宇负责的 Hybrid 收尾和 Target 案例；最终四人贡献表由汇总负责人整合。
+
+## Hybrid 历史贡献（2026-10-09）
+
+| 项目 | 填写或记录 |
+|---|---|
+| 实际贡献认领人 | 盛浩宇 |
+| 学号与 GitHub 账号 | 241250008，lejuwujiang258 |
+| 个人负责范围 | MDFixer HYBRID 固定输入、参考补丁、行为验证和拒绝恢复案例 |
+| AI 辅助准备 | Codex 整理来源、编写脚本和材料，并在 Ubuntu WSL 执行首轮实验 |
+| A08 复用 | 原始 Makefile、C 源码和头文件；归属见 `fixture/SOURCE.md` |
+| 固定样例提交 | `4f13da22499dbee5ad3b63360e5b8b0af1bfcf98` |
+| 首轮实际执行者 | Codex automated Linux execution; B08 human review pending |
+| 首轮证据 | `evidence/20261009T123151981838+0800/`，40/40 PASS |
+| 最终脚本验证证据 | `evidence/20261009T123645645063+0800/`，40/40 PASS |
+| 本人后续复现 | 盛浩宇于 2026-10-09 13:37:14 至 13:37:39（北京时间）本人发起 Linux 脚本复现；`evidence/20261009T133714630641+0800/`，40/40 PASS，39 条命令 |
+| 复现时仓库提交 | `d293999a0c7af3674768f311ad53fc171e01c0aa` |
+| 本次实际环境 | Ubuntu 24.04 WSL、x86_64、GCC 13.3.0、GNU Make 4.3、Python 3.12.3；`b08-hybrid-74f06528d5480265` |
+| 本人审阅 | 盛浩宇已阅读 Codex 辅助检查结论，并在对话中明确回复“已阅读并确认一致”；详情见 `REVIEW.md` |
+| 个人复现证据提交 SHA | `e9e59b6a017d179ba5e845203c1665ad8450cf37`，包含本人复现证据、身份记录和辅助审阅确认；SHA 回填已完成于 `f1fe71cbcc1826bf33e8f7545bd11de913f9cc0b` |
+
+本地 Git 使用已有配置的提交身份。Git 作者信息与实验实际执行者分别记录；本轮自动实验不能标为本人手工执行。
+
+姓名、学号和 GitHub 账号与既有 E2/CONTRIBUTIONS.md 一致。原 Hybrid 阶段本人的实际贡献为发起并完成 Linux 脚本复现、提供实际结果并阅读确认辅助核查结论；参考补丁和验证脚本由 Codex 辅助编写，不将其描述为本人独立手写。
+
+## 新分工补充（2026-10-11）
 
 | 项目 | 记录 |
 |---|---|
-| 负责成员 | 盛浩宇 |
-| 学号与 GitHub | 241250008，lejuwujiang258 |
-| 负责范围 | MDFixer HYBRID 固定输入、参考补丁、行为验证和拒绝恢复案例 |
-| A08 复用 | 原始 Makefile、C 源码和头文件；归属见 [`fixture/SOURCE.md`](fixture/SOURCE.md) |
-| 固定样例提交 | `4f13da22499dbee5ad3b63360e5b8b0af1bfcf98` |
-| AI 辅助准备 | Codex 整理来源、编写脚本与材料，并在 Ubuntu WSL 执行前两次验证 |
-| 首轮证据 | [`evidence/20261009T123151981838+0800/`](evidence/20261009T123151981838+0800/)，40/40 PASS |
-| 最终脚本验证 | [`evidence/20261009T123645645063+0800/`](evidence/20261009T123645645063+0800/)，40/40 PASS |
-| 本人复现 | 盛浩宇于 2026-10-09 13:37:14 至 13:37:39 发起 Linux 复现，40/40 PASS，记录 39 条命令 |
-| 本人证据 | [`evidence/20261009T133714630641+0800/`](evidence/20261009T133714630641+0800/) |
-| 复现时仓库提交 | `d293999a0c7af3674768f311ad53fc171e01c0aa` |
-| 实际环境 | Ubuntu 24.04 WSL、x86_64、GCC 13.3.0、GNU Make 4.3、Python 3.12.3；`b08-hybrid-74f06528d5480265` |
-| 本人审阅 | 盛浩宇已阅读辅助检查结论并确认与运行结果一致；详情见 [`REVIEW.md`](REVIEW.md) |
-| 个人复现证据提交 | `e9e59b6a017d179ba5e845203c1665ad8450cf37` |
+| 本次负责人 | 盛浩宇，241250008，lejuwujiang258 |
+| 分工与分支 | Hybrid 收尾与 Target 声明案例；`b08/e3-mdfixer-target` |
+| 原 Hybrid 合并 | [PR #2](https://github.com/Delario17/DevOps-Course-Assignment/pull/2)，main 合并版本 `59f45051ca7904247198b3aba6800b6f194333eb` |
+| Hybrid 收尾 | 更新当前交付和操作说明；新增绑定原始输入哈希的 review.json；原 Fixture、Oracle 与三次证据保持不变 |
+| Target 新材料 | 直接声明 Fixture、MD-only Oracle、参考/无效 Patch、独立验证脚本、日志、案例说明 |
+| Target 固定提交 | `b2d5709275471d4264215f6d40bd4bdd3bbfdd8a`，包含 7 个版本固定的 Fixture 文件 |
+| Target 实现及证据提交 | `fe788d6d6137024388e495fddda93242301fbff2`，包含 Oracle、Patch、执行脚本、44/44 实际证据及 Hybrid 状态文档收尾 |
+| Target 实际执行者 | Codex；未记为盛浩宇本人发起复现 |
+| Target 实际证据 | `target/evidence/20261011T110959885929+0800/`，44/44 PASS，39 条命令，配置 `b08-target-74f06528d5480265` |
+| 新材料审阅状态 | 盛浩宇于 2026-10-11 阅读并明确确认 Target 的 Codex 辅助核查结论；APPROVED_WITH_AI_ASSISTED_REVIEW，见 REVIEW.md 与 Target review.json |
+| AI 使用 | 用户请求并指定分工，Codex 辅助编写、执行及核查；原 A08 归属沿用 SOURCE.md |
 
-盛浩宇完成 Linux 脚本复现、提供实际结果并阅读确认辅助核查结论；参考补丁和验证脚本由 Codex 辅助编写。
+上述 SHA 为实际本地提交；Target 实现提交的 SHA 回填已完成于 `3a0620477becc98abfe141805e05004a0e0ce491`。本次个人确认原文为“已阅读并确认，请补齐记录”，不作为本人发起 Target 实验的证明。此个人贡献说明不代填其他成员的交付完成情况。
+
+## 成员目录迁移（2026-10-12）
+
+| 项目 | 记录 |
+|---|---|
+| 新分支 | `b08/e3-mdfixer-hybrid-layout`，基于 origin/main `d27dc4c` |
+| 本次提交范围 | `E3/cases/mdfixer-hybrid/`；Target 在该目录的 target/ 子案例 |
+| 旧材料备份 | 旧分支及 backup/e3-mdfixer-target-before-layout-20261012 保留；文件 ZIP 与完整 Git bundle 已另存并校验 |
+| 当前 Target 固定提交 | `a03812e0ec7bd689762fdb18cdfc66a07ef7f954`；新路径源码版本，Makefile/C/头文件与原 Target 字节一致 |
+| 迁移实现与证据提交 | `c192a41b9878106f47872239db2b7b55805ea97a`；仅涉及 E3/cases/mdfixer-hybrid/，包含路径适配、历史证据、两套新 Linux 记录和迁移完整性报告 |
+| 当前执行入口 | `E3/cases/mdfixer-hybrid/scripts/run.py`、`E3/cases/mdfixer-hybrid/target/scripts/run.py` |
+| Hybrid 新路径验证 | `evidence/20261012T144643089037+0800/`，40/40 PASS、39 条命令 |
+| Target 新路径验证 | `target/evidence/20261012T144600994684+0800/`，44/44 PASS、39 条命令 |
+| 本次实际执行及核查 | Codex；原成员确认继续指向 2026-10-09/11 的原始材料，不虚填新的本人执行 |
+| AI 辅助工作 | 备份、迁移、路径适配、现行输入版本绑定、Linux 验证、完整性及提交范围检查 |
+
+本次固定 Fixture 和迁移实现的实际提交 SHA 已回填；本表随后单独提交记录真实 SHA。
