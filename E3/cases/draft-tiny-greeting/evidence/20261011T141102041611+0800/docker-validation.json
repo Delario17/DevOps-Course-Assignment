@@ -1,0 +1,5 @@
+{
+  "decision": "UNAVAILABLE",
+  "reason": "docker executable is not available on PATH",
+  "next_command": "python3 E3/scripts/run_draft_baseline.py --operator <name> --docker required"
+}

@@ -1,0 +1,9 @@
+{
+  "decision": "PASSED",
+  "build_exit_code": 0,
+  "program_exit_code": 0,
+  "program_stdout": "hello E3",
+  "version_stdout": "tiny-greeting 1.0.0",
+  "functional_test_exit_code": 0,
+  "executable_sha256": "7de7d46a3775bd7f1098dba25c98caac4760f3e401208e2b04cfd089d14e1712"
+}

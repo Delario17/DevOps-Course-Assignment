@@ -1,0 +1,41 @@
+{
+  "schema_version": "e3-draft-baseline-v1",
+  "provenance": "B08_AI_PREPARED_ORACLE",
+  "review_status": "PENDING_HUMAN_REVIEW",
+  "subject": {
+    "repository_url": "https://github.com/Delario17/DevOps-Course-Assignment.git",
+    "commit": "5d7ad3e534a67ca24e0adbb7271cb8b4540aeb43",
+    "working_directory": "E3/cases/draft-tiny-greeting/fixture",
+    "fixed_commit_working_directory": "E3/fixtures/draft-tiny-greeting"
+  },
+  "project": {
+    "name": "Tiny Greeting",
+    "language": "C",
+    "build_system": "GNU Make",
+    "base_image": "debian:bookworm-slim"
+  },
+  "commands": {
+    "build": ["make"],
+    "run": ["./hello"],
+    "version": ["./hello", "--version"],
+    "functional_test": ["make", "test"]
+  },
+  "expected_behavior": {
+    "native_build_exit_code": 0,
+    "program_exit_code": 0,
+    "program_stdout": "hello E3",
+    "version_stdout": "tiny-greeting 1.0.0",
+    "functional_test_exit_code": 0,
+    "broken_image_build_exit_nonzero": true,
+    "broken_image_failure_signature": "make: not found",
+    "reference_image_build_exit_code": 0,
+    "reference_container_exit_code": 0,
+    "reference_container_stdout": "hello E3"
+  },
+  "inputs": {
+    "broken_environment": "E3/cases/draft-tiny-greeting/fixture/Dockerfile.broken",
+    "reference_environment": "E3/cases/draft-tiny-greeting/fixture/Dockerfile.reference"
+  },
+  "verification": "E3/cases/draft-tiny-greeting/scripts/run.py",
+  "review_note": "The oracle and runner were prepared with Codex. A B08 member must review the expected behavior and initiate a Docker-enabled reproduction before final acceptance."
+}
