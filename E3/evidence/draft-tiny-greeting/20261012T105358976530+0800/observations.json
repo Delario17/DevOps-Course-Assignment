@@ -1,0 +1,404 @@
+{
+  "schema_version": "e3-draft-evidence-v1",
+  "started_at": "2026-10-12T10:53:58.976530+08:00",
+  "operator": "王祎（本人发起复现）",
+  "provenance": "REAL_LOCAL_AND_OPTIONAL_DOCKER_BASELINE_EXPERIMENT",
+  "review_status": "PENDING_HUMAN_REVIEW",
+  "subject": {
+    "repository_url": "https://github.com/Delario17/DevOps-Course-Assignment.git",
+    "commit": "5d7ad3e534a67ca24e0adbb7271cb8b4540aeb43",
+    "working_directory": "E3/fixtures/draft-tiny-greeting"
+  },
+  "status": "PASS",
+  "commands": [
+    {
+      "label": "workspace commit",
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "312fdd9b63a0711defb4531545cd4caf639673c0\n",
+      "stderr": ""
+    },
+    {
+      "label": "workspace status",
+      "argv": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "?? \"E3/E3_\\345\\271\\266\\350\\241\\214\\346\\265\\213\\350\\257\\225\\345\\237\\272\\347\\272\\277_20260930.pptx\"\n?? E3/evidence/draft-tiny-greeting/20261012T105358976530+0800/\n?? \"E3/\\345\\215\\216\\344\\270\\272\\344\\272\\221\\350\\265\\204\\346\\272\\220\\347\\224\\263\\350\\257\\267.docx\"\n",
+      "stderr": ""
+    },
+    {
+      "label": "git version",
+      "argv": [
+        "git",
+        "--version"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "git version 2.54.0 (Apple Git-157)\n",
+      "stderr": ""
+    },
+    {
+      "label": "make version",
+      "argv": [
+        "make",
+        "--version"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "GNU Make 3.81\nCopyright (C) 2006  Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.\nThere is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A\nPARTICULAR PURPOSE.\n\nThis program built for i386-apple-darwin11.3.0\n",
+      "stderr": ""
+    },
+    {
+      "label": "cc version",
+      "argv": [
+        "cc",
+        "--version"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+      "stderr": ""
+    },
+    {
+      "label": "native:clean",
+      "argv": [
+        "make",
+        "clean"
+      ],
+      "cwd": "/var/folders/st/dk6q5c_51m762blvyr1kpkph0000gn/T/b08-e3-draft-sspuko7e/sample",
+      "exit_code": 0,
+      "stdout": "rm -f hello\n",
+      "stderr": ""
+    },
+    {
+      "label": "native:build",
+      "argv": [
+        "make"
+      ],
+      "cwd": "/var/folders/st/dk6q5c_51m762blvyr1kpkph0000gn/T/b08-e3-draft-sspuko7e/sample",
+      "exit_code": 0,
+      "stdout": "cc -Wall -Wextra -O2 main.c -o hello\n",
+      "stderr": ""
+    },
+    {
+      "label": "native:behavior",
+      "argv": [
+        "./hello"
+      ],
+      "cwd": "/var/folders/st/dk6q5c_51m762blvyr1kpkph0000gn/T/b08-e3-draft-sspuko7e/sample",
+      "exit_code": 0,
+      "stdout": "hello E3\n",
+      "stderr": ""
+    },
+    {
+      "label": "native:version",
+      "argv": [
+        "./hello",
+        "--version"
+      ],
+      "cwd": "/var/folders/st/dk6q5c_51m762blvyr1kpkph0000gn/T/b08-e3-draft-sspuko7e/sample",
+      "exit_code": 0,
+      "stdout": "tiny-greeting 1.0.0\n",
+      "stderr": ""
+    },
+    {
+      "label": "native:functional test",
+      "argv": [
+        "make",
+        "test"
+      ],
+      "cwd": "/var/folders/st/dk6q5c_51m762blvyr1kpkph0000gn/T/b08-e3-draft-sspuko7e/sample",
+      "exit_code": 0,
+      "stdout": "PASS: hello E3\n",
+      "stderr": ""
+    },
+    {
+      "label": "docker:version",
+      "argv": [
+        "/Users/yiwang/.docker/bin/docker",
+        "version"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "Client:\n Version:           29.8.2\n API version:       1.56\n Go version:        go1.26.8\n Git commit:        7fc2dff\n Built:             Wed Sep 30 19:32:03 2026\n OS/Arch:           darwin/arm64\n Context:           desktop-linux\n\nServer: Docker Desktop 4.94.0 (241994)\n Engine:\n  Version:          29.8.2\n  API version:      1.56 (minimum version 1.40)\n  Go version:       go1.26.8\n  Git commit:       8af9fe3\n  Built:            Wed Sep 30 19:31:50 2026\n  OS/Arch:          linux/arm64\n  Experimental:     false\n containerd:\n  Version:          v2.3.6\n  GitCommit:        ee2735368117d2eb259779949d5e75cdafec9761\n runc:\n  Version:          1.5.1\n  GitCommit:        v1.5.1-0-g8f2685a4\n docker-init:\n  Version:          0.19.0\n  GitCommit:        de40ad0\n",
+      "stderr": ""
+    },
+    {
+      "label": "docker:daemon info",
+      "argv": [
+        "/Users/yiwang/.docker/bin/docker",
+        "info"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "Client:\n Version:    29.8.2\n Context:    desktop-linux\n Debug Mode: false\n Plugins:\n  agent: Docker AI Agent Runner (Docker Inc.)\n    Version:  v1.144.0\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-agent\n  ai: Docker AI Agent - Ask Gordon (Docker Inc.)\n    Version:  v1.31.0\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-ai\n  buildx: Docker Buildx (Docker Inc.)\n    Version:  v0.37.2\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-buildx\n  compose: Docker Compose (Docker Inc.)\n    Version:  v5.5.1\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-compose\n  debug: Get a shell into any image or container (Docker Inc.)\n    Version:  0.0.47\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-debug\n  desktop: Docker Desktop commands (Docker Inc.)\n    Version:  v0.4.4\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-desktop\n  dhi: CLI for managing Docker Hardened Images (Docker Inc.)\n    Version:  v0.0.7\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-dhi\n  extension: Manages Docker extensions (Docker Inc.)\n    Version:  v0.2.31\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-extension\n  init: Creates Docker-related starter files for your project (Docker Inc.)\n    Version:  v1.4.0\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-init\n  mcp: Docker MCP Plugin (Docker Inc.)\n    Version:  v0.44.1\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-mcp\n  model: Docker Model Runner (Docker Inc.)\n    Version:  v1.2.6\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-model\n  offload: Docker Offload (Docker Inc.)\n    Version:  v0.6.53\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-offload\n  pass: Docker Pass Secrets Manager Plugin (beta) (Docker Inc.)\n    Version:  v0.2.4\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-pass\n  sandbox: \"docker sandbox\" is deprecated, use Docker Sandboxes instead (Docker Inc.)\n    Version:  v0.13.0\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-sandbox\n  scout: Docker Scout (Docker Inc.)\n    Version:  v1.25.0\n    Path:     /Users/yiwang/.docker/cli-plugins/docker-scout\n\nServer:\n Containers: 0\n  Running: 0\n  Paused: 0\n  Stopped: 0\n Images: 0\n Server Version: 29.8.2\n Storage Driver: overlayfs\n  driver-type: io.containerd.snapshotter.v1\n Logging Driver: local\n Cgroup Driver: cgroupfs\n Cgroup Version: 2\n Plugins:\n  Volume: local\n  Network: bridge host ipvlan macvlan null overlay\n  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog\n CDI spec directories:\n  /etc/cdi\n  /var/run/cdi\n Discovered Devices:\n  cdi: docker.com/gpu=webgpu\n Swarm: inactive\n Runtimes: io.containerd.runc.v2 runc\n Default Runtime: runc\n Init Binary: docker-init\n containerd version: ee2735368117d2eb259779949d5e75cdafec9761\n runc version: v1.5.1-0-g8f2685a4\n init version: de40ad0\n Security Options:\n  seccomp\n   Profile: builtin\n  cgroupns\n Kernel Version: 7.0.14-linuxkit\n Operating System: Docker Desktop\n OSType: linux\n Architecture: aarch64\n CPUs: 10\n Total Memory: 7.748GiB\n Name: docker-desktop\n ID: af43f185-fcc1-434b-b994-bac56ab5ab94\n Docker Root Dir: /var/lib/docker\n Debug Mode: false\n HTTP Proxy: http.docker.internal:3128\n HTTPS Proxy: http.docker.internal:3128\n No Proxy: hubproxy.docker.internal\n Labels:\n  com.docker.desktop.address=unix:///Users/yiwang/Library/Containers/com.docker.docker/Data/docker-cli.sock\n Experimental: false\n Insecure Registries:\n  hubproxy.docker.internal:5555\n  127.0.0.0/8\n  ::1/128\n Live Restore Enabled: false\n Firewall Backend: iptables\n\n",
+      "stderr": ""
+    },
+    {
+      "label": "docker:pull base",
+      "argv": [
+        "/Users/yiwang/.docker/bin/docker",
+        "pull",
+        "debian:bookworm-slim"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "bookworm-slim: Pulling from library/debian\nc75f989a229d: Pulling fs layer\nc75f989a229d: Download complete\nc75f989a229d: Pull complete\nc96d6ea700e1: Download complete\nDigest: sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\nStatus: Downloaded newer image for debian:bookworm-slim\ndocker.io/library/debian:bookworm-slim\n",
+      "stderr": ""
+    },
+    {
+      "label": "docker:inspect base",
+      "argv": [
+        "/Users/yiwang/.docker/bin/docker",
+        "image",
+        "inspect",
+        "debian:bookworm-slim"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "[\n    {\n        \"Id\": \"sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\",\n        \"RepoTags\": [\n            \"debian:bookworm-slim\"\n        ],\n        \"RepoDigests\": [\n            \"debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\"\n        ],\n        \"Comment\": \"debuerreotype 0.17\",\n        \"Created\": \"2026-10-05T00:00:00Z\",\n        \"Config\": {\n            \"Env\": [\n                \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"\n            ],\n            \"Cmd\": [\n                \"bash\"\n            ]\n        },\n        \"Architecture\": \"arm64\",\n        \"Variant\": \"v8\",\n        \"Os\": \"linux\",\n        \"Size\": 135924928,\n        \"RootFS\": {\n            \"Type\": \"layers\",\n            \"Layers\": [\n                \"sha256:dca69811453d69d10b6c0345a5c49147162abe20a2f77802d66efc60667949ea\"\n            ]\n        },\n        \"Metadata\": {\n            \"LastTagTime\": \"2026-10-12T02:55:33.425614509Z\"\n        },\n        \"Descriptor\": {\n            \"mediaType\": \"application/vnd.oci.image.index.v1+json\",\n            \"digest\": \"sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\",\n            \"size\": 5651\n        },\n        \"Identity\": {\n            \"Pull\": [\n                {\n                    \"Repository\": \"docker.io/library/debian\"\n                }\n            ]\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "label": "docker:broken build",
+      "argv": [
+        "/Users/yiwang/.docker/bin/docker",
+        "build",
+        "--no-cache",
+        "--build-arg",
+        "BASE_IMAGE=debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587",
+        "-f",
+        "Dockerfile.broken",
+        "-t",
+        "b08-e3-draft-broken:20261012105358",
+        "."
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment/E3/fixtures/draft-tiny-greeting",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile.broken\n#1 transferring dockerfile: 164B done\n#1 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\n#2 ...\n\n#3 [auth] library/debian:pull token for registry-1.docker.io\n#3 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\n#2 ...\n\n#4 [auth] library/debian:pull token for registry-1.docker.io\n#4 DONE 0.0s\n\n#2 [internal] load metadata for docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\n#2 DONE 61.0s\n\n#5 [internal] load .dockerignore\n#5 transferring context: 72B done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 DONE 0.0s\n\n#7 [auth] library/debian:pull token for registry-1.docker.io\n#7 DONE 0.0s\n\n#8 [1/4] FROM docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\n#8 resolve docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\n#8 ...\n\n#9 [auth] library/debian:pull token for registry-1.docker.io\n#9 DONE 0.0s\n\n#8 [1/4] FROM docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\n#8 resolve docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 60.0s done\n#8 ...\n\n#6 [internal] load build context\n#6 transferring context: 633B done\n#6 DONE 0.0s\n\n#8 [1/4] FROM docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\n#8 extracting sha256:c75f989a229d12b2d2613a5997de9ff3546f664c22da9248720033a2410220f6\n#8 extracting sha256:c75f989a229d12b2d2613a5997de9ff3546f664c22da9248720033a2410220f6 0.4s done\n#8 DONE 60.4s\n\n#10 [2/4] WORKDIR /work\n#10 DONE 0.1s\n\n#11 [3/4] COPY main.c Makefile ./\n#11 DONE 0.0s\n\n#12 [4/4] RUN make\n#12 0.065 /bin/sh: 1: make: not found\n#12 ERROR: process \"/bin/sh -c make\" did not complete successfully: exit code: 127\n------\n > [4/4] RUN make:\n0.065 /bin/sh: 1: make: not found\n------\nDockerfile.broken:6\n--------------------\n   4 |     WORKDIR /work\n   5 |     COPY main.c Makefile ./\n   6 | >>> RUN make\n   7 |     \n   8 |     CMD [\"./hello\"]\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c make\" did not complete successfully: exit code: 127\n"
+    },
+    {
+      "label": "docker:reference build",
+      "argv": [
+        "/Users/yiwang/.docker/bin/docker",
+        "build",
+        "--no-cache",
+        "--build-arg",
+        "BASE_IMAGE=debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587",
+        "-f",
+        "Dockerfile.reference",
+        "-t",
+        "b08-e3-draft-reference:20261012105358",
+        "."
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment/E3/fixtures/draft-tiny-greeting",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "#0 building with \"desktop-linux\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile.reference\n#1 transferring dockerfile: 297B done\n#1 DONE 0.0s\n\n#2 [auth] library/debian:pull token for registry-1.docker.io\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\n#3 ...\n\n#4 [auth] library/debian:pull token for registry-1.docker.io\n#4 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\n#3 DONE 60.1s\n\n#5 [internal] load .dockerignore\n#5 transferring context: 72B done\n#5 DONE 0.0s\n\n#6 [internal] load build context\n#6 DONE 0.0s\n\n#7 [auth] library/debian:pull token for registry-1.docker.io\n#7 DONE 0.0s\n\n#8 [1/5] FROM docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\n#8 resolve docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\n#8 ...\n\n#9 [auth] library/debian:pull token for registry-1.docker.io\n#9 DONE 0.0s\n\n#8 [1/5] FROM docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587\n#8 resolve docker.io/library/debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 60.0s done\n#8 CACHED\n\n#6 [internal] load build context\n#6 transferring context: 56B done\n#6 DONE 0.0s\n\n#10 [2/5] RUN apt-get update     && apt-get install -y --no-install-recommends gcc make libc6-dev     && rm -rf /var/lib/apt/lists/*\n#10 2.184 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]\n#10 5.393 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]\n#10 6.216 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [34.8 kB]\n#10 12.21 Get:4 http://deb.debian.org/debian bookworm/main arm64 Packages [8689 kB]\n#10 14.45 Get:5 http://deb.debian.org/debian bookworm-updates/main arm64 Packages [6936 B]\n#10 17.56 Get:6 http://deb.debian.org/debian-security bookworm-security/main arm64 Packages [347 kB]\n#10 17.60 Fetched 9285 kB in 18s (530 kB/s)\n#10 17.60 Reading package lists...\n#10 17.78 Reading package lists...\n#10 17.95 Building dependency tree...\n#10 17.99 Reading state information...\n#10 18.04 The following additional packages will be installed:\n#10 18.04   binutils binutils-aarch64-linux-gnu binutils-common cpp cpp-12 gcc-12\n#10 18.04   libasan8 libatomic1 libbinutils libc-dev-bin libcc1-0 libcrypt-dev\n#10 18.04   libctf-nobfd0 libctf0 libgcc-12-dev libgomp1 libgprofng0 libgssapi-krb5-2\n#10 18.04   libhwasan0 libisl23 libitm1 libjansson4 libk5crypto3 libkeyutils1 libkrb5-3\n#10 18.04   libkrb5support0 liblsan0 libmpc3 libmpfr6 libnsl-dev libnsl2 libssl3\n#10 18.04   libtirpc-common libtirpc-dev libtirpc3 libtsan2 libubsan1 linux-libc-dev\n#10 18.04   rpcsvc-proto\n#10 18.05 Suggested packages:\n#10 18.05   binutils-doc cpp-doc gcc-12-locales cpp-12-doc gcc-multilib manpages-dev\n#10 18.05   autoconf automake libtool flex bison gdb gcc-doc gcc-12-doc glibc-doc\n#10 18.05   krb5-doc krb5-user make-doc\n#10 18.05 Recommended packages:\n#10 18.05   manpages manpages-dev libc-devtools krb5-locales\n#10 18.12 The following NEW packages will be installed:\n#10 18.12   binutils binutils-aarch64-linux-gnu binutils-common cpp cpp-12 gcc gcc-12\n#10 18.12   libasan8 libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcrypt-dev\n#10 18.12   libctf-nobfd0 libctf0 libgcc-12-dev libgomp1 libgprofng0 libgssapi-krb5-2\n#10 18.12   libhwasan0 libisl23 libitm1 libjansson4 libk5crypto3 libkeyutils1 libkrb5-3\n#10 18.12   libkrb5support0 liblsan0 libmpc3 libmpfr6 libnsl-dev libnsl2 libssl3\n#10 18.12   libtirpc-common libtirpc-dev libtirpc3 libtsan2 libubsan1 linux-libc-dev\n#10 18.12   make rpcsvc-proto\n#10 22.22 0 upgraded, 42 newly installed, 0 to remove and 1 not upgraded.\n#10 22.22 Need to get 47.9 MB of archives.\n#10 22.22 After this operation, 198 MB of additional disk space will be used.\n#10 22.22 Get:1 http://deb.debian.org/debian bookworm/main arm64 binutils-common arm64 2.40-2 [2487 kB]\n#10 23.54 Get:2 http://deb.debian.org/debian bookworm/main arm64 libbinutils arm64 2.40-2 [645 kB]\n#10 24.18 Get:3 http://deb.debian.org/debian bookworm/main arm64 libctf-nobfd0 arm64 2.40-2 [144 kB]\n#10 24.91 Get:4 http://deb.debian.org/debian bookworm/main arm64 libctf0 arm64 2.40-2 [79.2 kB]\n#10 26.48 Get:5 http://deb.debian.org/debian bookworm/main arm64 libgprofng0 arm64 2.40-2 [680 kB]\n#10 27.44 Get:6 http://deb.debian.org/debian bookworm/main arm64 libjansson4 arm64 2.14-2 [40.2 kB]\n#10 29.96 Get:7 http://deb.debian.org/debian bookworm/main arm64 binutils-aarch64-linux-gnu arm64 2.40-2 [2637 kB]\n#10 31.05 Get:8 http://deb.debian.org/debian bookworm/main arm64 binutils arm64 2.40-2 [64.9 kB]\n#10 32.13 Get:9 http://deb.debian.org/debian bookworm/main arm64 libisl23 arm64 0.25-1.1 [610 kB]\n#10 33.40 Get:10 http://deb.debian.org/debian bookworm/main arm64 libmpfr6 arm64 4.2.0-1 [600 kB]\n#10 33.92 Get:11 http://deb.debian.org/debian bookworm/main arm64 libmpc3 arm64 1.3.1-1 [49.2 kB]\n#10 65.49 Get:12 http://deb.debian.org/debian bookworm/main arm64 cpp-12 arm64 12.2.0-14+deb12u1 [8228 kB]\n#10 65.94 Get:13 http://deb.debian.org/debian bookworm/main arm64 cpp arm64 4:12.2.0-3 [6832 B]\n#10 69.34 Get:14 http://deb.debian.org/debian bookworm/main arm64 libcc1-0 arm64 12.2.0-14+deb12u1 [37.7 kB]\n#10 70.20 Get:15 http://deb.debian.org/debian bookworm/main arm64 libgomp1 arm64 12.2.0-14+deb12u1 [104 kB]\n#10 72.02 Get:16 http://deb.debian.org/debian bookworm/main arm64 libitm1 arm64 12.2.0-14+deb12u1 [24.0 kB]\n#10 72.35 Get:17 http://deb.debian.org/debian bookworm/main arm64 libatomic1 arm64 12.2.0-14+deb12u1 [9568 B]\n#10 73.48 Get:18 http://deb.debian.org/debian bookworm/main arm64 libasan8 arm64 12.2.0-14+deb12u1 [2096 kB]\n#10 86.20 Get:19 http://deb.debian.org/debian bookworm/main arm64 liblsan0 arm64 12.2.0-14+deb12u1 [926 kB]\n#10 118.7 Get:20 http://deb.debian.org/debian bookworm/main arm64 libtsan2 arm64 12.2.0-14+deb12u1 [2178 kB]\n#10 120.1 Get:21 http://deb.debian.org/debian bookworm/main arm64 libubsan1 arm64 12.2.0-14+deb12u1 [862 kB]\n#10 121.6 Get:22 http://deb.debian.org/debian bookworm/main arm64 libhwasan0 arm64 12.2.0-14+deb12u1 [999 kB]\n#10 123.1 Get:23 http://deb.debian.org/debian bookworm/main arm64 libgcc-12-dev arm64 12.2.0-14+deb12u1 [956 kB]\n#10 126.9 Get:24 http://deb.debian.org/debian bookworm/main arm64 gcc-12 arm64 12.2.0-14+deb12u1 [16.3 MB]\n#10 127.4 Get:25 http://deb.debian.org/debian bookworm/main arm64 gcc arm64 4:12.2.0-3 [5244 B]\n#10 129.8 Get:26 http://deb.debian.org/debian bookworm/main arm64 libc-dev-bin arm64 2.36-9+deb12u14 [47.2 kB]\n#10 135.6 Get:27 http://deb.debian.org/debian-security bookworm-security/main arm64 linux-libc-dev arm64 6.1.187-1 [2333 kB]\n#10 141.3 Get:28 http://deb.debian.org/debian bookworm/main arm64 libcrypt-dev arm64 1:4.4.33-2 [121 kB]\n#10 146.1 Get:29 http://deb.debian.org/debian bookworm/main arm64 libkrb5support0 arm64 1.20.1-2+deb12u5 [32.6 kB]\n#10 148.0 Get:30 http://deb.debian.org/debian bookworm/main arm64 libk5crypto3 arm64 1.20.1-2+deb12u5 [79.9 kB]\n#10 149.1 Get:31 http://deb.debian.org/debian bookworm/main arm64 libkeyutils1 arm64 1.6.3-2 [8844 B]\n#10 154.2 Get:32 http://deb.debian.org/debian-security bookworm-security/main arm64 libssl3 arm64 3.0.22-1~deb12u1 [1828 kB]\n#10 160.5 Get:33 http://deb.debian.org/debian bookworm/main arm64 libkrb5-3 arm64 1.20.1-2+deb12u5 [316 kB]\n#10 162.3 Get:34 http://deb.debian.org/debian bookworm/main arm64 libgssapi-krb5-2 arm64 1.20.1-2+deb12u5 [124 kB]\n#10 162.8 Get:35 http://deb.debian.org/debian bookworm/main arm64 libtirpc-common all 1.3.3+ds-1 [14.0 kB]\n#10 165.1 Get:36 http://deb.debian.org/debian bookworm/main arm64 libtirpc3 arm64 1.3.3+ds-1 [80.9 kB]\n#10 165.7 Get:37 http://deb.debian.org/debian bookworm/main arm64 libnsl2 arm64 1.3.0-2 [36.9 kB]\n#10 166.4 Get:38 http://deb.debian.org/debian bookworm/main arm64 libtirpc-dev arm64 1.3.3+ds-1 [194 kB]\n#10 166.9 Get:39 http://deb.debian.org/debian bookworm/main arm64 libnsl-dev arm64 1.3.0-2 [66.1 kB]\n#10 167.5 Get:40 http://deb.debian.org/debian bookworm/main arm64 rpcsvc-proto arm64 1.4.3-1 [59.7 kB]\n#10 168.5 Get:41 http://deb.debian.org/debian bookworm/main arm64 libc6-dev arm64 2.36-9+deb12u14 [1436 kB]\n#10 172.2 Get:42 http://deb.debian.org/debian bookworm/main arm64 make arm64 4.3-4.1 [391 kB]\n#10 172.3 debconf: delaying package configuration, since apt-utils is not installed\n#10 172.3 Fetched 47.9 MB in 2min 34s (311 kB/s)\n#10 172.3 Selecting previously unselected package binutils-common:arm64.\n#10 172.3 (Reading database ... \n(Reading database ... 5%\n(Reading database ... 10%\n(Reading database ... 15%\n(Reading database ... 20%\n(Reading database ... 25%\n(Reading database ... 30%\n(Reading database ... 35%\n(Reading database ... 40%\n(Reading database ... 45%\n(Reading database ... 50%\n(Reading database ... 55%\n(Reading database ... 60%\n(Reading database ... 65%\n(Reading database ... 70%\n(Reading database ... 75%\n(Reading database ... 80%\n(Reading database ... 85%\n(Reading database ... 90%\n(Reading database ... 95%\n(Reading database ... 100%\n(Reading database ... 6090 files and directories currently installed.)\n#10 172.3 Preparing to unpack .../00-binutils-common_2.40-2_arm64.deb ...\n#10 172.3 Unpacking binutils-common:arm64 (2.40-2) ...\n#10 172.4 Selecting previously unselected package libbinutils:arm64.\n#10 172.4 Preparing to unpack .../01-libbinutils_2.40-2_arm64.deb ...\n#10 172.4 Unpacking libbinutils:arm64 (2.40-2) ...\n#10 172.4 Selecting previously unselected package libctf-nobfd0:arm64.\n#10 172.4 Preparing to unpack .../02-libctf-nobfd0_2.40-2_arm64.deb ...\n#10 172.4 Unpacking libctf-nobfd0:arm64 (2.40-2) ...\n#10 172.5 Selecting previously unselected package libctf0:arm64.\n#10 172.5 Preparing to unpack .../03-libctf0_2.40-2_arm64.deb ...\n#10 172.5 Unpacking libctf0:arm64 (2.40-2) ...\n#10 172.5 Selecting previously unselected package libgprofng0:arm64.\n#10 172.5 Preparing to unpack .../04-libgprofng0_2.40-2_arm64.deb ...\n#10 172.5 Unpacking libgprofng0:arm64 (2.40-2) ...\n#10 172.5 Selecting previously unselected package libjansson4:arm64.\n#10 172.5 Preparing to unpack .../05-libjansson4_2.14-2_arm64.deb ...\n#10 172.5 Unpacking libjansson4:arm64 (2.14-2) ...\n#10 172.5 Selecting previously unselected package binutils-aarch64-linux-gnu.\n#10 172.5 Preparing to unpack .../06-binutils-aarch64-linux-gnu_2.40-2_arm64.deb ...\n#10 172.5 Unpacking binutils-aarch64-linux-gnu (2.40-2) ...\n#10 172.6 Selecting previously unselected package binutils.\n#10 172.6 Preparing to unpack .../07-binutils_2.40-2_arm64.deb ...\n#10 172.6 Unpacking binutils (2.40-2) ...\n#10 172.6 Selecting previously unselected package libisl23:arm64.\n#10 172.6 Preparing to unpack .../08-libisl23_0.25-1.1_arm64.deb ...\n#10 172.6 Unpacking libisl23:arm64 (0.25-1.1) ...\n#10 172.7 Selecting previously unselected package libmpfr6:arm64.\n#10 172.7 Preparing to unpack .../09-libmpfr6_4.2.0-1_arm64.deb ...\n#10 172.7 Unpacking libmpfr6:arm64 (4.2.0-1) ...\n#10 172.7 Selecting previously unselected package libmpc3:arm64.\n#10 172.7 Preparing to unpack .../10-libmpc3_1.3.1-1_arm64.deb ...\n#10 172.7 Unpacking libmpc3:arm64 (1.3.1-1) ...\n#10 172.7 Selecting previously unselected package cpp-12.\n#10 172.7 Preparing to unpack .../11-cpp-12_12.2.0-14+deb12u1_arm64.deb ...\n#10 172.7 Unpacking cpp-12 (12.2.0-14+deb12u1) ...\n#10 173.0 Selecting previously unselected package cpp.\n#10 173.0 Preparing to unpack .../12-cpp_4%3a12.2.0-3_arm64.deb ...\n#10 173.0 Unpacking cpp (4:12.2.0-3) ...\n#10 173.0 Selecting previously unselected package libcc1-0:arm64.\n#10 173.0 Preparing to unpack .../13-libcc1-0_12.2.0-14+deb12u1_arm64.deb ...\n#10 173.0 Unpacking libcc1-0:arm64 (12.2.0-14+deb12u1) ...\n#10 173.0 Selecting previously unselected package libgomp1:arm64.\n#10 173.0 Preparing to unpack .../14-libgomp1_12.2.0-14+deb12u1_arm64.deb ...\n#10 173.0 Unpacking libgomp1:arm64 (12.2.0-14+deb12u1) ...\n#10 173.0 Selecting previously unselected package libitm1:arm64.\n#10 173.0 Preparing to unpack .../15-libitm1_12.2.0-14+deb12u1_arm64.deb ...\n#10 173.0 Unpacking libitm1:arm64 (12.2.0-14+deb12u1) ...\n#10 173.0 Selecting previously unselected package libatomic1:arm64.\n#10 173.0 Preparing to unpack .../16-libatomic1_12.2.0-14+deb12u1_arm64.deb ...\n#10 173.0 Unpacking libatomic1:arm64 (12.2.0-14+deb12u1) ...\n#10 173.0 Selecting previously unselected package libasan8:arm64.\n#10 173.0 Preparing to unpack .../17-libasan8_12.2.0-14+deb12u1_arm64.deb ...\n#10 173.0 Unpacking libasan8:arm64 (12.2.0-14+deb12u1) ...\n#10 173.1 Selecting previously unselected package liblsan0:arm64.\n#10 173.1 Preparing to unpack .../18-liblsan0_12.2.0-14+deb12u1_arm64.deb ...\n#10 173.1 Unpacking liblsan0:arm64 (12.2.0-14+deb12u1) ...\n#10 173.1 Selecting previously unselected package libtsan2:arm64.\n#10 173.1 Preparing to unpack .../19-libtsan2_12.2.0-14+deb12u1_arm64.deb ...\n#10 173.1 Unpacking libtsan2:arm64 (12.2.0-14+deb12u1) ...\n#10 173.2 Selecting previously unselected package libubsan1:arm64.\n#10 173.2 Preparing to unpack .../20-libubsan1_12.2.0-14+deb12u1_arm64.deb ...\n#10 173.2 Unpacking libubsan1:arm64 (12.2.0-14+deb12u1) ...\n#10 173.3 Selecting previously unselected package libhwasan0:arm64.\n#10 173.3 Preparing to unpack .../21-libhwasan0_12.2.0-14+deb12u1_arm64.deb ...\n#10 173.3 Unpacking libhwasan0:arm64 (12.2.0-14+deb12u1) ...\n#10 173.3 Selecting previously unselected package libgcc-12-dev:arm64.\n#10 173.3 Preparing to unpack .../22-libgcc-12-dev_12.2.0-14+deb12u1_arm64.deb ...\n#10 173.3 Unpacking libgcc-12-dev:arm64 (12.2.0-14+deb12u1) ...\n#10 173.4 Selecting previously unselected package gcc-12.\n#10 173.4 Preparing to unpack .../23-gcc-12_12.2.0-14+deb12u1_arm64.deb ...\n#10 173.4 Unpacking gcc-12 (12.2.0-14+deb12u1) ...\n#10 173.7 Selecting previously unselected package gcc.\n#10 173.7 Preparing to unpack .../24-gcc_4%3a12.2.0-3_arm64.deb ...\n#10 173.7 Unpacking gcc (4:12.2.0-3) ...\n#10 173.7 Selecting previously unselected package libc-dev-bin.\n#10 173.7 Preparing to unpack .../25-libc-dev-bin_2.36-9+deb12u14_arm64.deb ...\n#10 173.7 Unpacking libc-dev-bin (2.36-9+deb12u14) ...\n#10 173.7 Selecting previously unselected package linux-libc-dev:arm64.\n#10 173.7 Preparing to unpack .../26-linux-libc-dev_6.1.187-1_arm64.deb ...\n#10 173.7 Unpacking linux-libc-dev:arm64 (6.1.187-1) ...\n#10 173.7 Selecting previously unselected package libcrypt-dev:arm64.\n#10 173.7 Preparing to unpack .../27-libcrypt-dev_1%3a4.4.33-2_arm64.deb ...\n#10 173.8 Unpacking libcrypt-dev:arm64 (1:4.4.33-2) ...\n#10 173.8 Selecting previously unselected package libkrb5support0:arm64.\n#10 173.8 Preparing to unpack .../28-libkrb5support0_1.20.1-2+deb12u5_arm64.deb ...\n#10 173.8 Unpacking libkrb5support0:arm64 (1.20.1-2+deb12u5) ...\n#10 173.8 Selecting previously unselected package libk5crypto3:arm64.\n#10 173.8 Preparing to unpack .../29-libk5crypto3_1.20.1-2+deb12u5_arm64.deb ...\n#10 173.8 Unpacking libk5crypto3:arm64 (1.20.1-2+deb12u5) ...\n#10 173.8 Selecting previously unselected package libkeyutils1:arm64.\n#10 173.8 Preparing to unpack .../30-libkeyutils1_1.6.3-2_arm64.deb ...\n#10 173.8 Unpacking libkeyutils1:arm64 (1.6.3-2) ...\n#10 173.8 Selecting previously unselected package libssl3:arm64.\n#10 173.8 Preparing to unpack .../31-libssl3_3.0.22-1~deb12u1_arm64.deb ...\n#10 173.8 Unpacking libssl3:arm64 (3.0.22-1~deb12u1) ...\n#10 173.8 Selecting previously unselected package libkrb5-3:arm64.\n#10 173.9 Preparing to unpack .../32-libkrb5-3_1.20.1-2+deb12u5_arm64.deb ...\n#10 173.9 Unpacking libkrb5-3:arm64 (1.20.1-2+deb12u5) ...\n#10 173.9 Selecting previously unselected package libgssapi-krb5-2:arm64.\n#10 173.9 Preparing to unpack .../33-libgssapi-krb5-2_1.20.1-2+deb12u5_arm64.deb ...\n#10 173.9 Unpacking libgssapi-krb5-2:arm64 (1.20.1-2+deb12u5) ...\n#10 173.9 Selecting previously unselected package libtirpc-common.\n#10 173.9 Preparing to unpack .../34-libtirpc-common_1.3.3+ds-1_all.deb ...\n#10 173.9 Unpacking libtirpc-common (1.3.3+ds-1) ...\n#10 173.9 Selecting previously unselected package libtirpc3:arm64.\n#10 173.9 Preparing to unpack .../35-libtirpc3_1.3.3+ds-1_arm64.deb ...\n#10 173.9 Unpacking libtirpc3:arm64 (1.3.3+ds-1) ...\n#10 173.9 Selecting previously unselected package libnsl2:arm64.\n#10 173.9 Preparing to unpack .../36-libnsl2_1.3.0-2_arm64.deb ...\n#10 173.9 Unpacking libnsl2:arm64 (1.3.0-2) ...\n#10 173.9 Selecting previously unselected package libtirpc-dev:arm64.\n#10 173.9 Preparing to unpack .../37-libtirpc-dev_1.3.3+ds-1_arm64.deb ...\n#10 173.9 Unpacking libtirpc-dev:arm64 (1.3.3+ds-1) ...\n#10 173.9 Selecting previously unselected package libnsl-dev:arm64.\n#10 173.9 Preparing to unpack .../38-libnsl-dev_1.3.0-2_arm64.deb ...\n#10 173.9 Unpacking libnsl-dev:arm64 (1.3.0-2) ...\n#10 173.9 Selecting previously unselected package rpcsvc-proto.\n#10 173.9 Preparing to unpack .../39-rpcsvc-proto_1.4.3-1_arm64.deb ...\n#10 173.9 Unpacking rpcsvc-proto (1.4.3-1) ...\n#10 173.9 Selecting previously unselected package libc6-dev:arm64.\n#10 173.9 Preparing to unpack .../40-libc6-dev_2.36-9+deb12u14_arm64.deb ...\n#10 173.9 Unpacking libc6-dev:arm64 (2.36-9+deb12u14) ...\n#10 174.0 Selecting previously unselected package make.\n#10 174.0 Preparing to unpack .../41-make_4.3-4.1_arm64.deb ...\n#10 174.0 Unpacking make (4.3-4.1) ...\n#10 174.0 Setting up libkeyutils1:arm64 (1.6.3-2) ...\n#10 174.0 Setting up libtirpc-common (1.3.3+ds-1) ...\n#10 174.0 Setting up binutils-common:arm64 (2.40-2) ...\n#10 174.0 Setting up libssl3:arm64 (3.0.22-1~deb12u1) ...\n#10 174.0 Setting up linux-libc-dev:arm64 (6.1.187-1) ...\n#10 174.0 Setting up libctf-nobfd0:arm64 (2.40-2) ...\n#10 174.0 Setting up libgomp1:arm64 (12.2.0-14+deb12u1) ...\n#10 174.0 Setting up libjansson4:arm64 (2.14-2) ...\n#10 174.0 Setting up libkrb5support0:arm64 (1.20.1-2+deb12u5) ...\n#10 174.0 Setting up rpcsvc-proto (1.4.3-1) ...\n#10 174.0 Setting up make (4.3-4.1) ...\n#10 174.0 Setting up libmpfr6:arm64 (4.2.0-1) ...\n#10 174.0 Setting up libmpc3:arm64 (1.3.1-1) ...\n#10 174.0 Setting up libatomic1:arm64 (12.2.0-14+deb12u1) ...\n#10 174.0 Setting up libk5crypto3:arm64 (1.20.1-2+deb12u5) ...\n#10 174.1 Setting up libubsan1:arm64 (12.2.0-14+deb12u1) ...\n#10 174.1 Setting up libhwasan0:arm64 (12.2.0-14+deb12u1) ...\n#10 174.1 Setting up libcrypt-dev:arm64 (1:4.4.33-2) ...\n#10 174.1 Setting up libasan8:arm64 (12.2.0-14+deb12u1) ...\n#10 174.1 Setting up libkrb5-3:arm64 (1.20.1-2+deb12u5) ...\n#10 174.1 Setting up libtsan2:arm64 (12.2.0-14+deb12u1) ...\n#10 174.1 Setting up libbinutils:arm64 (2.40-2) ...\n#10 174.1 Setting up libisl23:arm64 (0.25-1.1) ...\n#10 174.1 Setting up libc-dev-bin (2.36-9+deb12u14) ...\n#10 174.1 Setting up libcc1-0:arm64 (12.2.0-14+deb12u1) ...\n#10 174.1 Setting up liblsan0:arm64 (12.2.0-14+deb12u1) ...\n#10 174.1 Setting up libitm1:arm64 (12.2.0-14+deb12u1) ...\n#10 174.1 Setting up libctf0:arm64 (2.40-2) ...\n#10 174.1 Setting up cpp-12 (12.2.0-14+deb12u1) ...\n#10 174.1 Setting up libgprofng0:arm64 (2.40-2) ...\n#10 174.1 Setting up libgcc-12-dev:arm64 (12.2.0-14+deb12u1) ...\n#10 174.1 Setting up libgssapi-krb5-2:arm64 (1.20.1-2+deb12u5) ...\n#10 174.1 Setting up cpp (4:12.2.0-3) ...\n#10 174.1 Setting up libtirpc3:arm64 (1.3.3+ds-1) ...\n#10 174.1 Setting up binutils-aarch64-linux-gnu (2.40-2) ...\n#10 174.1 Setting up binutils (2.40-2) ...\n#10 174.1 Setting up libtirpc-dev:arm64 (1.3.3+ds-1) ...\n#10 174.1 Setting up gcc-12 (12.2.0-14+deb12u1) ...\n#10 174.1 Setting up libnsl2:arm64 (1.3.0-2) ...\n#10 174.1 Setting up gcc (4:12.2.0-3) ...\n#10 174.1 Setting up libnsl-dev:arm64 (1.3.0-2) ...\n#10 174.1 Setting up libc6-dev:arm64 (2.36-9+deb12u14) ...\n#10 174.1 Processing triggers for libc-bin (2.36-9+deb12u14) ...\n#10 DONE 174.2s\n\n#11 [3/5] WORKDIR /work\n#11 DONE 0.0s\n\n#12 [4/5] COPY main.c Makefile ./\n#12 DONE 0.0s\n\n#13 [5/5] RUN make\n#13 0.062 cc -Wall -Wextra -O2 main.c -o hello\n#13 DONE 0.1s\n\n#14 exporting to image\n#14 exporting layers\n#14 exporting layers 2.7s done\n#14 exporting manifest sha256:76a113fe9eb6dcfc5e02126c5d35fa06ec15dbf8c10ce00b03835bcffd836339 done\n#14 exporting config sha256:73ab6dbf96f82f83465a20c7935ab469d97ee794a0eae1d6e888ea86138abbdd done\n#14 exporting attestation manifest sha256:e7ebe39fbc209cdd83f1adee0c503353a17f6fb069e31a484dae32be1577e7f5 done\n#14 exporting manifest list sha256:0fac7d5dce6a00962f67ef9bc2505a15ea785d54576e21fb09991aa46007a1d0 done\n#14 naming to docker.io/library/b08-e3-draft-reference:20261012105358 done\n#14 unpacking to docker.io/library/b08-e3-draft-reference:20261012105358\n#14 unpacking to docker.io/library/b08-e3-draft-reference:20261012105358 0.5s done\n#14 DONE 3.3s\n"
+    },
+    {
+      "label": "docker:inspect reference",
+      "argv": [
+        "/Users/yiwang/.docker/bin/docker",
+        "image",
+        "inspect",
+        "b08-e3-draft-reference:20261012105358"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "[\n    {\n        \"Id\": \"sha256:0fac7d5dce6a00962f67ef9bc2505a15ea785d54576e21fb09991aa46007a1d0\",\n        \"RepoTags\": [\n            \"b08-e3-draft-reference:20261012105358\"\n        ],\n        \"RepoDigests\": [\n            \"b08-e3-draft-reference@sha256:0fac7d5dce6a00962f67ef9bc2505a15ea785d54576e21fb09991aa46007a1d0\"\n        ],\n        \"Comment\": \"buildkit.dockerfile.v0\",\n        \"Created\": \"2026-10-12T03:02:30.058531133Z\",\n        \"Config\": {\n            \"Env\": [\n                \"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"\n            ],\n            \"Cmd\": [\n                \"./hello\"\n            ],\n            \"WorkingDir\": \"/work\",\n            \"ArgsEscaped\": true\n        },\n        \"Architecture\": \"arm64\",\n        \"Os\": \"linux\",\n        \"Size\": 383903710,\n        \"RootFS\": {\n            \"Type\": \"layers\",\n            \"Layers\": [\n                \"sha256:dca69811453d69d10b6c0345a5c49147162abe20a2f77802d66efc60667949ea\",\n                \"sha256:b9cc86b52d3999d2401b4aafd12681991431ae1fda2ba0801766d9f8f4de2f51\",\n                \"sha256:fe3f5bf17e4337e1fb557659d7f0c2c676bf7fa08901d222c28d744b26f74856\",\n                \"sha256:7f3545e14eefb8e65fce44d381f4af557bf40d38f2481ebda94fd855fb881be8\",\n                \"sha256:86ecab5e97866cfd59268dca275997008a3961b3f7b2f25ec9da88619d53871c\"\n            ]\n        },\n        \"Metadata\": {\n            \"LastTagTime\": \"2026-10-12T03:02:32.805704259Z\"\n        },\n        \"Descriptor\": {\n            \"mediaType\": \"application/vnd.oci.image.index.v1+json\",\n            \"digest\": \"sha256:0fac7d5dce6a00962f67ef9bc2505a15ea785d54576e21fb09991aa46007a1d0\",\n            \"size\": 856\n        },\n        \"Identity\": {\n            \"Build\": [\n                {\n                    \"Ref\": \"pltu369knnck7h5n8cp2mj5v8\",\n                    \"CreatedAt\": \"2026-10-12T03:02:33.345805009Z\"\n                }\n            ]\n        }\n    }\n]\n",
+      "stderr": ""
+    },
+    {
+      "label": "docker:reference behavior",
+      "argv": [
+        "/Users/yiwang/.docker/bin/docker",
+        "run",
+        "--rm",
+        "b08-e3-draft-reference:20261012105358"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "hello E3\n",
+      "stderr": ""
+    },
+    {
+      "label": "docker:reference version",
+      "argv": [
+        "/Users/yiwang/.docker/bin/docker",
+        "run",
+        "--rm",
+        "b08-e3-draft-reference:20261012105358",
+        "./hello",
+        "--version"
+      ],
+      "cwd": "/Users/yiwang/Downloads/NJU/大三上/DevOps/实验论文/lab/DevOps-Course-Assignment",
+      "exit_code": 0,
+      "stdout": "tiny-greeting 1.0.0\n",
+      "stderr": ""
+    }
+  ],
+  "assertions": [
+    {
+      "name": "fixture matches fixed commit: .dockerignore",
+      "passed": true
+    },
+    {
+      "name": "fixture matches fixed commit: .gitignore",
+      "passed": true
+    },
+    {
+      "name": "fixture matches fixed commit: Dockerfile.broken",
+      "passed": true
+    },
+    {
+      "name": "fixture matches fixed commit: Dockerfile.reference",
+      "passed": true
+    },
+    {
+      "name": "fixture matches fixed commit: Makefile",
+      "passed": true
+    },
+    {
+      "name": "fixture matches fixed commit: README.md",
+      "passed": true
+    },
+    {
+      "name": "fixture matches fixed commit: main.c",
+      "passed": true
+    },
+    {
+      "name": "native build emits compiler command",
+      "passed": true
+    },
+    {
+      "name": "native executable exists",
+      "passed": true
+    },
+    {
+      "name": "native behavior output",
+      "passed": true
+    },
+    {
+      "name": "native version output",
+      "passed": true
+    },
+    {
+      "name": "native functional test",
+      "passed": true
+    },
+    {
+      "name": "both Dockerfiles share BASE_IMAGE argument",
+      "passed": true
+    },
+    {
+      "name": "broken Dockerfile invokes make",
+      "passed": true
+    },
+    {
+      "name": "broken Dockerfile omits package installation",
+      "passed": true
+    },
+    {
+      "name": "reference Dockerfile installs gcc make libc6-dev",
+      "passed": true
+    },
+    {
+      "name": "reference Dockerfile builds the project",
+      "passed": true
+    },
+    {
+      "name": "both images run hello",
+      "passed": true
+    },
+    {
+      "name": "base image has a resolved repo digest",
+      "passed": true
+    },
+    {
+      "name": "broken image build exits nonzero",
+      "passed": true
+    },
+    {
+      "name": "broken image identifies missing make",
+      "passed": true
+    },
+    {
+      "name": "reference image build succeeds",
+      "passed": true
+    },
+    {
+      "name": "reference container output",
+      "passed": true
+    },
+    {
+      "name": "reference container version",
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    ".dockerignore": "c1238bedf5f4f8cdd6be66f7388790e23478999a605630043270d598b9f8ece7",
+    ".gitignore": "5891b5b522d5df086d0ff0b110fbd9d21bb4fc7163af34d08286a2e846f6be03",
+    "Dockerfile.broken": "620de6b2470c780ef1f3385d1dd125c22e84a952cdc7aebc4f69a3d0bcf37d11",
+    "Dockerfile.reference": "159b7b1bbe8aec8508ef83bdbc1c9f157513bd51886849a22815493211f2c095",
+    "Makefile": "8a1f16e7b300c331b67b74e9f251b088fa3cde10d5aff1594973c54cfdfd25c6",
+    "README.md": "d282c0c3e3be033f6ff29fe3644249db5a4fed246dc124535e7e9a97e649cd74",
+    "main.c": "1ad319424d328694192e3df592a50aea4e09add8fdf26ed19e754d37aab7d766"
+  },
+  "runner_sha256": "7f71a00e3c8241d39042ac6768949f70d0c860dd199bdd6bcd50c39a888a6b54",
+  "oracle_sha256": "eb0f01c94d8740c32f158b8feb34c595ddc1af1a4855d8bdcfe7ccbe3eea9cfb",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "docker_mode": "required",
+  "workspace_commit": "312fdd9b63a0711defb4531545cd4caf639673c0",
+  "workspace_status_before": "?? \"E3/E3_\\345\\271\\266\\350\\241\\214\\346\\265\\213\\350\\257\\225\\345\\237\\272\\347\\272\\277_20260930.pptx\"\n?? E3/evidence/draft-tiny-greeting/20261012T105358976530+0800/\n?? \"E3/\\345\\215\\216\\344\\270\\272\\344\\272\\221\\350\\265\\204\\346\\272\\220\\347\\224\\263\\350\\257\\267.docx\"\n",
+  "environment": {
+    "git": "git version 2.54.0 (Apple Git-157)",
+    "make": "GNU Make 3.81",
+    "cc": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "python": "3.12.14 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:38:15) [Clang 20.1.8 ]"
+  },
+  "configuration_basis": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "architecture": "arm64",
+    "make": "GNU Make 3.81",
+    "cc": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "base_image": "debian:bookworm-slim"
+  },
+  "configuration_id": "b08-draft-6098c0015da1fca2",
+  "temporary_workdir": "/var/folders/st/dk6q5c_51m762blvyr1kpkph0000gn/T/b08-e3-draft-sspuko7e/sample",
+  "native_validation": {
+    "decision": "PASSED",
+    "build_exit_code": 0,
+    "program_exit_code": 0,
+    "program_stdout": "hello E3",
+    "version_stdout": "tiny-greeting 1.0.0",
+    "functional_test_exit_code": 0,
+    "executable_sha256": "7de7d46a3775bd7f1098dba25c98caac4760f3e401208e2b04cfd089d14e1712"
+  },
+  "docker_validation": {
+    "decision": "PASSED",
+    "base_image_tag": "debian:bookworm-slim",
+    "base_image_id": "sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587",
+    "base_image_repo_digest": "debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587",
+    "broken_image_tag": "b08-e3-draft-broken:20261012105358",
+    "broken_build_exit_code": 1,
+    "broken_failure_signature": "make: not found",
+    "reference_image_tag": "b08-e3-draft-reference:20261012105358",
+    "reference_image_id": "sha256:0fac7d5dce6a00962f67ef9bc2505a15ea785d54576e21fb09991aa46007a1d0",
+    "reference_container_exit_code": 0,
+    "reference_container_stdout": "hello E3",
+    "reference_container_version": "tiny-greeting 1.0.0"
+  },
+  "finished_at": "2026-10-12T11:02:33.758637+08:00"
+}

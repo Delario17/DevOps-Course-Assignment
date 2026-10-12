@@ -42,14 +42,21 @@ python3 E3/scripts/run_draft_baseline.py \
 - `docker-validation.json`：失败镜像和参考镜像的判断结果；
 - `input/`：本次运行使用的源码、Makefile、Dockerfile 和 Oracle 快照。
 
-## 当前验证状态
+## 最终验证结果
 
-2026-10-11 的 macOS 本机验证记录位于 `evidence/draft-tiny-greeting/20261011T141102041611+0800/`：
+王祎于 2026-10-12 在 macOS arm64 和 Docker Desktop 环境发起完整复现，证据位于 `evidence/draft-tiny-greeting/20261012T105358976530+0800/`：
 
-- 固定输入校验通过；
-- 本机构建、程序输出、版本输出和 `make test` 通过；
-- Dockerfile 静态约束通过；
-- 共 18/18 项断言通过；
-- 当前机器没有 Docker，容器验证状态为 `UNAVAILABLE`，总体记录为 `PARTIAL`。
+| 检查项 | 实际结果 |
+|---|---|
+| 固定输入与 Commit | 通过 |
+| 本机构建与功能验证 | 通过 |
+| 失败镜像构建 | 退出码 `1`，命中 `make: not found` |
+| 参考镜像构建 | 通过 |
+| 参考容器行为 | 输出 `hello E3`，退出码 `0` |
+| 容器内版本 | `tiny-greeting 1.0.0` |
+| 总断言 | 24/24 通过 |
+| 总体状态 | `PASS` |
 
-Docker 环境复现并生成 `PASS` 记录后，DRAFT 基线达到最终验收状态。
+基础镜像固定为 `debian@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587`，参考镜像 ID 为 `sha256:0fac7d5dce6a00962f67ef9bc2505a15ea785d54576e21fb09991aa46007a1d0`。审阅结论见 `DRAFT_REVIEW.md` 和 `oracle/draft-tiny-greeting.review.json`。
+
+2026-10-11 的 `PARTIAL` 目录保留首次 macOS 本机构建记录，用于呈现 Docker 安装前后的环境变化。

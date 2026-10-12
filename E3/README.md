@@ -4,7 +4,7 @@
 
 | 基线 | 当前结果 | 入口 |
 |---|---|---|
-| DRAFT Tiny Greeting | 本机构建与功能验证 18/18 通过；Docker 复现待完成 | `DRAFT_BASELINE.md` |
+| DRAFT Tiny Greeting | 王祎本人发起完整复现，24/24 通过 | `DRAFT_BASELINE.md` |
 | MDFixer HYBRID | Linux 复现 40/40 通过，人工确认完成 | 本文后续章节 |
 
 ## DRAFT Tiny Greeting
@@ -15,10 +15,10 @@ DRAFT 基线包含固定项目、失败 Dockerfile、参考 Dockerfile、人工 
 - 固定输入：`fixtures/draft-tiny-greeting/`
 - Oracle：`oracle/draft-tiny-greeting.expected.json`
 - 验证脚本：`scripts/run_draft_baseline.py`
-- 当前证据：`evidence/draft-tiny-greeting/20261011T141102041611+0800/`
+- 最终证据：`evidence/draft-tiny-greeting/20261012T105358976530+0800/`
 - 复现审阅：`DRAFT_REVIEW.md`
 
-当前 macOS 机器没有 Docker，因此已保存本机构建成功和 Docker 不可用的真实记录。最终容器复现命令：
+最终证据包含失败镜像、参考镜像、基础镜像 RepoDigest、参考镜像 ID、容器输出和全部命令日志。复现命令：
 
 ```bash
 python3 E3/scripts/run_draft_baseline.py --operator "姓名" --docker required
@@ -90,6 +90,5 @@ reference-validation.json 的 ACCEPTED 和 rejected-candidate.json 的 REJECTED 
 
 ## B08 组级任务仍需完成
 
-- 在 Docker 环境生成 DRAFT 失败镜像与参考镜像的最终 `PASS` 证据。
 - 其余直接声明、纯变量声明、隐式规则与 .d 文件案例。
-- 本案例的盛浩宇个人复现和确认已记录；组长负责整合与提交。
+- MDFixer HYBRID 与 DRAFT Tiny Greeting 的个人复现和确认均已记录；组长负责整合其余案例。

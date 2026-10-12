@@ -26,4 +26,4 @@ python3 E2/validate.py
 - 本人重跑、审阅和提交步骤：[`E3/MANUAL_STEPS.md`](E3/MANUAL_STEPS.md)。
 - 贡献认领：[`E3/CONTRIBUTIONS.md`](E3/CONTRIBUTIONS.md)。
 
-MDFixer HYBRID 案例已完成 40/40 Linux 复现与人工确认。DRAFT Tiny Greeting 已完成固定项目、失败与参考环境、Oracle 和自动验证脚本；本机构建与功能验证为 18/18 通过，Docker 最终复现待完成。
+MDFixer HYBRID 案例已完成 40/40 Linux 复现与人工确认。DRAFT Tiny Greeting 由王祎本人发起完整 Docker 复现，24/24 项断言通过，失败环境、参考环境、镜像身份和容器输出均已留存。

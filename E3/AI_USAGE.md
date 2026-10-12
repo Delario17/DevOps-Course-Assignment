@@ -40,5 +40,8 @@
 - 固定输入提交：`5d7ad3e534a67ca24e0adbb7271cb8b4540aeb43`。
 - AI 实际执行：在 macOS arm64 上运行本机构建、程序行为、版本输出、功能测试及 Dockerfile 静态约束，18/18 项断言通过。
 - 证据：`evidence/draft-tiny-greeting/20261011T141102041611+0800/`。
-- 环境事实：当前机器没有 Docker 可执行文件，脚本将容器验证记录为 `UNAVAILABLE`，总体状态为 `PARTIAL`。
-- 待本人执行：在 Docker 可用环境使用 `--docker required` 生成 `PASS` 证据，并完成 `DRAFT_REVIEW.md`。
+- 初次验证：Docker 安装前完成 18/18 项本机断言，证据状态为 `PARTIAL`。
+- 本人复现：王祎于 2026-10-12 使用 Python 3.12.14 和 Docker Desktop 4.94.0 发起 `--docker required` 完整验证。
+- 最终结果：24/24 项断言通过，19 条命令完整记录；失败镜像退出码 1，参考容器输出 `hello E3`。
+- 最终证据：`evidence/draft-tiny-greeting/20261012T105358976530+0800/`。
+- 辅助审阅：Codex 核对 JSON、命令日志、镜像 digest、镜像 ID、失败签名和文件哈希，并更新 DRAFT 提交材料。
