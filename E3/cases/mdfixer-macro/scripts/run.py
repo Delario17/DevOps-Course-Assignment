@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Run B08 E3 reference-patch experiments in a disposable Linux copy.
 
-This verifies a known reference patch, not an implemented MDFixer service.
-Only Python's standard library, GCC, GNU Make and Git are required.
+The experiment evaluates a known reference patch with Python's standard
+library, GCC, GNU Make and Git.
 """
 from __future__ import annotations
 
@@ -242,7 +242,7 @@ def main() -> int:
             f"- 人工审阅：待实际 B08 成员确认。\n\n"
             f"| 实验阶段 | 实际输出 |\n|---|---|\n{rows}\n\n"
             f"原始命令、标准输出、错误输出与退出码见 commands.txt；完整元数据、目标文件哈希及时间戳见 observations.json。\n\n"
-            f"此记录验证已知参考补丁及候选拒绝恢复流程，不是 MDFixer 自动修复输出或 BuildChecker 检测报告。此 Macro 案例只验证 DEPS 中 config.h 的 MD 修复，不含刻意加入的项目内 RD。\n\n"
+            f"证据类型为已知参考补丁的构建行为实验，覆盖候选拒绝恢复流程。此 Macro 案例聚焦 DEPS 中 config.h 的 MD 修复，项目内 RD 数量为 0。\n\n"
             f"{('失败原因：' + record['error']) if 'error' in record else '修复后两次只改头文件均自动重建；故意失败候选被拒绝，恢复后完整构建与功能检查通过。'}\n",
             encoding="utf-8")
     print(f"{record['status']}\nASSERTIONS={passed}/{len(record['assertions'])}\nEVIDENCE_DIR={output}")

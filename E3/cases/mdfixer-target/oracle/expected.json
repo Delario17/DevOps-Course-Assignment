@@ -7,8 +7,12 @@
   "subject": {
     "repository_url": "https://github.com/Delario17/DevOps-Course-Assignment.git",
     "commit": "a03812e0ec7bd689762fdb18cdfc66a07ef7f954",
-    "working_directory": "E3/cases/mdfixer-hybrid/target/fixture",
-    "fixed_commit_working_directory": "E3/cases/mdfixer-hybrid/target/fixture"
+    "working_directory": "E3/cases/mdfixer-target/fixture",
+    "fixed_commit_working_directory": "E3/cases/mdfixer-hybrid/target/fixture",
+    "relocated_document_sha256": {
+      "README.md": "53b68a02fd9a413ab1eba3d79b4fe7e643caba544d4f51624df74d30d505a722",
+      "SOURCE.md": "bd3d288a7b67934a8aef8e9387e2292ab186f6803f9a5988e50c0d1ca10c3ffe"
+    }
   },
   "declaration_style": "DEPENDENCY_LIST",
   "scope": "Only the missing include/config.h prerequisite of build/main.o; all prerequisites use direct filenames; no project-header RD.",
@@ -32,9 +36,9 @@
     "invalid_candidate_build_exit_nonzero": true,
     "restored_output": 12
   },
-  "reference_patch": "E3/cases/mdfixer-hybrid/target/patches/reference.patch",
-  "invalid_candidate_patch": "E3/cases/mdfixer-hybrid/target/patches/invalid.patch",
-  "verification": "E3/cases/mdfixer-hybrid/target/scripts/run.py",
-  "review_note": "Behavioral expectations were confirmed by Sheng Haoyu on 2026-10-11 with Codex-assisted review. On 2026-10-12 only paths and source version metadata were migrated; original reviewed input is retained in the historical evidence. REVIEW.md and oracle/review.json distinguish the historical member confirmation from new AI regression execution.",
+  "reference_patch": "E3/cases/mdfixer-target/patches/reference.patch",
+  "invalid_candidate_patch": "E3/cases/mdfixer-target/patches/invalid.patch",
+  "verification": "E3/cases/mdfixer-target/scripts/run.py",
+  "review_note": "Sheng Haoyu confirmed the behavioral expectations on 2026-10-11 after a Codex-assisted review. The exact reviewed input and evidence hashes are recorded in oracle/review.json.",
   "course_style": "TARGET"
 }

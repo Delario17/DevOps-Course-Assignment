@@ -173,57 +173,57 @@
     },
     {
       "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/README.md",
-      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/README.md",
+      "current_path": "E3/cases/mdfixer-target/evidence/20261011T110959885929+0800/README.md",
       "sha256": "507218b34e4f4adf05d860ce2cca89eb62b6231747c75c27e2585c663be559a0"
     },
     {
       "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/commands.txt",
-      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/commands.txt",
+      "current_path": "E3/cases/mdfixer-target/evidence/20261011T110959885929+0800/commands.txt",
       "sha256": "5c5386901a4e501104d35d23cebba9e4fae1177dad29eae6d984229a3a3d497b"
     },
     {
       "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/input/Makefile.before",
-      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/input/Makefile.before",
+      "current_path": "E3/cases/mdfixer-target/evidence/20261011T110959885929+0800/input/Makefile.before",
       "sha256": "28c9d64ac79dfc43895b3b2331851ef2ca013075cdde9b332fc7bf0a3e2a0ebb"
     },
     {
       "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/input/Makefile.invalid",
-      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/input/Makefile.invalid",
+      "current_path": "E3/cases/mdfixer-target/evidence/20261011T110959885929+0800/input/Makefile.invalid",
       "sha256": "e0a6f8c057dd36d5d3fdc23f366166e5cfb413cebd81a79ba06d862fd2d0438c"
     },
     {
       "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/input/Makefile.reference",
-      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/input/Makefile.reference",
+      "current_path": "E3/cases/mdfixer-target/evidence/20261011T110959885929+0800/input/Makefile.reference",
       "sha256": "ad26f6918d12f4a51b97554b6eec4b41b4579f85c3fbc9072420a0b0144b8efa"
     },
     {
       "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/input/invalid.patch",
-      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/input/invalid.patch",
+      "current_path": "E3/cases/mdfixer-target/evidence/20261011T110959885929+0800/input/invalid.patch",
       "sha256": "59e832162f37ff3be4183ef0a1c9ba85f6c1234485dd4b3dfa875ba9d5cccf8d"
     },
     {
       "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/input/md-report.json",
-      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/input/md-report.json",
+      "current_path": "E3/cases/mdfixer-target/evidence/20261011T110959885929+0800/input/md-report.json",
       "sha256": "bb9586ede1341485500f084232b91a410ff2b3fca7d5ca689af607409c681510"
     },
     {
       "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/input/reference.patch",
-      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/input/reference.patch",
+      "current_path": "E3/cases/mdfixer-target/evidence/20261011T110959885929+0800/input/reference.patch",
       "sha256": "ed35042b86dd176ba4eecfe08418ae397e97a4612b7e1d2896db0403ae780741"
     },
     {
       "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/observations.json",
-      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/observations.json",
+      "current_path": "E3/cases/mdfixer-target/evidence/20261011T110959885929+0800/observations.json",
       "sha256": "6170dc33ddc9d96d80ec035db6acb49865839dbf0bef6afa6c43f720a4055afd"
     },
     {
       "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/reference-validation.json",
-      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/reference-validation.json",
+      "current_path": "E3/cases/mdfixer-target/evidence/20261011T110959885929+0800/reference-validation.json",
       "sha256": "2e977382af021b485d1ff05469f4cb3155a11c414995709b58dee8da78ce43bb"
     },
     {
       "old_path": "E3/evidence/mdfixer-target/20261011T110959885929+0800/rejected-candidate.json",
-      "current_path": "E3/cases/mdfixer-hybrid/target/evidence/20261011T110959885929+0800/rejected-candidate.json",
+      "current_path": "E3/cases/mdfixer-target/evidence/20261011T110959885929+0800/rejected-candidate.json",
       "sha256": "23e7d84789ea72cf657b913894cb0940fa9bfe08604c8150c945fdb5000263fc"
     }
   ],
@@ -241,7 +241,7 @@
       "status": "PASS",
       "assertions": "44/44",
       "commands": 39,
-      "evidence_directory": "E3/cases/mdfixer-hybrid/target/evidence/20261012T144600994684+0800",
+      "evidence_directory": "E3/cases/mdfixer-target/evidence/20261012T144600994684+0800",
       "observations_sha256": "c9a9fafb023b86e04d8aa280959bfdb62ff63185ace3970d1b3ef3d9e77c668b"
     }
   ],
@@ -251,6 +251,9 @@
   "review_hash_bindings_valid": true,
   "raw_command_logs_match_json": true,
   "current_markdown_links_resolve": true,
-  "change_scope": "E3/cases/mdfixer-hybrid/",
-  "human_review_note": "Retains earlier exact-input member confirmations; this audit and the new runs are Codex execution."
+  "change_scope": [
+    "E3/cases/mdfixer-hybrid/",
+    "E3/cases/mdfixer-target/"
+  ],
+  "human_review_note": "Earlier exact-input member confirmations remain bound to their hashes; Codex executed this audit and the migration runs."
 }

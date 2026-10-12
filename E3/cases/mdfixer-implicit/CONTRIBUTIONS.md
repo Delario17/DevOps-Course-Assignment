@@ -1,11 +1,15 @@
-# MDFixer IMPLICIT 案例贡献记录
+# MDFixer IMPLICIT 贡献记录
 
 | 项目 | 记录 |
 |---|---|
-| 案例范围 | IMPLICIT 模式规则的 MD 修复、失败候选拒绝与回滚 |
-| 实际贡献认领人 | 盛浩宇（241250008，GitHub：lejuwujiang258） |
-| AI 辅助 | Codex 编写 fixture、Oracle、补丁、验证脚本和案例文档，并发起 Linux 自动验证 |
-| 人工复现 | 待本人按 `MANUAL_STEPS.md` 发起并确认 |
-| 证据状态 | Codex 自动运行证据已保留；人工审阅状态保持 PENDING |
+| 负责成员 | 孙博一 |
+| 学号与 GitHub | 241250078，`sunboyi612` |
+| 负责范围 | IMPLICIT 模式规则的 MD 修复、失败候选拒绝与回滚 |
+| 目录集成提交 | `91db96586dad8ab5822119d24c98d61d1d899c1f`，Git 作者 `sunboyi1` |
+| AI 辅助 | Codex 迁移并更新 fixture、Oracle、补丁、脚本和案例文档，并执行 Linux 验证 |
+| 首次证据 | [`evidence/20261011T154642977679+0800/`](evidence/20261011T154642977679+0800/)，34/34 PASS |
+| 目录回归证据 | [`evidence/20261012T135118803103+0800/`](evidence/20261012T135118803103+0800/)，34/34 PASS |
+| 实验执行 | Codex automated Linux execution |
+| 人工审阅 | 孙博一本人复现与确认待填写，状态见 [`REVIEW.md`](REVIEW.md) |
 
-AI 准备、自动运行和成员人工确认分别记录，不将 AI 执行描述为成员手工操作。
+IMPLICIT 技术基线与自动证据已完成，孙博一的本人复现与审阅信息将在实际执行后补入。

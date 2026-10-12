@@ -21,9 +21,23 @@ python3 E2/validate.py
 
 ## E3：并行测试基线
 
-- 总览与案例目录契约：[`E3/README.md`](E3/README.md)。
-- DRAFT Tiny Greeting：[`E3/cases/draft-tiny-greeting/`](E3/cases/draft-tiny-greeting/README.md)。
-- MDFixer HYBRID：[`E3/cases/mdfixer-hybrid/`](E3/cases/mdfixer-hybrid/README.md)。
-- 组级贡献与 AI 使用索引：[`E3/CONTRIBUTIONS.md`](E3/CONTRIBUTIONS.md)、[`E3/AI_USAGE.md`](E3/AI_USAGE.md)。
+E3 用固定输入提交、Oracle、验证脚本和原始 evidence 组成可复现证据链，覆盖 DRAFT 环境生成基线及四种 MDFixer 依赖声明风格。
 
-MDFixer HYBRID 案例已完成 40/40 Linux 复现与人工确认。DRAFT Tiny Greeting 由王祎本人发起完整 Docker 复现，24/24 项断言通过。两套基线的 fixture、Oracle、脚本、evidence 和个人文档均收拢到各自的案例目录。
+| 案例 | 入口 | 已保存结果 |
+|---|---|---|
+| DRAFT Tiny Greeting | [`E3/cases/draft-tiny-greeting/`](E3/cases/draft-tiny-greeting/README.md) | 王祎本人 Docker 复现，24/24 PASS |
+| MDFixer TARGET | [`E3/cases/mdfixer-target/`](E3/cases/mdfixer-target/README.md) | 44/44 PASS，盛浩宇确认核查结论 |
+| MDFixer MACRO | [`E3/cases/mdfixer-macro/`](E3/cases/mdfixer-macro/README.md) | 46/46 PASS；四类统一入口 164/164 PASS |
+| MDFixer HYBRID | [`E3/cases/mdfixer-hybrid/`](E3/cases/mdfixer-hybrid/README.md) | 盛浩宇本人 Linux 复现，40/40 PASS |
+| MDFixer IMPLICIT | [`E3/cases/mdfixer-implicit/`](E3/cases/mdfixer-implicit/README.md) | 34/34 PASS，孙博一本人确认待补 |
+
+- 总览、复现命令与作业要求映射：[`E3/README.md`](E3/README.md)
+- 组级贡献索引：[`E3/CONTRIBUTIONS.md`](E3/CONTRIBUTIONS.md)
+- AI 使用索引：[`E3/AI_USAGE.md`](E3/AI_USAGE.md)
+
+在 Linux/Ubuntu WSL 中从仓库根目录执行四类 MDFixer 统一验证：
+
+```bash
+python3 E3/cases/mdfixer-macro/scripts/run_mdfixer_all.py \
+  --operator "实际执行者"
+```

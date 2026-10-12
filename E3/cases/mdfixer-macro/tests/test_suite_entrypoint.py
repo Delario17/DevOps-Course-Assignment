@@ -20,8 +20,8 @@ class SuiteEntrypointTests(unittest.TestCase):
         (self.case / 'scripts').mkdir(parents=True)
         shutil.copy2(ENTRY, self.case / 'scripts/run_mdfixer_all.py')
 
-    def add_case(self, case, fail=False, record=None, nested_target=True):
-        directory = self.e3 / ('cases/mdfixer-hybrid/target' if case == 'target' and nested_target else f'cases/mdfixer-{case}')
+    def add_case(self, case, fail=False, record=None):
+        directory = self.e3 / f'cases/mdfixer-{case}'
         for relative in ['fixture/Makefile', 'oracle/expected.json', 'patches/reference.patch', 'patches/invalid.patch']:
             path = directory / relative
             path.parent.mkdir(parents=True, exist_ok=True)
@@ -110,8 +110,8 @@ raise SystemExit(EXIT)
         self.assertEqual(result.returncode, 2)
         self.assertFalse((self.case / 'fixture/new').exists())
 
-    def test_flat_target_case_is_supported(self):
-        self.add_case('target', nested_target=False)
+    def test_target_uses_independent_case_directory(self):
+        self.add_case('target')
         result, summary = self.run_suite('--cases', 'target')
         self.assertEqual(result.returncode, 0)
         self.assertEqual(summary['cases'][0]['status'], 'PASS')

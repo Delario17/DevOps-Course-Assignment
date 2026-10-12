@@ -38,6 +38,6 @@
     "commands": 39,
     "executor": "Codex automated Linux migration regression; original Hybrid member confirmation retained",
     "review_status": "AI_VALIDATED_REGRESSION_ORIGINAL_MEMBER_CONFIRMATION_RETAINED",
-    "note": "This new migration run is Codex execution. The reviewer/date above refer to the earlier exact-input member confirmation, not a new manual reproduction."
+    "note": "Codex executed the migration regression; the reviewer and date above bind the earlier exact-input member confirmation."
   }
 }

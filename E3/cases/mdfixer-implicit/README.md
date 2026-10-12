@@ -31,4 +31,4 @@ python3 E3/cases/mdfixer-implicit/scripts/run.py --operator "姓名（本人发�
 ```
 
 脚本只在临时目录应用补丁，每次创建新的证据目录，不修改固定 fixture。
-该流程验证已知参考补丁，不是 MDFixer 或 BuildChecker 服务输出。
+该流程的证据类型为已知参考补丁的构建行为实验。

@@ -1,0 +1,43 @@
+{
+  "schema_version": "e3-mdfixer-review-v1",
+  "case": "TARGET",
+  "subject_commit": "b2d5709275471d4264215f6d40bd4bdd3bbfdd8a",
+  "oracle_path": "evidence/20261011T110959885929+0800/input/md-report.json",
+  "oracle_sha256": "bb9586ede1341485500f084232b91a410ff2b3fca7d5ca689af607409c681510",
+  "evidence_directory": "evidence/20261011T110959885929+0800",
+  "observations_sha256": "6170dc33ddc9d96d80ec035db6acb49865839dbf0bef6afa6c43f720a4055afd",
+  "technical_validation": {
+    "status": "PASS",
+    "assertions_passed": 44,
+    "assertions_total": 44,
+    "commands": 39
+  },
+  "review_status": "APPROVED_WITH_AI_ASSISTED_REVIEW",
+  "reviewer": {
+    "name": "盛浩宇",
+    "student_id": "241250008",
+    "github": "lejuwujiang258"
+  },
+  "confirmation_date": "2026-10-11",
+  "confirmation_basis": "盛浩宇阅读并确认 Target 核查结论；运行与详细文件核查由 Codex 完成。",
+  "execution_provenance": "Codex automated Linux execution for Sheng Haoyu; member confirmation recorded after evidence capture",
+  "review_record": "REVIEW.md",
+  "status_note": "PENDING_HUMAN_REVIEW in the immutable run snapshot records the state at capture time; this sidecar records the later member confirmation.",
+  "path_base": "E3/cases/mdfixer-target",
+  "current_oracle_path": "oracle/expected.json",
+  "current_oracle_sha256": "5e76677b7c7f8f1f5e1a20c8634a2b52e2761cc36b2bc7269ff9cde26b360894",
+  "current_fixture_commit": "a03812e0ec7bd689762fdb18cdfc66a07ef7f954",
+  "migration_date": "2026-10-12",
+  "migration_relation": "Member confirmation binds the historical input and observations hashes. The current Oracle preserves those findings and behavior while recording the independent Target directory.",
+  "latest_migration_validation": {
+    "evidence_directory": "evidence/20261012T144600994684+0800",
+    "observations_sha256": "c9a9fafb023b86e04d8aa280959bfdb62ff63185ace3970d1b3ef3d9e77c668b",
+    "oracle_sha256": "abf7130514368847aeadd0d222d57d2021e911e3e39000c70da7b8a6a1be478a",
+    "status": "PASS",
+    "assertions": "44/44",
+    "commands": 39,
+    "executor": "Codex automated Linux migration regression; original Target member confirmation retained",
+    "review_status": "AI_VALIDATED_REGRESSION_ORIGINAL_MEMBER_CONFIRMATION_RETAINED",
+    "note": "Codex executed the migration regression; the reviewer and date above bind the earlier exact-input confirmation."
+  }
+}

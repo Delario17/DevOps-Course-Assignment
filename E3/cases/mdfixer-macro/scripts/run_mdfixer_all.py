@@ -25,10 +25,7 @@ TZ = dt.timezone(dt.timedelta(hours=8))
 def case_directory(case):
     if case == "macro":
         return CASE
-    directory = CASE_ROOT / f"mdfixer-{case}"
-    if case == "target" and not directory.is_dir():
-        directory = CASE_ROOT / "mdfixer-hybrid/target"
-    return directory
+    return CASE_ROOT / f"mdfixer-{case}"
 
 
 def required_files(case):
@@ -113,7 +110,7 @@ def main():
     rows = "\n".join(f"| {r['case']} | {r['status']} | {r.get('assertions_passed', 0)}/{r.get('assertions_total', 0)} |" for r in summary["cases"])
     (output / "README.md").write_text(
         f"# MDFixer 统一验证记录\n\n执行者：{args.operator}。时间：{started.isoformat()}。\n\n"
-        f"结果：**{summary['status']}**。仅运行所选案例；PASS_SELECTED 不代表四类均完成。\n\n"
+        f"结果：**{summary['status']}**。范围为所选案例；四类完成状态由 `--cases all` 的结果记录。\n\n"
         f"| 案例 | 结果 | 断言 |\n|---|---|---|\n{rows}\n\n"
         "各案例子目录保存 Oracle、Patch、命令、输出和恢复证据；summary.json 记录缺失案例和证据哈希。\n"
         "本入口验证已知参考补丁，人工审阅待确认。\n", encoding="utf-8")

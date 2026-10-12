@@ -30,7 +30,7 @@
 | 加入 false 的失败候选 | 构建退出码非零，REJECTED |
 | 恢复候选应用前的有效 Makefile | 字节一致，构建运行输出 12 |
 
-项目版本、Oracle 和实际观察分别保存。本案例验证已知参考补丁和拒绝恢复流程，未声称已实现自动 MDFixer 或生成真实 BuildChecker 报告。构建在 Linux 临时副本中完成，仓库故障 Fixture 保持原样。
+项目版本、Oracle 和实际观察分别保存。证据类型为已知参考补丁的构建行为实验，覆盖候选拒绝与恢复；构建在 Linux 临时副本中完成，仓库故障 Fixture 保持原样。
 
 从仓库根目录在 Linux/Ubuntu WSL 执行，需要 python3、gcc、GNU Make、git：
 
@@ -48,7 +48,7 @@ Windows PowerShell：
 wsl -d Ubuntu --cd /mnt/d/Devops/DevOps-Course-Assignment --exec python3 E3/cases/mdfixer-macro/scripts/run_mdfixer_all.py --operator "朱雨乐（本人发起复现）"
 ```
 
-统一入口默认要求 Target、Macro、Hybrid、Implicit 齐全且通过。兼容 Target 当前位于 `../mdfixer-hybrid/target/` 的布局和未来独立 `../mdfixer-target/`。单个缺失或失败仍保存其他案例证据，最终返回非零；部分案例通过使用 `PASS_SELECTED`，四类全部通过才使用 `PASS`。
+统一入口默认要求 Target、Macro、Hybrid、Implicit 齐全且通过，并从四个相邻的独立案例目录读取脚本。单个缺失或失败时仍保存其他案例证据并返回非零；部分案例通过使用 `PASS_SELECTED`，四类全部通过使用 `PASS`。
 
 新 Macro 输出到本目录 `evidence/macro/时间/`，统一入口输出到 `evidence/suite/时间/`。所有 `--output` 必须是本目录 `evidence/` 或 `.runs/` 下的新子目录，拒绝向公共目录、其他案例或 Fixture 写入。统一入口传递该输出路径给成员脚本，不把日志写回其案例目录。
 
@@ -64,10 +64,10 @@ wsl -d Ubuntu --cd /mnt/d/Devops/DevOps-Course-Assignment --exec python3 E3/case
 
 本分支从当前 main 创建，只新增 `E3/cases/mdfixer-macro/`。公共 README、组级贡献/AI 文件、根 .gitignore 和其他成员目录均无差异。整合负责人只需合入本分支，并维护组级索引。
 
-本目录 .gitignore 排除 .work/、.runs/、Fixture 的 build/bin、编译产物、Python 缓存、环境文件和常见密钥；正式 evidence 内的文本、JSON、Patch 才作为证据提交。单独的人工审阅签字不是课件必交材料，REVIEW.md 按实际记录本人复现和辅助核查。
+本目录 .gitignore 排除 .work/、.runs/、Fixture 的 build/bin、编译产物、Python 缓存、环境文件和常见密钥；正式 evidence 提交文本、JSON 和 Patch。REVIEW.md 记录本人复现和辅助核查。
 
 ## 迁移后实际验证（2026-10-12）
 
 [本次完整运行](evidence/suite/20261012T183751537970+0800/README.md)由 Codex 在现有 Ubuntu 26.04 WSL、GCC 15.2.0、GNU Make 4.4.1、Python 3.14.4 执行，Target 44/44、Macro 46/46、Hybrid 40/40、Implicit 34/34，共 164/164 PASS。运行时提交为 Fixture 基线 `83354f218a03a2085b4e571582f8d333d3a4ddf3`，当次脚本与 Oracle 的 SHA-256 已记录在各子目录 observations.json 中。
 
-入口测试 12/12 通过，涵盖嵌套/独立 Target、全部/部分/缺失/失败案例、异常证据、旧结果保护、默认输出归属和拒绝写入其他成员目录。107 个历史文件逐个对照原提交验证，字节保持不变；所有 Git 变更路径只位于本目录。核查摘要见 `MIGRATION_VALIDATION.json`。
+迁移时入口测试 12/12 通过，覆盖全部/部分/缺失/失败案例、异常证据、旧结果保护、默认输出归属和跨目录写入拒绝。当前源码固定使用独立的 `../mdfixer-target/`。107 个历史文件逐个对照原提交验证，字节保持不变；核查摘要见 `MIGRATION_VALIDATION.json`。

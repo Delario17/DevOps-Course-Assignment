@@ -12,5 +12,5 @@ make -j2
 ```
 
 初始版本输出 demo 1.0.0，数值输出 10。源码来源见 SOURCE.md。
-从仓库根目录运行 `python3 E3/cases/mdfixer-hybrid/target/scripts/run.py --operator "实际执行者"`，自动保留新证据。
+从仓库根目录运行 `python3 E3/cases/mdfixer-target/scripts/run.py --operator "实际执行者"`，自动保留新证据。
 Patch 中 a/Makefile 和 b/Makefile 相对于临时样例根目录；不要在仓库根目录直接应用补丁。

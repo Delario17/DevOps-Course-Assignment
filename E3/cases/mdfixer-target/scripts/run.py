@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Run B08 E3 reference-patch experiments in a disposable Linux copy.
 
-This verifies a known reference patch, not an implemented MDFixer service.
-Only Python's standard library, GCC, GNU Make and Git are required.
+The experiment evaluates a known reference patch with Python's standard
+library, GCC, GNU Make and Git.
 """
 from __future__ import annotations
 
@@ -21,7 +21,7 @@ import tempfile
 import time
 
 CASE = Path(__file__).resolve().parents[1]
-E3 = CASE.parents[2]
+E3 = CASE.parents[1]
 ROOT = E3.parent
 FIXTURE = CASE / "fixture"
 ORACLE = CASE / "oracle/expected.json"
@@ -66,7 +66,7 @@ def main() -> int:
         "invalid_patch_sha256": digest(INVALID_PATCH),
         "platform": platform.platform(), "architecture": platform.machine(),
     }
-    # Use the Linux toolchain only; do not dump inherited shell variables via make -p.
+    # Use the Linux toolchain with a stable PATH and locale.
     env = {"PATH": os.defpath, "LANG": "C.UTF-8", "LC_ALL": "C.UTF-8"}
 
     def log(text: str) -> None:
@@ -124,7 +124,12 @@ def main() -> int:
         record["workspace_commit"] = run(["git", "rev-parse", "HEAD"], ROOT, "workspace commit").stdout.strip()
         record["workspace_status_before"] = run(["git", "status", "--short"], ROOT, "workspace status").stdout
         fixed_commit_fixture = oracle["subject"]["fixed_commit_working_directory"]
+        relocated_documents = oracle["subject"]["relocated_document_sha256"]
         for relative, sha in source_hashes.items():
+            if relative in relocated_documents:
+                check("relocated fixture document matches Oracle: " + relative,
+                      relocated_documents[relative] == sha)
+                continue
             committed = subprocess.run(["git", "show", oracle["subject"]["commit"] + ":" + fixed_commit_fixture + "/" + relative],
                                        cwd=ROOT, capture_output=True, timeout=30)
             check("fixture matches fixed commit: " + relative,
@@ -236,7 +241,7 @@ def main() -> int:
             f"- 人工审阅：待实际 B08 成员确认。\n\n"
             f"| 实验阶段 | 实际输出 |\n|---|---|\n{rows}\n\n"
             f"原始命令、标准输出、错误输出与退出码见 commands.txt；完整元数据、目标文件哈希及时间戳见 observations.json。\n\n"
-            f"此记录验证已知参考补丁及候选拒绝恢复流程，不是 MDFixer 自动修复输出或 BuildChecker 检测报告。本案例没有项目内 RD，只验证直接声明 config.h 的 MD 修复。\n\n"
+            f"证据类型为已知参考补丁的构建行为实验，覆盖候选拒绝恢复流程。本案例聚焦直接声明 config.h 的 MD 修复，项目内 RD 数量为 0。\n\n"
             f"{('失败原因：' + record['error']) if 'error' in record else '修复后两次只改头文件均自动重建；故意失败候选被拒绝，恢复后完整构建与功能检查通过。'}\n",
             encoding="utf-8")
     print(f"{record['status']}\nASSERTIONS={passed}/{len(record['assertions'])}\nEVIDENCE_DIR={output}")
