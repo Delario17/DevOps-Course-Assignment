@@ -12,7 +12,6 @@
 | 实验源码 SHA | `2e76b52466b87b50523343b43cda9da5b743b4ac` |
 | 服务器实际工作目录 | `/root/241250007/DevOps-Course-Assignment/E5` |
 | 服务器证据目录 | `/root/241250007/DevOps-Course-Assignment/E5/work/e5-02` |
-| 本地最终证据目录 | `/Users/yiwang/Downloads/B08-E5-final/e5-02` |
 | 服务镜像标签记录 | `course1027-draft:241250007`，来自 `invocation.json` |
 | 候选生成 | DeepSeek 网页交互，两类提示分别生成三个候选；具体模型版本记为“未记录” |
 | 最终候选 | `error-03`，自主请求模型生成，`is_recorded_replay=false` |
@@ -25,7 +24,7 @@
 
 本组继续按实验阶段组织仓库。E5 的服务、脚本、项目样例、报告和运行证据均位于 `E5/`。Mac 负责 GitHub 操作、浏览器模型交互和证据备份，云服务器负责 Docker 构建与程序验证。
 
-本组使用标称 2 GiB 的云服务器，E5 自检最低可见内存按组内配置调整为 1.5 GiB。候选构建日志显示容器内软件源为 Debian trixie，下载的软件包架构为 `amd64`。本次下载归档集中保存 E5 证据，宿主系统版本、Docker 版本、资源自检和基线单测日志另属环境准备记录。
+本组使用标称 2 GiB 的云服务器，E5 自检最低可见内存按组内配置调整为 1.5 GiB。候选构建日志显示容器内软件源为 Debian trixie，下载的软件包架构为 `amd64`。本报告的 E5 证据统一定位到服务器 `/root/241250007/DevOps-Course-Assignment/E5/work/e5-02`，宿主系统版本、Docker 版本、资源自检和基线单测日志另属环境准备记录。
 
 服务构建与 E5 入口采用教师提供的 E5—E7 B 组参考代码；本次执行内容为 E5 失败采集、模型候选比较与手工复建。候选修复通过显式安装依赖完成，选定 Dockerfile 的 `manual_changes` 记录为空。
 
@@ -56,7 +55,7 @@ README 明确要求 C 编译器与 GNU Make。验收条件为容器执行 `./hel
 m.daocloud.io/docker.io/library/python:3.13-slim@sha256:70729b46c69b4f1e97c4822c1af3df53a1476cf5ddc6c087c0c10bc3a5678c2f
 ```
 
-实验源码提交的说明为 `E5: use DaoCloud for pinned fixture base image`。本报告使用重新采集的 `e5-02` 记录；此前网络故障的 `e5-01` 归档不在本次 `B08-E5-final` 中。
+实验源码提交的说明为 `E5: use DaoCloud for pinned fixture base image`。本报告使用服务器证据目录中重新采集的 `e5-02` 记录；此前网络故障的 `e5-01` 属于另一次运行。
 
 采集入口读取包内候选的第一行来统一初始镜像。因此，本次初始输入以 `iter-01/Dockerfile` 为准，`project/Dockerfile.broken` 则保留了模板原有的 `FROM python:3.13-slim` 写法。
 
@@ -263,7 +262,7 @@ printf '%s\n' "$VERIFY_CODE" > work/e5-02/verify-exit-code.txt
 
 ## 8. 证据索引与归档核对
 
-下表路径均相对于本地归档 `B08-E5-final/e5-02/`；服务器对应前缀为 `E5/work/e5-02/`。
+下表路径均相对于服务器证据目录 `/root/241250007/DevOps-Course-Assignment/E5/work/e5-02`。例如，`verify.log` 的完整路径为 `/root/241250007/DevOps-Course-Assignment/E5/work/e5-02/verify.log`。
 
 | 证据路径 | 内容 |
 |---|---|
@@ -286,6 +285,6 @@ printf '%s\n' "$VERIFY_CODE" > work/e5-02/verify-exit-code.txt
 | `verify.log`、`verify-stderr.log` | 程序标准输出与标准错误 |
 | `verify-exit-code.txt` | 程序退出码 `0` |
 
-归档核对时，`candidates/error-03/来源记录.json` 的 `selection_reason` 字符串后缺少与下一字段分隔的逗号，JSON 解析在第 11 行报错。选择理由与哈希文本均可读取，Dockerfile 哈希也已独立复核；该来源记录需补齐逗号后再供程序解析。原始下载文件保持不变。
+证据核对时，`candidates/error-03/来源记录.json` 的 `selection_reason` 字符串后缺少与下一字段分隔的逗号，JSON 解析在第 11 行报错。选择理由与哈希文本均可读取，Dockerfile 哈希也已独立复核；该来源记录需补齐逗号后再供程序解析。撰写报告时未修改原始证据。
 
 本次 E5 的结果为：固定初始镜像下复现了缺少 `make` 的构建失败，保存两类提示与六个候选，按 R1—R4 选择 `error-03`，候选构建退出 `0`，最终程序输出 `hello E3`、退出 `0`。
