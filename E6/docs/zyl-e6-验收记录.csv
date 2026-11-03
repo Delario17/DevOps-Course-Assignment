@@ -1,0 +1,12 @@
+轨道,检查项,预期结果,实际结果,证据路径,通过
+B,首次初始构建,真实缺少make并分类MISSING_MAKE,第一轮退出1且failure_class=MISSING_MAKE,work/e6-zyl-20261103-190714/evidence/result.json,true
+B,首次候选构建,第二轮build_exit_code=0,第二轮构建退出0,work/e6-zyl-20261103-190714/evidence/result.json,true
+B,首次运行验证,使用第二轮同一image_id且退出0及hello E3,退出0且actual_output为hello E3换行及output_matches=true,work/e6-zyl-20261103-190714/evidence/result.json,true
+B,首次证据校验,passed=true,passed=true且trace_id=e6-b-9bfde719b2bd4471831e7028265fdbe1,work/e6-zyl-20261103-190714/evidence-check.json,true
+共同,个人新增测试,多阶段候选在构建前被拒绝,定向测试显示一个通过标记且退出码0,work/build-e6-zyl-final-20261103-190714/student-test.log;work/build-e6-zyl-final-20261103-190714/student-test-exit-code.txt,true
+共同,重建后完整服务测试,当前全部服务测试通过,26 passed in 0.17s且退出码0,work/build-e6-zyl-final-20261103-190714/unit-tests/stdout.log;work/build-e6-zyl-final-20261103-190714/unit-tests/exit-code.json,true
+B,最终初始构建,MISSING_MAKE,baseline_failure=MISSING_MAKE,work/e6-zyl-final-20261103-210714/evidence-check.json,true
+B,最终候选构建,第二轮build_exit_code=0,fixed_build_exit_code=0,work/e6-zyl-final-20261103-210714/evidence-check.json,true
+B,最终运行验证,使用第二轮同一image_id且退出0及hello E3,退出0且output_matches=true及verified_output=hello E3,work/e6-zyl-final-20261103-210714/evidence/result.json;work/e6-zyl-final-20261103-210714/evidence-check.json,true
+B,最终证据校验,passed=true,校验入口退出0且passed=true及trace_id=e6-b-23abb8ad561b4ee68e6bff0ba49ab29b,work/e6-zyl-final-20261103-210714/evidence-check.json,true
+B,候选来源一致性,复用本人E5候选且哈希一致,两次invocation与校验记录均为92d1cb0b766427c2d598a0641f03b2e04bc702bfb3e9d7bda4541fd88b17d92c,work/e6-zyl-final-20261103-210714/invocation.json;inputs/zyl-error-02/e5-provenance.json,true
