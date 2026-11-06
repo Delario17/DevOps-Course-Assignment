@@ -1,0 +1,13 @@
+{
+  "provider": "DeepSeek",
+  "model_version": "Not recorded",
+  "date": "Not recorded in supplied fixture",
+  "prompt_path": "E5/work/e5-241250078-01/iter-01/prompt-error-driven.txt",
+  "raw_response_path": "Not included as a separate file; supplied recorded replay",
+  "candidate_path": "E6/fixtures/ci-candidates/DeepSeek-E5.Dockerfile",
+  "candidate_sha256": "1f94ff0d4cd38463a1a192aa9dd9426ebf848e1793055318052aef156296de5e",
+  "manual_changes": [],
+  "selection_reason": "Recorded E5 candidate preserves required instructions and installs build-essential to repair MISSING_MAKE.",
+  "is_recorded_replay": true,
+  "provenance_note": "The supplied provenance.json contains legacy sha256 ede21b...; this record uses the hash of the candidate actually executed and recorded by invocation.json/result.json."
+}

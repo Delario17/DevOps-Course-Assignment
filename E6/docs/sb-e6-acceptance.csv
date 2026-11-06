@@ -1,0 +1,12 @@
+编号,轨道,阶段,项目,状态,证据路径或URL,说明
+C01,共同,环境,云主机与Docker,PASS,work/e6-241250078-doctor/env.json,problems为空；资源建议警告已保留
+C02,共同,E5,真实复现与差异,PASS,../E5/docs/sb-e5-b.md,初始缺少make并完成候选验证
+C03,共同,E6,输入哈希报告日志,PASS,work/e6-241250078-after/evidence/result.json,SUCCEEDED且证据校验passed=true
+C04,共同,E7,自主扩展测试,PASS,services/draft/tests/test_student_241250078_e6.py,E6阶段新增候选顺序约束测试；完整27 passed
+C05,共同,CI,正常失败恢复及artifact,PENDING,,属于后续E7/CI范围
+C06,共同,CI,必需检查与实际拒绝合并,PENDING,,属于后续E7/CI范围
+A01,A,E6,MD/RD精确证据与修复,N/A,,本人属于B轨
+A02,A,E7,三次一致及故障场景,N/A,,本人属于B轨
+B01,B,E5,缺失make及候选来源,PASS,../E5/docs/sb-e5-b.md,已完成并合并
+B02,B,E6,构建和同镜像运行验证,PASS,work/e6-241250078-after/evidence/,第一轮MISSING_MAKE；第二轮退出0；同image_id输出hello E3
+B03,B,E7,五场景与超时清理,PENDING,,属于后续E7范围
